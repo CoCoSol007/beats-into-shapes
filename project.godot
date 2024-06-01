@@ -17,6 +17,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 SceneTransition="*res://scripts/scene_transition/scene_transition.tscn"
+GlobalScore="*res://scripts/scores/global_score.gd"
 
 [rendering]
 

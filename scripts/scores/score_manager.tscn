@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0f5uxncim2cf"]
+
+[ext_resource type="Script" path="res://scripts/scores/score_manager.gd" id="1_48wsf"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="2_45vgi"]
+
+[sub_resource type="Animation" id="Animation_yb146"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Status:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_x5euc"]
+resource_name = "show_status"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Status:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0amn"]
+_data = {
+"RESET": SubResource("Animation_yb146"),
+"show_status": SubResource("Animation_x5euc")
+}
+
+[node name="ScoreManager" type="Node2D"]
+script = ExtResource("1_48wsf")
+
+[node name="Score" type="Label" parent="."]
+z_index = 3000
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.5
+offset_top = -68.5
+offset_right = 275.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.231373, 0.494118, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_45vgi")
+theme_override_font_sizes/font_size = 50
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Status" type="Node2D" parent="."]
+position = Vector2(0, 75)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Animation" type="AnimationPlayer" parent="Status"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_k0amn")
+}
+
+[node name="Label" type="Label" parent="Status"]
+z_index = 100
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.5
+offset_top = -68.5
+offset_right = 275.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_45vgi")
+theme_override_font_sizes/font_size = 50
+text = "PERFECT ×1"
+horizontal_alignment = 1
+vertical_alignment = 1

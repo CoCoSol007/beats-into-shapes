@@ -43,7 +43,7 @@ func beat_steps(time: float) -> float:
 
 func _ready():
 	if Engine.is_editor_hint(): return
-	#### tutorial = GlobalScore.get_score(level) == 0
+	tutorial = GlobalScore.get_score(level) == 0
 	$MusicPlayer.stream = stream
 	$MusicPlayer.play()
 	for node: BeatEvent in get_tree().get_nodes_in_group("beat_event"):
@@ -192,8 +192,8 @@ func _process(_delta):
 		($MusicPlayer as AudioStreamPlayer).volume_db = min(0, (tutorial_stop_time - time) * 8.0)
 		if tutorial_stop_time - time <= -2:
 			pass
-			## GlobalScore.global_score.scores[level] = -1
-			## SceneTransition.change_scene("res://scenes/levels/" + level_name + "/" + level_name + ".tscn")
+			GlobalScore.global_score.scores[level] = -1
+			SceneTransition.change_scene("res://scenes/levels/" + level_name + "/" + level_name + ".tscn")
 	else:
 		if not is_speedup and time >= speedup_time:
 			is_speedup = true
