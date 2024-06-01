@@ -26,6 +26,7 @@ res/
 │   │   ├── cooling/ # Level 4
 │   │   └── selling/ # Level 5
 ├── docs/ # All project documentation
+├── musics/ # All musics of the game
 ├── README.md
 ├── LICENSE
 └── project.godot
