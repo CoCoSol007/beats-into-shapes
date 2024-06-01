@@ -11,6 +11,9 @@ In a world where music and nature intertwine, there exists a hidden valley named
 
 Play as the hero and learn step-by-step how to forge weapons in a chill, relaxed environment. 
 
+## Documentation
+See all the project documentation [here](/docs)
+
 ## Our Team
 
 - **Tipragot**: Programmer
