@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwul1oterdmc"]
+
+[ext_resource type="Script" path="res://scripts/pause/pause.gd" id="1_f4psy"]
+[ext_resource type="Shader" path="res://scripts/pause/background.gdshader" id="1_m64na"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="3_1rt4g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pdchp"]
+shader = ExtResource("1_m64na")
+shader_parameter/amount = 2.0
+
+[node name="PauseMenu" type="Node2D"]
+z_index = 2000
+script = ExtResource("1_f4psy")
+
+[node name="ColorRect" type="ColorRect" parent="." groups=["menu"]]
+visible = false
+top_level = true
+z_index = 2000
+material = SubResource("ShaderMaterial_pdchp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pause" type="VBoxContainer" parent="."]
+visible = false
+top_level = true
+z_index = 2000
+anchors_preset = -1
+anchor_top = 0.003
+anchor_bottom = 0.003
+offset_left = -150.0
+offset_top = -325.944
+offset_right = 150.0
+offset_bottom = 322.056
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="Pause"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1rt4g")
+text = "Resume"
+
+[node name="Quit" type="Button" parent="Pause"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1rt4g")
+text = "Quit"
+
+[connection signal="pressed" from="Pause/Resume" to="." method="pause"]
+[connection signal="pressed" from="Pause/Quit" to="." method="_on_quit_pressed"]
