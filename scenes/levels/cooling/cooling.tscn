@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cdbyblflli3hr"]
+
+[node name="Cooling" type="Node2D"]
