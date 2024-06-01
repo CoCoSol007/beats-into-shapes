@@ -54,8 +54,8 @@ func _ready():
 	calculation_index = len(unhandled_nodes)
 	($MusicPlayer as AudioStreamPlayer).finished.connect(func(): song_finished.emit())
 	if not tutorial:
-		#for indicator: Indicator in get_tree().get_nodes_in_group("indicator"):
-		#	indicator.queue_free()
+		for indicator: Indicator in get_tree().get_nodes_in_group("indicator"):
+			indicator.queue_free()
 		for text in get_tree().get_nodes_in_group("tutorial_text"):
 			text.queue_free()
 
@@ -171,23 +171,23 @@ func _process(_delta):
 			if next_beat_nodes[key] == null or node.press_time + node.hold_length < next_beat_times[key]:
 				next_beat_nodes[key] = node
 				next_beat_times[key] = node.press_time + node.hold_length
-		# for indicator: Indicator in get_tree().get_nodes_in_group("indicator"):
-		#	var node: BeatEvent = next_beat_nodes[indicator.press_key]
-		#	if node == null:
-		#		indicator.pressed = false
-		#		indicator.remaining_time = 0.0
-		#		indicator.bonus_line_length = 0.0
-		#		continue
-		#	var next_time = next_beat_times[indicator.press_key]
-		#	indicator.bonus_line_length = node.hold_length  / (stream.bpm / 60.0)
-		#	if node.press_time != next_time:
-		#		indicator.pressed = time < next_time
-		#		indicator.remaining_time = ((next_time - node.hold_length) / (stream.bpm / 60.0)) - time_seconds
-		#	else:
-		#		indicator.pressed = time >= next_time
-		#		var remaining_time = (next_time / (stream.bpm / 60.0)) - time_seconds
-		#		if remaining_time <= 0.0: indicator.bonus_line_length += remaining_time
-		#		indicator.remaining_time = max(0.0, remaining_time)
+		for indicator: Indicator in get_tree().get_nodes_in_group("indicator"):
+			var node: BeatEvent = next_beat_nodes[indicator.press_key]
+			if node == null:
+				indicator.pressed = false
+				indicator.remaining_time = 0.0
+				indicator.bonus_line_length = 0.0
+				continue
+			var next_time = next_beat_times[indicator.press_key]
+			indicator.bonus_line_length = node.hold_length  / (stream.bpm / 60.0)
+			if node.press_time != next_time:
+				indicator.pressed = time < next_time
+				indicator.remaining_time = ((next_time - node.hold_length) / (stream.bpm / 60.0)) - time_seconds
+			else:
+				indicator.pressed = time >= next_time
+				var remaining_time = (next_time / (stream.bpm / 60.0)) - time_seconds
+				if remaining_time <= 0.0: indicator.bonus_line_length += remaining_time
+				indicator.remaining_time = max(0.0, remaining_time)
 
 		($MusicPlayer as AudioStreamPlayer).volume_db = min(0, (tutorial_stop_time - time) * 8.0)
 		if tutorial_stop_time - time <= -2:
