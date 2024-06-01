@@ -1,9 +1,306 @@
-[gd_scene format=3 uid="uid://65smhodnre1t"]
+[gd_scene load_steps=33 format=3 uid="uid://cnqt0hkp3yl0s"]
 
-[node name="Menu" type="Control"]
+[ext_resource type="Script" path="res://scenes/menu/scrollable_menu.gd" id="1_odp0j"]
+[ext_resource type="Texture2D" uid="uid://d2lw6v37lb1w7" path="res://assets/menu/level_1.png" id="1_yh2c5"]
+[ext_resource type="Texture2D" uid="uid://b4o1dtcp7eefk" path="res://assets/menu/disabled.png" id="2_7173o"]
+[ext_resource type="Script" path="res://scenes/menu/level_button.gd" id="2_ntlvl"]
+[ext_resource type="Texture2D" uid="uid://dy7sp3tuc2bbs" path="res://assets/menu/level_1_hover.png" id="2_sx2pw"]
+[ext_resource type="Texture2D" uid="uid://dqqeu5wobj5u7" path="res://assets/menu/volume.png" id="4_x5u4x"]
+[ext_resource type="Texture2D" uid="uid://bdajesu5wa2ql" path="res://assets/menu/credits.png" id="5_2t5qw"]
+[ext_resource type="Script" path="res://scenes/menu/volume_change.gd" id="5_5ai2q"]
+[ext_resource type="Texture2D" uid="uid://b2cr46c248yk0" path="res://assets/menu/level_2.png" id="5_tv2yb"]
+[ext_resource type="Script" path="res://scenes/menu/volume_button.gd" id="5_u60qm"]
+[ext_resource type="Texture2D" uid="uid://50700f16cbl3" path="res://assets/menu/level_3.png" id="6_2xdj8"]
+[ext_resource type="Texture2D" uid="uid://cj8m1l6fl1eg0" path="res://assets/menu/credits_hovered.png" id="6_cpa0o"]
+[ext_resource type="Texture2D" uid="uid://dbsksp8gboflj" path="res://assets/menu/level_2_hover.png" id="6_e6ady"]
+[ext_resource type="Texture2D" uid="uid://cwwnwwqdq8vwt" path="res://assets/menu/volume_disabled.png" id="6_swbpt"]
+[ext_resource type="Texture2D" uid="uid://d1a21hu0r5pld" path="res://assets/menu/level_4.png" id="7_0sr3a"]
+[ext_resource type="Texture2D" uid="uid://b6bq61ysjl7dl" path="res://assets/menu/level_3_hover.png" id="8_18efn"]
+[ext_resource type="Script" path="res://scenes/menu/credits_button.gd" id="8_c5hcm"]
+[ext_resource type="Texture2D" uid="uid://j007arwevp7f" path="res://assets/menu/level_2_locked.png" id="8_ghfm4"]
+[ext_resource type="Texture2D" uid="uid://csqketefmvbmr" path="res://assets/menu/level_4_hover.png" id="10_32xoh"]
+[ext_resource type="Texture2D" uid="uid://daxjsapkyyltp" path="res://assets/menu/level_3_locked.png" id="11_632o8"]
+[ext_resource type="Texture2D" uid="uid://bnhmmsmvar353" path="res://assets/menu/level_5.png" id="12_thfv3"]
+[ext_resource type="Texture2D" uid="uid://bmsdno5shg72o" path="res://assets/menu/level_5_hover.png" id="13_ayhkv"]
+[ext_resource type="Texture2D" uid="uid://cpue22qyqret4" path="res://assets/menu/backgroung.png" id="14_4okw3"]
+[ext_resource type="Texture2D" uid="uid://bmjiy3044y8wy" path="res://assets/menu/level_4_locked.png" id="14_fgxro"]
+[ext_resource type="Texture2D" uid="uid://dvkgrbsgf68y3" path="res://assets/menu/trophy.png" id="20_gu2sa"]
+[ext_resource type="Script" path="res://scenes/menu/trophies_button.gd" id="21_n13eo"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="24_h182e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vfd4c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abjb3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bk5yu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jgkfi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ppc3"]
+
+[node name="Menu" type="Control" groups=["menu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_odp0j")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backgroung" type="TextureRect" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_4okw3")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Backgroung2" type="TextureRect" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.015
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 2.0
+offset_left = 17.28
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_4okw3")
+expand_mode = 1
+stretch_mode = 6
+flip_v = true
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.217
+anchor_top = 0.309
+anchor_right = 0.217
+anchor_bottom = 0.309
+offset_left = 0.0159912
+offset_top = -0.232025
+offset_right = 200.016
+offset_bottom = 1016.77
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 200
+
+[node name="Level1" type="TextureButton" parent="Control/HBoxContainer"]
+material = SubResource("ShaderMaterial_vfd4c")
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("1_yh2c5")
+texture_hover = ExtResource("2_sx2pw")
+texture_disabled = ExtResource("2_7173o")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_ntlvl")
+
+[node name="Score" type="Label" parent="Control/HBoxContainer/Level1"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("24_h182e")
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="Level3" type="TextureButton" parent="Control/HBoxContainer"]
+material = SubResource("ShaderMaterial_abjb3")
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("6_2xdj8")
+texture_hover = ExtResource("8_18efn")
+texture_disabled = ExtResource("11_632o8")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_ntlvl")
+scene_name = "forging"
+level = 2
+min_score = 300
+
+[node name="Score" type="Label" parent="Control/HBoxContainer/Level3"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("24_h182e")
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="Level5" type="TextureButton" parent="Control/HBoxContainer"]
+material = SubResource("ShaderMaterial_bk5yu")
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("12_thfv3")
+texture_hover = ExtResource("13_ayhkv")
+texture_disabled = ExtResource("14_fgxro")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_ntlvl")
+scene_name = "selling"
+level = 4
+min_score = 2500
+
+[node name="Score" type="Label" parent="Control/HBoxContainer/Level5"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("24_h182e")
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.804
+anchor_top = 0.617
+anchor_right = 0.804
+anchor_bottom = 0.617
+offset_left = -200.208
+offset_top = 0.18396
+offset_right = -0.208008
+offset_bottom = 616.184
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 200
+
+[node name="Level2" type="TextureButton" parent="Control/HBoxContainer2"]
+material = SubResource("ShaderMaterial_jgkfi")
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_tv2yb")
+texture_hover = ExtResource("6_e6ady")
+texture_disabled = ExtResource("8_ghfm4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_ntlvl")
+scene_name = "heating"
+level = 1
+min_score = 3000
+
+[node name="Score" type="Label" parent="Control/HBoxContainer2/Level2"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("24_h182e")
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="Level4" type="TextureButton" parent="Control/HBoxContainer2"]
+material = SubResource("ShaderMaterial_1ppc3")
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("7_0sr3a")
+texture_hover = ExtResource("10_32xoh")
+texture_disabled = ExtResource("14_fgxro")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_ntlvl")
+scene_name = "cooling"
+level = 3
+min_score = 3000
+
+[node name="Score" type="Label" parent="Control/HBoxContainer2/Level4"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("24_h182e")
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 39.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("24_h182e")
+theme_override_font_sizes/font_size = 50
+text = "Beats into Shapes
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Volume" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -87.0
+offset_right = 85.0
+offset_bottom = -19.0
+grow_vertical = 0
+texture_normal = ExtResource("4_x5u4x")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_u60qm")
+normal_texture = ExtResource("4_x5u4x")
+disabled_texture = ExtResource("6_swbpt")
+
+[node name="HSlider" type="HSlider" parent="Volume"]
+layout_mode = 0
+offset_left = 84.0
+offset_right = 308.0
+offset_bottom = 68.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("5_5ai2q")
+
+[node name="Trophy" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 35.0
+offset_right = 69.0
+offset_bottom = 75.0
+scale = Vector2(1.977, 1.96884)
+texture_normal = ExtResource("20_gu2sa")
+script = ExtResource("21_n13eo")
+
+[node name="Credits" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -85.0
+offset_right = -16.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("5_2t5qw")
+texture_hover = ExtResource("6_cpa0o")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("8_c5hcm")
+
+[connection signal="pressed" from="Volume" to="Volume" method="_on_pressed"]
+[connection signal="value_changed" from="Volume/HSlider" to="Volume" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Volume/HSlider" to="Volume/HSlider" method="_on_value_changed"]
+[connection signal="pressed" from="Trophy" to="Trophy" method="_on_pressed"]
+[connection signal="pressed" from="Credits" to="Credits" method="_on_pressed"]

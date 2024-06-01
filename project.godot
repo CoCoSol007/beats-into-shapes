@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="beats-into-shapes"
+run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://assets/icon.png"
 
@@ -18,6 +19,7 @@ config/icon="res://assets/icon.png"
 
 SceneTransition="*res://scripts/scene_transition/scene_transition.tscn"
 GlobalScore="*res://scripts/scores/global_score.gd"
+MenuMusic="*res://scenes/menu/menu_music.tscn"
 
 [rendering]
 
