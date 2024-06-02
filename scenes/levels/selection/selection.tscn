@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ddo38ps655awc" path="res://assets/tuto/left_pressed.png" id="16_gt0hi"]
 [ext_resource type="Texture2D" uid="uid://bi1eer8b65tmq" path="res://assets/tuto/right.png" id="17_86tbu"]
 [ext_resource type="Texture2D" uid="uid://dkot1vhn1v168" path="res://assets/tuto/right_pressed.png" id="18_y8ccr"]
-[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="20_r5l15"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="20_r5l15"]
 
 [sub_resource type="Animation" id="Animation_mo7pu"]
 length = 0.001

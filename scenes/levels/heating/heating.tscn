@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cdaq1hxju3fwl" path="res://scripts/tuto/tutorial.tscn" id="11_2jlud"]
 [ext_resource type="Texture2D" uid="uid://msc5fgvr282y" path="res://assets/tuto/main.png" id="12_yoc53"]
 [ext_resource type="Texture2D" uid="uid://bmq3weuqf0rp6" path="res://assets/tuto/main_pressed.png" id="13_7v6yg"]
-[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="14_xcvl4"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="14_xcvl4"]
 
 [sub_resource type="Animation" id="Animation_mo7pu"]
 length = 0.001

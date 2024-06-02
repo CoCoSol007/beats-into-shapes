@@ -5,7 +5,6 @@ Below is the structure of our code to help you move around the project.
 ```
 res/
 ├── assets/ # Images of the game used throughout the project
-├── fonts/ # Fonts of the game 
 ├── scripts/
 │   ├── score/ # Score management
 │   ├── trophies/ # Trophy management programs

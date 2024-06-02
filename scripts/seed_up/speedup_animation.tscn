@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnecogu51saqv"]
 
 [ext_resource type="Script" path="res://scripts/seed_up/speedup_animation.gd" id="1_7j706"]
-[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="2_j30tq"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="2_j30tq"]
 
 [sub_resource type="Animation" id="Animation_vv32t"]
 length = 0.001

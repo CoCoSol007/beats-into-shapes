@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bmjiy3044y8wy" path="res://assets/menu/level_4_locked.png" id="14_fgxro"]
 [ext_resource type="Texture2D" uid="uid://dvkgrbsgf68y3" path="res://assets/menu/trophy.png" id="20_gu2sa"]
 [ext_resource type="Script" path="res://scenes/menu/trophies_button.gd" id="21_n13eo"]
-[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="24_h182e"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="24_h182e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfd4c"]
 

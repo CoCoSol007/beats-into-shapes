@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bao8vxcsanxre" path="res://assets/tuto/left.png" id="1_hb5rm"]
 [ext_resource type="Script" path="res://scripts/tuto/indicator.gd" id="2_fsnd3"]
-[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="3_2km37"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="3_2km37"]
 
 [node name="TutorialIndicator" type="Sprite2D" groups=["indicator"]]
 z_index = 1000

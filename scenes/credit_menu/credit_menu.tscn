@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/credit_menu/quit_button.gd" id="1_k3n5r"]
 [ext_resource type="Texture2D" uid="uid://dxbiuv4qb6p7v" path="res://assets/menu/background2.png" id="2_5rc6t"]
-[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="2_et2gl"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="2_et2gl"]
 
 [node name="Credits" type="Control" groups=["menu"]]
 layout_mode = 3

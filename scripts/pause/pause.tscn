@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/pause/pause.gd" id="1_f4psy"]
 [ext_resource type="Shader" path="res://scripts/pause/background.gdshader" id="1_m64na"]
-[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="3_1rt4g"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="3_1rt4g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pdchp"]
 shader = ExtResource("1_m64na")
