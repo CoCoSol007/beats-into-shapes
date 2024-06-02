@@ -1,3 +1,1852 @@
-[gd_scene format=3 uid="uid://cgfu3f70pkqko"]
+[gd_scene load_steps=26 format=3 uid="uid://cplmy24l2po5i"]
+
+[ext_resource type="PackedScene" uid="uid://dwul1oterdmc" path="res://scripts/pause/pause.tscn" id="1_12wap"]
+[ext_resource type="PackedScene" uid="uid://ct82acwuajwl4" path="res://scripts/beats_manager/beat_manager.tscn" id="1_ee43e"]
+[ext_resource type="AudioStream" uid="uid://ci8sc0evsglys" path="res://musics/selection.mp3" id="2_8vh7p"]
+[ext_resource type="PackedScene" uid="uid://cqjhwem3buo2k" path="res://scenes/levels/selection/metal_bar.tscn" id="3_aciwk"]
+[ext_resource type="PackedScene" uid="uid://cnecogu51saqv" path="res://scripts/seed_up/speedup_animation.tscn" id="4_0l1x7"]
+[ext_resource type="PackedScene" uid="uid://b0f5uxncim2cf" path="res://scripts/scores/score_manager.tscn" id="4_ol24q"]
+[ext_resource type="Texture2D" uid="uid://bxfwkaw4xr3dj" path="res://assets/selection/background.png" id="5_2fgvi"]
+[ext_resource type="Script" path="res://scenes/levels/selection/piston.gd" id="7_ly1uq"]
+[ext_resource type="Texture2D" uid="uid://cjvrx54o6yfxo" path="res://assets/selection/base_piston.png" id="7_x8dor"]
+[ext_resource type="Texture2D" uid="uid://kq3yboe8f73u" path="res://assets/selection/rusty_iron.png" id="8_jcft0"]
+[ext_resource type="Texture2D" uid="uid://bp6s0dj8pbgec" path="res://assets/selection/puh_piston.png" id="8_x3yyf"]
+[ext_resource type="Texture2D" uid="uid://q6tgrsedfa0s" path="res://assets/selection/link_piston.png" id="10_rkki6"]
+[ext_resource type="AudioStream" uid="uid://c54gnsymgesjo" path="res://musics/sounds/piston.wav" id="11_cw2se"]
+[ext_resource type="PackedScene" uid="uid://cdaq1hxju3fwl" path="res://scripts/tuto/tutorial.tscn" id="14_43q6k"]
+[ext_resource type="Texture2D" uid="uid://bao8vxcsanxre" path="res://assets/tuto/left.png" id="14_eogqs"]
+[ext_resource type="Texture2D" uid="uid://ddo38ps655awc" path="res://assets/tuto/left_pressed.png" id="16_gt0hi"]
+[ext_resource type="Texture2D" uid="uid://bi1eer8b65tmq" path="res://assets/tuto/right.png" id="17_86tbu"]
+[ext_resource type="Texture2D" uid="uid://dkot1vhn1v168" path="res://assets/tuto/right_pressed.png" id="18_y8ccr"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://fonts/main_font.otf" id="20_r5l15"]
+
+[sub_resource type="Animation" id="Animation_mo7pu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeatManager:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4jotm"]
+resource_name = "level"
+length = 115.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_8vh7p")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeatManager:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 115),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(115, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mqrff"]
+_data = {
+"RESET": SubResource("Animation_mo7pu"),
+"level": SubResource("Animation_4jotm")
+}
+
+[sub_resource type="Animation" id="Animation_6ltre"]
+resource_name = "left_push"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PistonLeft/PuhPiston:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-46, 200), Vector2(-150, 200), Vector2(-46, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PistonLeft/LinkPiston:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.00458253, 0.0116524), Vector2(-0.300937, 0.0116524), Vector2(-0.00458253, 0.0116524)]
+}
+
+[sub_resource type="Animation" id="Animation_fiin4"]
+resource_name = "right_push"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PistonRight/PuhPiston:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(46, 200), Vector2(150, 200), Vector2(46, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PistonRight/LinkPiston:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.00600703, 0.0116524), Vector2(-0.301264, 0.0116524), Vector2(-0.00600703, 0.0116524)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n5yjo"]
+_data = {
+"left_push": SubResource("Animation_6ltre"),
+"right_push": SubResource("Animation_fiin4")
+}
 
 [node name="Selection" type="Node2D"]
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_12wap")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mqrff")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="BeatManager" parent="." instance=ExtResource("1_ee43e")]
+stream = ExtResource("2_8vh7p")
+speedup_time = 71.0
+speedup_length = 4.0
+level_name = "selection"
+
+[node name="ScoreManager" parent="." instance=ExtResource("4_ol24q")]
+position = Vector2(0, -264)
+
+[node name="SpeedupAnimation" parent="." instance=ExtResource("4_0l1x7")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.989557, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(0.111176, 0.249998)
+scale = Vector2(0.600463, 0.600463)
+texture = ExtResource("5_2fgvi")
+metadata/_edit_lock_ = true
+
+[node name="MetalBars" type="Node2D" parent="."]
+
+[node name="MetalBar" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -701.483)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 9.0
+
+[node name="MetalBar18" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -701.483)
+conveyor_side = 1
+press_key = 3
+press_time = 9.0
+is_bad = true
+
+[node name="MetalBar21" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -1301.48)
+conveyor_side = 1
+press_key = 3
+press_time = 15.0
+is_bad = true
+
+[node name="MetalBar22" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -1701.48)
+conveyor_side = 1
+press_key = 3
+press_time = 19.0
+is_bad = true
+
+[node name="MetalBar53" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -7701.48)
+conveyor_side = 1
+press_key = 3
+press_time = 79.0
+is_bad = true
+
+[node name="MetalBar56" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -8301.48)
+conveyor_side = 1
+press_key = 3
+press_time = 85.0
+is_bad = true
+
+[node name="MetalBar57" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -8901.48)
+conveyor_side = 1
+press_key = 3
+press_time = 91.0
+is_bad = true
+
+[node name="MetalBar59" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -9101.48)
+conveyor_side = 1
+press_key = 3
+press_time = 93.0
+is_bad = true
+
+[node name="MetalBar60" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -9501.48)
+conveyor_side = 1
+press_key = 3
+press_time = 97.0
+is_bad = true
+
+[node name="MetalBar61" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -9901.48)
+conveyor_side = 1
+press_key = 3
+press_time = 101.0
+is_bad = true
+
+[node name="MetalBar78" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -13701.5)
+conveyor_side = 1
+press_key = 3
+press_time = 139.0
+is_bad = true
+
+[node name="MetalBar81" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -14101.5)
+conveyor_side = 1
+press_key = 3
+press_time = 143.0
+is_bad = true
+
+[node name="MetalBar82" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -14501.5)
+conveyor_side = 1
+press_key = 3
+press_time = 147.0
+is_bad = true
+
+[node name="MetalBar79" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -13901.5)
+press_key = 1
+press_time = 141.0
+is_bad = true
+
+[node name="MetalBar83" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -14301.5)
+press_key = 1
+press_time = 145.0
+is_bad = true
+
+[node name="MetalBar80" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -13501.5)
+press_key = 1
+press_time = 137.0
+is_bad = true
+
+[node name="MetalBar63" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -20497)
+conveyor_side = 1
+is_linear = true
+press_key = 3
+press_time = 103.485
+is_bad = true
+
+[node name="MetalBar70" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -21264)
+conveyor_side = 1
+is_linear = true
+press_key = 3
+press_time = 107.32
+is_bad = true
+
+[node name="MetalBar71" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -22121)
+conveyor_side = 1
+is_linear = true
+press_key = 3
+press_time = 111.605
+is_bad = true
+
+[node name="MetalBar72" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -21949)
+conveyor_side = 1
+is_linear = true
+press_key = 3
+press_time = 110.745
+is_bad = true
+
+[node name="MetalBar73" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -22884)
+conveyor_side = 1
+is_linear = true
+press_key = 3
+press_time = 115.42
+is_bad = true
+
+[node name="MetalBar74" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -23628)
+conveyor_side = 1
+is_linear = true
+press_key = 3
+press_time = 119.14
+is_bad = true
+
+[node name="MetalBar75" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -24475)
+conveyor_side = 1
+is_linear = true
+press_key = 3
+press_time = 123.375
+is_bad = true
+
+[node name="MetalBar76" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -25282)
+conveyor_side = 1
+is_linear = true
+press_key = 3
+press_time = 127.41
+is_bad = true
+
+[node name="MetalBar77" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -26054)
+conveyor_side = 1
+is_linear = true
+press_key = 3
+press_time = 131.27
+is_bad = true
+
+[node name="MetalBar54" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -7501.48)
+press_key = 1
+press_time = 77.0
+is_bad = true
+
+[node name="MetalBar55" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -7901.48)
+press_key = 1
+press_time = 81.0
+is_bad = true
+
+[node name="MetalBar58" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -9301.48)
+press_key = 1
+press_time = 95.0
+is_bad = true
+
+[node name="MetalBar62" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -9501.48)
+press_key = 1
+press_time = 97.0
+is_bad = true
+
+[node name="MetalBar64" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -21163)
+is_linear = true
+press_key = 1
+press_time = 106.815
+is_bad = true
+
+[node name="MetalBar65" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -21973)
+is_linear = true
+press_key = 1
+press_time = 110.865
+is_bad = true
+
+[node name="MetalBar66" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -22792)
+is_linear = true
+press_key = 1
+press_time = 114.96
+is_bad = true
+
+[node name="MetalBar67" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -24331)
+is_linear = true
+press_key = 1
+press_time = 122.655
+is_bad = true
+
+[node name="MetalBar68" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -25170)
+is_linear = true
+press_key = 1
+press_time = 126.85
+is_bad = true
+
+[node name="MetalBar69" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -25993)
+is_linear = true
+press_key = 1
+press_time = 130.965
+is_bad = true
+
+[node name="MetalBar26" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -2701.48)
+conveyor_side = 1
+press_key = 3
+press_time = 29.0
+is_bad = true
+
+[node name="MetalBar19" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -901.483)
+press_key = 1
+press_time = 11.0
+is_bad = true
+
+[node name="MetalBar20" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -1101.48)
+press_key = 1
+press_time = 13.0
+is_bad = true
+
+[node name="MetalBar23" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -1501.48)
+press_key = 1
+press_time = 17.0
+is_bad = true
+
+[node name="MetalBar24" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -2101.48)
+press_key = 1
+press_time = 23.0
+is_bad = true
+
+[node name="MetalBar25" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -2701.48)
+press_key = 1
+press_time = 29.0
+is_bad = true
+
+[node name="MetalBar27" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -3101.48)
+press_key = 1
+press_time = 33.0
+is_bad = true
+
+[node name="MetalBar52" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -3301.48)
+press_key = 1
+press_time = 35.0
+is_bad = true
+
+[node name="MetalBar2" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -901.483)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 11.0
+hard_key = true
+
+[node name="MetalBar3" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -1101.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 13.0
+
+[node name="MetalBar4" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -1301.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 15.0
+hard_key = true
+
+[node name="MetalBar5" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -1501.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 17.0
+
+[node name="MetalBar6" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -1701.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 19.0
+hard_key = true
+
+[node name="MetalBar10" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -2301.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 25.0
+
+[node name="MetalBar12" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -2501.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 27.0
+hard_key = true
+
+[node name="MetalBar7" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -1901.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 21.0
+
+[node name="MetalBar8" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -1901.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 21.0
+
+[node name="MetalBar11" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -2101.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 23.0
+hard_key = true
+
+[node name="MetalBar9" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -2301.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 25.0
+hard_key = true
+
+[node name="MetalBar13" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -2501.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 27.0
+
+[node name="MetalBar14" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -2901.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 31.0
+
+[node name="MetalBar15" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -2901.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 31.0
+hard_key = true
+
+[node name="MetalBar16" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -3101.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 33.0
+
+[node name="MetalBar17" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -3301.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 35.0
+
+[node name="Node2D2" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar18" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -7800)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 40.0
+hard_key = true
+
+[node name="MetalBar23" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -7660)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 39.3
+is_bad = true
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -8024)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 41.12
+is_bad = true
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -8435)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 43.175
+is_bad = true
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -9142)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 46.71
+is_bad = true
+hard_key = true
+
+[node name="MetalBar28" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -10021)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 51.105
+is_bad = true
+hard_key = true
+
+[node name="MetalBar29" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -10427)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 53.135
+is_bad = true
+hard_key = true
+
+[node name="MetalBar30" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -10812)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 55.06
+is_bad = true
+hard_key = true
+
+[node name="MetalBar31" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -11694)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 59.47
+is_bad = true
+hard_key = true
+
+[node name="MetalBar32" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -12020)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 61.1
+is_bad = true
+hard_key = true
+
+[node name="MetalBar33" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -12302)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 62.51
+is_bad = true
+hard_key = true
+
+[node name="MetalBar34" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -12504)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 63.52
+is_bad = true
+hard_key = true
+
+[node name="MetalBar35" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -13222)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 67.11
+is_bad = true
+hard_key = true
+
+[node name="MetalBar36" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -13939)
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 70.695
+is_bad = true
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -7653)
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 39.265
+is_bad = true
+hard_key = true
+
+[node name="MetalBar37" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8359)
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 42.795
+is_bad = true
+hard_key = true
+
+[node name="MetalBar38" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -9175)
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 46.875
+is_bad = true
+hard_key = true
+
+[node name="MetalBar39" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -9955)
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 50.775
+is_bad = true
+hard_key = true
+
+[node name="MetalBar40" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -10808)
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 55.04
+is_bad = true
+hard_key = true
+
+[node name="MetalBar41" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -11550)
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 58.75
+is_bad = true
+hard_key = true
+
+[node name="MetalBar42" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -12436)
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 63.18
+is_bad = true
+hard_key = true
+
+[node name="MetalBar43" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -13161)
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 66.805
+is_bad = true
+hard_key = true
+
+[node name="MetalBar44" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -14005)
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 71.025
+is_bad = true
+hard_key = true
+
+[node name="MetalBar20" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8000)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 41.0
+hard_key = true
+
+[node name="MetalBar21" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8150)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 41.75
+hard_key = true
+
+[node name="MetalBar22" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -8150)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 41.75
+hard_key = true
+
+[node name="MetalBar19" parent="MetalBars/Node2D2" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -7900)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 40.5
+hard_key = true
+
+[node name="Node2D" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8600)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 44.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8800)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 45.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8950)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 45.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -8950)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 45.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -8700)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 44.5
+hard_key = true
+
+[node name="Node2D3" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D3" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -9400)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 48.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D3" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -9600)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 49.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D3" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -9750)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 49.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D3" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -9750)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 49.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D3" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -9500)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 48.5
+hard_key = true
+
+[node name="Node2D4" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D4" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -10200)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 52.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D4" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -10400)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 53.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D4" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -10550)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 53.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D4" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -10550)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 53.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D4" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -10300)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 52.5
+hard_key = true
+
+[node name="Node2D5" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D5" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -11000)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 56.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D5" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -11200)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 57.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D5" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -11350)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 57.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D5" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -11350)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 57.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D5" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -11100)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 56.5
+hard_key = true
+
+[node name="Node2D6" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D6" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -11800)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 60.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D6" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -12000)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 61.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D6" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -12150)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 61.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D6" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -12150)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 61.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D6" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -11900)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 60.5
+hard_key = true
+
+[node name="Node2D7" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D7" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -12600)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 64.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D7" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -12800)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 65.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D7" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -12950)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 65.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D7" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -12950)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 65.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D7" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -12700)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 64.5
+hard_key = true
+
+[node name="Node2D8" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D8" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -13400)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 68.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D8" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -13600)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 69.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D8" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -13750)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 69.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D8" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -13750)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 69.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D8" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -13500)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 68.5
+hard_key = true
+
+[node name="MetalBar28" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -7501.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 77.0
+hard_key = true
+
+[node name="MetalBar30" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -7901.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 81.0
+hard_key = true
+
+[node name="MetalBar29" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -7701.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 79.0
+hard_key = true
+
+[node name="MetalBar31" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -8101.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 83.0
+hard_key = true
+
+[node name="MetalBar32" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8101.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 83.0
+hard_key = true
+
+[node name="MetalBar34" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -8501.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 87.0
+hard_key = true
+
+[node name="MetalBar35" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8501.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 87.0
+hard_key = true
+
+[node name="MetalBar37" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8701.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 89.0
+hard_key = true
+
+[node name="MetalBar38" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8901.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 91.0
+hard_key = true
+
+[node name="MetalBar39" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -9101.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 93.0
+hard_key = true
+
+[node name="MetalBar33" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -8301.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 85.0
+hard_key = true
+
+[node name="MetalBar36" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -8701.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 89.0
+hard_key = true
+
+[node name="MetalBar41" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -9701.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 99.0
+hard_key = true
+
+[node name="MetalBar43" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -9901.48)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 101.0
+hard_key = true
+
+[node name="MetalBar42" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -9701.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 99.0
+hard_key = true
+
+[node name="MetalBar40" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -9301.48)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 95.0
+hard_key = true
+
+[node name="Node2D9" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D9" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -20600)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 104.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D9" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -20800)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 105.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D9" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -20950)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 105.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D9" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -20950)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 105.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D9" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -20700)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 104.5
+hard_key = true
+
+[node name="Node2D10" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D10" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -21400)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 108.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D10" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -21600)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 109.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D10" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -21750)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 109.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D10" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -21750)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 109.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D10" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -21500)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 108.5
+hard_key = true
+
+[node name="Node2D11" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D11" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -22200)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 112.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D11" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -22400)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 113.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D11" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -22550)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 113.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D11" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -22550)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 113.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D11" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -22300)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 112.5
+hard_key = true
+
+[node name="Node2D12" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D12" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -23000)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 116.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D12" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -23200)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 117.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D12" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -23350)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 117.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D12" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -23350)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 117.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D12" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -23100)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 116.5
+hard_key = true
+
+[node name="Node2D13" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D13" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -23800)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 120.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D13" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -24000)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 121.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D13" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -24150)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 121.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D13" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -24150)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 121.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D13" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -23900)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 120.5
+hard_key = true
+
+[node name="Node2D14" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D14" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -24600)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 124.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D14" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -24800)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 125.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D14" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -24950)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 125.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D14" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -24950)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 125.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D14" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -24700)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 124.5
+hard_key = true
+
+[node name="Node2D15" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D15" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -25400)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 128.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D15" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -25600)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 129.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D15" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -25750)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 129.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D15" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -25750)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 129.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D15" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -25500)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 128.5
+hard_key = true
+
+[node name="Node2D16" type="Node2D" parent="MetalBars"]
+
+[node name="MetalBar23" parent="MetalBars/Node2D16" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -26200)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 132.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars/Node2D16" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -26400)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 133.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars/Node2D16" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -26550)
+texture = ExtResource("8_jcft0")
+conveyor_timing = 4.0
+is_linear = true
+press_key = 1
+press_time = 133.75
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars/Node2D16" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -26550)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 133.75
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars/Node2D16" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -26300)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+conveyor_timing = 4.0
+is_linear = true
+press_key = 3
+press_time = 132.5
+hard_key = true
+
+[node name="MetalBar44" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -13501.5)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 137.0
+hard_key = true
+
+[node name="MetalBar46" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -13901.5)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 141.0
+hard_key = true
+
+[node name="MetalBar48" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -14301.5)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 145.0
+hard_key = true
+
+[node name="MetalBar50" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(180, -14701.5)
+texture = ExtResource("8_jcft0")
+conveyor_side = 1
+press_key = 3
+press_time = 149.0
+hard_key = true
+
+[node name="MetalBar51" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -14701.5)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 149.0
+hard_key = true
+
+[node name="MetalBar45" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -13701.5)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 139.0
+hard_key = true
+
+[node name="MetalBar47" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -14101.5)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 143.0
+hard_key = true
+
+[node name="MetalBar49" parent="MetalBars" instance=ExtResource("3_aciwk")]
+position = Vector2(-180, -14501.5)
+texture = ExtResource("8_jcft0")
+press_key = 1
+press_time = 147.0
+hard_key = true
+
+[node name="PistonLeft" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n5yjo")
+}
+script = ExtResource("7_ly1uq")
+side = "left"
+
+[node name="BasePiston" type="Sprite2D" parent="PistonLeft"]
+position = Vector2(-15, 200)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_x8dor")
+
+[node name="PuhPiston" type="Sprite2D" parent="PistonLeft"]
+position = Vector2(-46, 200)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_x3yyf")
+
+[node name="LinkPiston" type="Sprite2D" parent="PistonLeft"]
+position = Vector2(-26.995, 200.21)
+rotation = -3.14159
+scale = Vector2(-0.00458253, 0.0116524)
+texture = ExtResource("10_rkki6")
+offset = Vector2(-175.762, 31.9043)
+
+[node name="Sound" type="AudioStreamPlayer" parent="PistonLeft"]
+stream = ExtResource("11_cw2se")
+volume_db = -10.0
+
+[node name="PistonRight" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n5yjo")
+}
+script = ExtResource("7_ly1uq")
+
+[node name="BasePiston" type="Sprite2D" parent="PistonRight"]
+position = Vector2(15, 200)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_x8dor")
+
+[node name="LinkPiston" type="Sprite2D" parent="PistonRight"]
+position = Vector2(26.6556, 200.119)
+rotation = -3.14159
+scale = Vector2(-0.00600703, 0.0116524)
+texture = ExtResource("10_rkki6")
+offset = Vector2(176.337, 13.873)
+
+[node name="PuhPiston" type="Sprite2D" parent="PistonRight"]
+position = Vector2(46, 200)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_x3yyf")
+
+[node name="Sound" type="AudioStreamPlayer" parent="PistonRight"]
+stream = ExtResource("11_cw2se")
+volume_db = -10.0
+
+[node name="LeftTutorial" parent="." instance=ExtResource("14_43q6k")]
+position = Vector2(-32.4, 112.2)
+press_key = 1
+unpressed_texture = ExtResource("14_eogqs")
+pressed_texture = ExtResource("16_gt0hi")
+
+[node name="RightTutorial" parent="." instance=ExtResource("14_43q6k")]
+position = Vector2(32.4, 112.2)
+texture = ExtResource("17_86tbu")
+press_key = 3
+unpressed_texture = ExtResource("17_86tbu")
+pressed_texture = ExtResource("18_y8ccr")
+
+[node name="TutorialText" type="Label" parent="." groups=["tutorial_text"]]
+z_index = 3000
+z_as_relative = false
+offset_left = -710.0
+offset_top = -332.0
+offset_right = -159.0
+offset_bottom = -195.0
+theme_override_colors/font_color = Color(0.231373, 0.494118, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("20_r5l15")
+theme_override_font_sizes/font_size = 50
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TutorialText2" type="Label" parent="." groups=["tutorial_text"]]
+z_index = 3000
+z_as_relative = false
+offset_left = -518.0
+offset_top = -230.0
+offset_right = 95.0
+offset_bottom = -93.0
+theme_override_colors/font_color = Color(0.231373, 0.494118, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("20_r5l15")
+theme_override_font_sizes/font_size = 25
+text = "Wipe off rusty
+iron ingots"

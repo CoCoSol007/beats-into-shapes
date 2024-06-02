@@ -191,7 +191,6 @@ func _process(_delta):
 
 		($MusicPlayer as AudioStreamPlayer).volume_db = min(0, (tutorial_stop_time - time) * 8.0)
 		if tutorial_stop_time - time <= -2:
-			pass
 			GlobalScore.global_score.scores[level] = -1
 			SceneTransition.change_scene("res://scenes/levels/" + level_name + "/" + level_name + ".tscn")
 	else:

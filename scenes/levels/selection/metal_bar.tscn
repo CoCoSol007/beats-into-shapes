@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqjhwem3buo2k"]
+
+[ext_resource type="Script" path="res://scenes/levels/selection/metal_bar.gd" id="1_gv60l"]
+[ext_resource type="Texture2D" uid="uid://b4ato7r81bd1m" path="res://assets/selection/happy_iron.png" id="1_s2xtp"]
+
+[node name="MetalBar" type="Sprite2D" groups=["beat_event"]]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_s2xtp")
+script = ExtResource("1_gv60l")
