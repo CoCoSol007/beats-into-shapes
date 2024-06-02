@@ -1,3 +1,589 @@
-[gd_scene format=3 uid="uid://cdbyblflli3hr"]
+[gd_scene load_steps=26 format=3 uid="uid://cnlmomupi4s2g"]
 
-[node name="Cooling" type="Node2D"]
+[ext_resource type="AudioStream" uid="uid://dd5blbk5tojjn" path="res://musics/cooling.mp3" id="1_cuyft"]
+[ext_resource type="PackedScene" uid="uid://ct82acwuajwl4" path="res://scripts/beats_manager/beat_manager.tscn" id="2_2vwvw"]
+[ext_resource type="PackedScene" uid="uid://b0f5uxncim2cf" path="res://scripts/scores/score_manager.tscn" id="3_buh1v"]
+[ext_resource type="PackedScene" uid="uid://cnecogu51saqv" path="res://scripts/seed_up/speedup_animation.tscn" id="4_5try2"]
+[ext_resource type="PackedScene" path="res://scenes/levels/cooling/metal_bar.tscn" id="4_h8kqc"]
+[ext_resource type="Texture2D" uid="uid://pqkxw70q00r0" path="res://assets/forging/coin.png" id="6_c3vob"]
+[ext_resource type="Texture2D" uid="uid://b8tldru8jg3gj" path="res://assets/cooling/background.png" id="6_f3sfc"]
+[ext_resource type="Texture2D" uid="uid://dao48xgm7gtsy" path="res://assets/cooling/barel.png" id="7_vttrc"]
+[ext_resource type="Texture2D" uid="uid://cnugadrtny6ww" path="res://assets/forging/sheild.png" id="7_yeed8"]
+[ext_resource type="Texture2D" uid="uid://c6gdryw4e4ovh" path="res://assets/forging/happy_iron.png" id="8_4t403"]
+[ext_resource type="Texture2D" uid="uid://b518p0sdegpuw" path="res://assets/cooling/particule.png" id="8_16087"]
+[ext_resource type="Script" path="res://scenes/levels/cooling/smoke.gd" id="9_eyh4q"]
+[ext_resource type="Texture2D" uid="uid://b4o1dtcp7eefk" path="res://assets/menu/disabled.png" id="9_xtlqh"]
+[ext_resource type="PackedScene" uid="uid://cdaq1hxju3fwl" path="res://scripts/tuto/tutorial.tscn" id="10_0ni4p"]
+[ext_resource type="Texture2D" uid="uid://msc5fgvr282y" path="res://assets/tuto/main.png" id="11_ldbpw"]
+[ext_resource type="Texture2D" uid="uid://bmq3weuqf0rp6" path="res://assets/tuto/main_pressed.png" id="12_qw2aj"]
+[ext_resource type="AudioStream" uid="uid://d30xab5xlcvnl" path="res://musics/sounds/plouf.mp3" id="13_i8js5"]
+[ext_resource type="Script" path="res://scenes/levels/cooling/plouf.gd" id="14_peobw"]
+[ext_resource type="PackedScene" uid="uid://dwul1oterdmc" path="res://scripts/pause/pause.tscn" id="15_mwnf3"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="20_ll8h4"]
+
+[sub_resource type="Animation" id="Animation_mo7pu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeatManager:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4jotm"]
+resource_name = "level"
+length = 115.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_cuyft")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeatManager:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 115),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(115, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mqrff"]
+_data = {
+"RESET": SubResource("Animation_mo7pu"),
+"level": SubResource("Animation_4jotm")
+}
+
+[sub_resource type="Curve" id="Curve_rn5im"]
+_data = [Vector2(0, 0.394774), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_kie55"]
+colors = PackedColorArray(0.452586, 0.452586, 0.452586, 1, 0, 0, 0, 1)
+
+[node name="cooling" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mqrff")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="BeatManager" parent="." instance=ExtResource("2_2vwvw")]
+stream = ExtResource("1_cuyft")
+too_time = 0.25
+speedup_time = 78.0
+speedup_length = 16.0
+tutorial_stop_time = 42.0
+level = 3
+level_name = "cooling"
+
+[node name="ScoreManager" parent="." instance=ExtResource("3_buh1v")]
+position = Vector2(0, -264)
+
+[node name="SpeedupAnimation" parent="." instance=ExtResource("4_5try2")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.989557, 1)
+
+[node name="MetalBars" type="Node2D" parent="."]
+z_index = 2
+
+[node name="MetalBar2" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-4800, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 16.0
+hold_length = 2.0
+
+[node name="MetalBar3" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-6000, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 20.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar4" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-7200, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 24.0
+hold_length = 2.0
+
+[node name="MetalBar5" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-8400, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 28.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar8" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-9600, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 32.0
+hold_length = 2.0
+
+[node name="MetalBar6" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-10800, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 36.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar7" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-12000, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 40.0
+hold_length = 2.0
+
+[node name="MetalBar9" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-13200, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 44.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar10" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-14400, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 48.0
+hold_length = 1.0
+hard_key = true
+
+[node name="MetalBar18" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-15000, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 50.0
+hold_length = 1.0
+hard_key = true
+
+[node name="MetalBar11" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-15600, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 52.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar12" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-16800, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 56.0
+hold_length = 1.0
+hard_key = true
+
+[node name="MetalBar19" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-17400, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 58.0
+hold_length = 1.0
+hard_key = true
+
+[node name="MetalBar13" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-18000, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 60.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar14" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-19200, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 64.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar15" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-20400, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 68.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar16" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-21600, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 72.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar17" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-22800, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 76.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar20" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-28800, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 96.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar42" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(30000, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 100.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar43" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(31200, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 104.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar44" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(-32400, -324)
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 108.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar21" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(34800, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 116.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar22" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(36000, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 120.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar23" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(37200, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 124.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar24" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(38400, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 128.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar25" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(39600, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 132.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar26" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(40800, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 136.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar27" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(42000, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 140.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar28" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(43200, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 144.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar30" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(44400, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 148.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar31" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(45600, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 152.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar33" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(46800, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 156.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar34" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(48000, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 160.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar35" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(49200, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 164.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar36" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(50400, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 168.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar37" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(51600, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 172.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar38" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(52800, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 176.0
+hold_length = 1.0
+hard_key = true
+
+[node name="MetalBar45" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(53400, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 178.0
+hold_length = 1.0
+hard_key = true
+
+[node name="MetalBar39" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(54000, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 180.0
+hold_length = 2.0
+hard_key = true
+
+[node name="MetalBar40" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(55200, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 184.0
+hold_length = 1.0
+hard_key = true
+
+[node name="MetalBar46" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+self_modulate = Color(1, 0.498039, 0.498039, 1)
+position = Vector2(55800, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 186.0
+hold_length = 1.0
+hard_key = true
+
+[node name="MetalBar41" parent="MetalBars" instance=ExtResource("4_h8kqc")]
+position = Vector2(56400, -324)
+direction = -1
+forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
+press_key = 2
+press_time = 188.0
+hold_length = 2.0
+hard_key = true
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_f3sfc")
+
+[node name="Barel" type="Sprite2D" parent="."]
+z_index = 3
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_vttrc")
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+z_index = 2
+position = Vector2(0, 106.444)
+emitting = false
+amount = 25
+texture = ExtResource("8_16087")
+emission_shape = 3
+emission_rect_extents = Vector2(50, 1)
+gravity = Vector2(0, -100)
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_rn5im")
+color_ramp = SubResource("Gradient_kie55")
+script = ExtResource("9_eyh4q")
+
+[node name="TutorialIndicator" parent="." instance=ExtResource("10_0ni4p")]
+position = Vector2(222, 135)
+texture = ExtResource("11_ldbpw")
+press_key = 2
+unpressed_texture = ExtResource("11_ldbpw")
+pressed_texture = ExtResource("12_qw2aj")
+
+[node name="Plouf" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_i8js5")
+script = ExtResource("14_peobw")
+
+[node name="PauseMenu" parent="." instance=ExtResource("15_mwnf3")]
+
+[node name="TutorialText" type="Label" parent="." groups=["tutorial_text"]]
+z_index = 3000
+z_as_relative = false
+offset_left = -707.0
+offset_top = -332.0
+offset_right = -156.0
+offset_bottom = -195.0
+theme_override_colors/font_color = Color(0.231373, 0.494118, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("20_ll8h4")
+theme_override_font_sizes/font_size = 50
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TutorialText2" type="Label" parent="." groups=["tutorial_text"]]
+z_index = 3000
+z_as_relative = false
+offset_left = -518.0
+offset_top = -230.0
+offset_right = 95.0
+offset_bottom = -93.0
+theme_override_colors/font_color = Color(0.231373, 0.494118, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("20_ll8h4")
+theme_override_font_sizes/font_size = 25
+text = "Cool down objects"
+
+[connection signal="node_pressed" from="BeatManager" to="Smoke" method="_on_beat_manager_node_pressed"]
+[connection signal="node_pressed" from="BeatManager" to="Plouf" method="_on_beat_manager_node_pressed"]
+[connection signal="node_released" from="BeatManager" to="Smoke" method="_on_beat_manager_node_released"]
+[connection signal="node_released" from="BeatManager" to="Plouf" method="_on_beat_manager_node_released"]
