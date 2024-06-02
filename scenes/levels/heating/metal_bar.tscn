@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbpnhkdf3ds7d"]
+
+[ext_resource type="Texture2D" uid="uid://ctcu7covk72v0" path="res://assets/heating/happy_iron.png" id="1_84gdm"]
+[ext_resource type="Script" path="res://scenes/levels/heating/metal_bar.gd" id="1_l63ii"]
+[ext_resource type="Texture2D" uid="uid://dc8i7sfyih0m1" path="res://assets/heating/claw.png" id="3_rfbu1"]
+
+[node name="MetalBar" type="Sprite2D" groups=["beat_event"]]
+self_modulate = Color(1, 0.5, 0.5, 1)
+position = Vector2(8.61085, -343)
+rotation = -0.00580631
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_84gdm")
+offset = Vector2(0, 1372)
+script = ExtResource("1_l63ii")
+
+[node name="Claw" type="Sprite2D" parent="."]
+position = Vector2(0, -680)
+texture = ExtResource("3_rfbu1")
+offset = Vector2(0, 1372)
