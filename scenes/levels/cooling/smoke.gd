@@ -1,13 +1,17 @@
+"""
+All code related to the "smoke" particles.
+"""
+
 extends CPUParticles2D
 
 
 func _on_beat_manager_node_pressed(node, _time, status):
-	emitting = false
+	# Set the position under the metal bar.
 	position.x = node.position.x
-	match status:
-		Constants.ActionStatus.TOO_SOON: emitting = true
-		Constants.ActionStatus.PERFECT: emitting = true
-		Constants.ActionStatus.TOO_LATE: emitting = true
+
+	# If it's a great action.
+	if status in Constants.AVAILABLE_STATUS:
+		emitting = true
 
 func _on_beat_manager_node_released(_node, _time, _status):
 	emitting = false

@@ -1,9 +1,13 @@
+"""
+The menu music script.
+"""
+
 extends AudioStreamPlayer
 
-@onready var last_time = Time.get_ticks_usec() / 1000000.0
+@onready var last_time = Time.get_ticks_usec()
 
 func _process(_d):
-	var now := Time.get_ticks_usec() / 1000000.0
+	var now := Time.get_ticks_usec()
 	var delta = now - last_time
 	last_time = now
 	

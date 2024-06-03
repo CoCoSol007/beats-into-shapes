@@ -1,9 +1,12 @@
+"""
+sripts related to the "plouf" sound effect.
+"""
+
 extends AudioStreamPlayer
 
-
 func _on_beat_manager_node_pressed(_node, _time, status):
-	if status in [Constants.ActionStatus.TOO_SOON, Constants.ActionStatus.PERFECT, Constants.ActionStatus.TOO_LATE]:
-		stop()
+	# If it's a great action.
+	if status in Constants.AVAILABLE_STATUS:
 		play()
 
 func _on_beat_manager_node_released(_node, _time, _status):

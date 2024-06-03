@@ -1,3 +1,7 @@
+"""
+The trophies button script.
+"""
+
 extends TextureButton
 
 func _on_pressed():
