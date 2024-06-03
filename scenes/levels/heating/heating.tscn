@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://1ft7t0frbqu0"]
+[gd_scene load_steps=41 format=3 uid="uid://1ft7t0frbqu0"]
 
 [ext_resource type="PackedScene" uid="uid://dwul1oterdmc" path="res://scripts/pause/pause.tscn" id="1_4khu3"]
 [ext_resource type="AudioStream" uid="uid://c3kbupayfpxyo" path="res://musics/heating.mp3" id="1_cuyft"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bbpnhkdf3ds7d" path="res://scenes/levels/heating/metal_bar.tscn" id="4_h8kqc"]
 [ext_resource type="AudioStream" uid="uid://cfnoylr4ixx71" path="res://musics/sounds/fire.wav" id="9_xm3vr"]
 [ext_resource type="PackedScene" uid="uid://cdaq1hxju3fwl" path="res://scripts/tuto/tutorial.tscn" id="11_2jlud"]
+[ext_resource type="Texture2D" uid="uid://t4qrtjvba26d" path="res://assets/heating/particule.png" id="12_gnk7u"]
 [ext_resource type="Texture2D" uid="uid://msc5fgvr282y" path="res://assets/tuto/main.png" id="12_yoc53"]
 [ext_resource type="Texture2D" uid="uid://bmq3weuqf0rp6" path="res://assets/tuto/main_pressed.png" id="13_7v6yg"]
+[ext_resource type="Texture2D" uid="uid://crxj5jd14gl44" path="res://assets/heating/background.png" id="14_82q7a"]
 [ext_resource type="Script" path="res://scenes/levels/heating/flames_animation.gd" id="14_v4fny"]
 [ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="14_xcvl4"]
 [ext_resource type="Shader" path="res://scenes/levels/heating/flame.gdshader" id="14_yp8lt"]
@@ -67,7 +69,6 @@ _data = {
 }
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f3yu8"]
-load_path = "res://.godot/imported/particule.png-de361d3a5becc6f26340a40c404725b0.ctex"
 
 [sub_resource type="Curve" id="Curve_2rw0d"]
 _data = [Vector2(0, 0.691211), 0.0, 0.0, 0, 0, Vector2(0.807263, 0.765321), -1.88338, -1.88338, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -145,8 +146,52 @@ shader_parameter/bright_flame_gradient = SubResource("GradientTexture1D_18il5")
 shader_parameter/distortion_texture = SubResource("NoiseTexture2D_sn724")
 shader_parameter/distortion_strength = SubResource("CurveTexture_2xobg")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_46pgg"]
-load_path = "res://.godot/imported/background.png-5b1d28ef2c4658014c7c9693cc51b298.ctex"
+[sub_resource type="Animation" id="Animation_hlvop"]
+resource_name = "RESET"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:material:shader_parameter/flame_level")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:material:shader_parameter/flame_distortion_factor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:material:shader_parameter/distortion_factor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:material:shader_parameter/brightness")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_kmnad"]
 resource_name = "press"
@@ -243,53 +288,6 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.3)
 }
 
-[sub_resource type="Animation" id="Animation_hlvop"]
-resource_name = "RESET"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Background:material:shader_parameter/flame_level")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Background:material:shader_parameter/flame_distortion_factor")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Background:material:shader_parameter/distortion_factor")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Background:material:shader_parameter/brightness")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_frc1l"]
 _data = {
 "RESET": SubResource("Animation_hlvop"),
@@ -330,8 +328,8 @@ scale = Vector2(0.989557, 1)
 
 [node name="MetalBar" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
-position = Vector2(710.022, -400)
-rotation = -0.00582407
+position = Vector2(710.02, -400)
+rotation = -0.00552058
 press_key = 2
 press_time = 8.0
 hold_length = 4.0
@@ -339,7 +337,7 @@ hold_length = 4.0
 [node name="MetalBar2" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(1420.02, -400)
-rotation = -0.00582407
+rotation = -0.00552058
 press_key = 2
 press_time = 16.0
 hold_length = 4.0
@@ -348,7 +346,7 @@ hard_key = true
 [node name="MetalBar3" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(2130.02, -400)
-rotation = -0.00582407
+rotation = -0.00552058
 press_key = 2
 press_time = 24.0
 hold_length = 4.0
@@ -356,7 +354,7 @@ hold_length = 4.0
 [node name="MetalBar4" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(2840.02, -400)
-rotation = -0.00582407
+rotation = -0.00552058
 press_key = 2
 press_time = 32.0
 hold_length = 4.0
@@ -365,7 +363,7 @@ hard_key = true
 [node name="MetalBar5" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(4970.02, -400)
-rotation = -0.00582407
+rotation = -0.00552058
 press_key = 2
 press_time = 56.0
 hold_length = 4.0
@@ -374,7 +372,7 @@ hard_key = true
 [node name="MetalBar8" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(5680.02, -400)
-rotation = -0.00582407
+rotation = -0.00552058
 press_key = 2
 press_time = 64.0
 hold_length = 4.0
@@ -383,7 +381,7 @@ hard_key = true
 [node name="MetalBar9" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(6390.02, -400)
-rotation = -0.00582407
+rotation = -0.00552058
 press_key = 2
 press_time = 72.0
 hold_length = 4.0
@@ -392,7 +390,7 @@ hard_key = true
 [node name="MetalBar10" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(7100.02, -400)
-rotation = -0.00582407
+rotation = -0.00552058
 press_key = 2
 press_time = 80.0
 hold_length = 4.0
@@ -401,7 +399,7 @@ hard_key = true
 [node name="MetalBar11" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(7810.02, -400)
-rotation = -0.00582407
+rotation = -0.00552058
 press_key = 2
 press_time = 88.0
 hold_length = 4.0
@@ -410,7 +408,7 @@ hard_key = true
 [node name="MetalBar6" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(4260.02, -400)
-rotation = -0.00582407
+rotation = -0.00552058
 press_key = 2
 press_time = 48.0
 hold_length = 4.0
@@ -419,7 +417,7 @@ hard_key = true
 [node name="MetalBar7" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(3550.02, -400)
-rotation = -0.00582407
+rotation = -0.00552058
 press_key = 2
 press_time = 40.0
 hold_length = 4.0
@@ -482,7 +480,7 @@ emitting = false
 amount = 400
 randomness = 1.0
 draw_order = 1
-texture = SubResource("CompressedTexture2D_f3yu8")
+texture = ExtResource("12_gnk7u")
 emission_shape = 3
 emission_rect_extents = Vector2(80, 1)
 direction = Vector2(0, -1)
@@ -498,7 +496,7 @@ color_ramp = SubResource("Gradient_qggqa")
 z_index = -1
 material = SubResource("ShaderMaterial_dv1pm")
 scale = Vector2(0.6, 0.6)
-texture = SubResource("CompressedTexture2D_46pgg")
+texture = ExtResource("14_82q7a")
 
 [node name="Sound" type="AudioStreamPlayer" parent="FlamesAnimation"]
 stream = ExtResource("9_xm3vr")
