@@ -1,102 +1,89 @@
 shader_type canvas_item;
 
+uniform float flame_level: hint_range(0.0, 1.0, 0.05) = 0.0; // Controls the visibility of the flames
+uniform sampler2D flame_gradient; // Specifies the color gradient of the flames (alpha channel can be used)
 
-uniform float flame_level: hint_range(0.0, 1.0, 0.05) = 0.0; // Control how much the flames are visible
-uniform sampler2D flame_gradient; // flame_color of the fire (you can use the alpha value)
-
-// The brightness is used to have 2 different colors for the fire and mix them
-// It is made for animation
-// The `brightness` correspond to the mix value between the normal flame gradient and the bright flame gradient
-uniform float brightness: hint_range(0.0, 1.0, 0.1) = 0.;  
+// Controls the brightness for the flame animation, mixing between the normal and bright flame gradients
+uniform float brightness: hint_range(0.0, 1.0, 0.1) = 0.0;  
 uniform sampler2D bright_flame_gradient;
 
-// The flame distortion control the shape of the flames
-// The flame_color of the flame is normally linear: 
-//   it depends of the radius of the squircle with center the point (0.5, 0.5)
-// however with flame distortion you can move each pixel to give them the value that an other pixel would have
-uniform sampler2D flame_distortion_texture; // gray correpond to a 0 movement, white to a positive movement and black to a negative movement (you can use both red and green value independantly if you want)
-uniform sampler2D flame_distortion_strength; // use a curve 1D. Control how much the distortion texture will have effect according to the radius of the squircle with centern the point (0.5, 0.5) (it is almost equal to the distance from the center) 
-uniform float flame_distortion_factor: hint_range(0.0, 2.0, 0.1) = 0.0; // multiply the `flame_distortion_strength` by this value
+// Controls the shape of the flames using distortion textures
+// The flame color is usually continue based on the radius from the center (0.5, 0.5)
+// Flame distortion modifies each pixel's coordinates to modifie its squircle radius value
+uniform sampler2D flame_distortion_texture; // Gray indicates no movement, white positive, and black negative (red and green channels can be used independently)
+uniform sampler2D flame_distortion_strength; // 1D curve controlling the effect of the distortion texture based on the radius from the center
+uniform float flame_distortion_factor: hint_range(0.0, 2.0, 0.1) = 0.0; // Multiplies the effect of `flame_distortion_strength`
 
-// It is the same that the flame distortion but it applies on the original canvas image
+// Similar to flame distortion but applied to the original canvas image
 uniform sampler2D distortion_texture; 
 uniform sampler2D distortion_strength;
 uniform float distortion_factor: hint_range(0.0, 1.0, 0.01) = 0.0;
 
-
-// `width_clamping` change the width of this texture so that the right and left borders of the fire
-// match the right and left borders of the window.
-// It correpond to the proportion of the border that is not take account
-// Look at the image in the doc folder for a schedule (name: width_clamping.svg)
+// Adjusts the width of the texture so the fire's edges match the window's edges
+// Proportion of the border not taken into account
+// See the image in the doc folder (width_clamping.svg) for reference
 uniform float width_clamping: hint_range(0.0, 0.5, 0.01) = 0.0;
 
-
-/// result between 0.0 and 1.0
-float squircle_radius(vec2 uv) {
-	// We perform a symmetry of the coordinates on the two central axes 
-	// (the ordinate and abscissa lines) so that x and y are both less than 0.5.
-	// All the points are therefore in the same corner
-	float x = 0.5 - abs(uv.x - 0.5);
-	float y = 0.5 - abs(uv.y - 0.5);
-	// Draw a squircle (x^4 + y^4 = 1)
-	// The strength of the flame effect depends on the quircle radius
-	// For more information, see https://en.wikipedia.org/wiki/Squircle
-	
-	
-	// 0.5946 is used to clamp the value between 0 and 1
-	// 0.5946 is the maximum radius that can have a pixel 
+/// Returns a value between 0.0 and 1.0 representing the squircle radius.
+/// The squircle is centered at (0.5, 0.5) and the radius is calculated to the given point.
+float squircle_radius(vec2 point) {
+    // Symmetrizes coordinates around the center axes to keep x and y within [0, 0.5]
+    float x = 0.5 - abs(point.x - 0.5);
+    float y = 0.5 - abs(point.y - 0.5);
+    // Calculates the squircle radius (x^4 + y^4 = 1)
+    // More details: https://en.wikipedia.org/wiki/Squircle
+    
+    // 0.5946 normalizes the radius value to between 0 and 1
 	// 0.5946 = sqrt(sqrt((0.5 - 1) ^ 4  + (0.5 - 1) ^ 4)
-	return (sqrt(sqrt(pow(0.5 - x, 4) + pow(0.5 - y, 4)))) / 0.5946;
+    return (sqrt(sqrt(pow(0.5 - x, 4) + pow(0.5 - y, 4)))) / 0.5946;
 }
 
-// Called for every pixel the material is visible on.
+// Called for every pixel the material is visible on
 void fragment() {
-	// Check if we are respecting the width clamping condition
-	if (UV.x > width_clamping && UV.x < 1.0 - width_clamping) {
-		// We change the value of x so that for the selected part of the image, x is between 0.0 and 1.0
-		float x = (UV.x - width_clamping) / (1. - width_clamping * 2.);
-		vec2 position = vec2(x, UV.y);
+    // Check if the pixel is within the clamped width
+    if (UV.x > width_clamping && UV.x < 1.0 - width_clamping) {
+        // Normalize x to the range [0.0, 1.0] within the clamped width
+        float x = (UV.x - width_clamping) / (1.0 - 2.0 * width_clamping);
+        vec2 position = vec2(x, UV.y);
 
-		// distortion effect apply according to the radius of the squircle
-		// more the radius is high, more the distortion effect will be high
-		vec4 flame_distortion = texture(flame_distortion_texture, position);
-		//vec4 flame_distortion = vec4(.5);
-		float radius = squircle_radius(position);
-		// To better understand this calculus look at what each param does
-		vec2 distorted_UV = (position
-			+ flame_distortion_factor
-			* texture(
-				flame_distortion_strength, 
-				vec2(radius)
-			).r
-			* 2.
-			* vec2(flame_distortion.x-0.5, flame_distortion.y-0.5)
-			+ vec2(flame_distortion_factor))
-			/ vec2(1. + 2. * flame_distortion_factor);
+        // Apply flame distortion based on the squircle radius
+        vec4 flame_distortion = texture(flame_distortion_texture, position);
+        float radius = squircle_radius(position);
+        vec2 distorted_UV = (position
+            + flame_distortion_factor
+            * texture(
+                flame_distortion_strength, 
+                vec2(radius)
+            ).r
+            * 2.0
+            * vec2(flame_distortion.x - 0.5, flame_distortion.y - 0.5)
+            + vec2(flame_distortion_factor))
+            / vec2(1.0 + 2.0 * flame_distortion_factor);
 
-		// To make it more convenient for users (0 is the border and 1 the center)
-		vec2 flame_gradient_level = vec2(1. - squircle_radius(distorted_UV));
-		vec4 flame_color = mix(
-				texture(flame_gradient, flame_gradient_level), 
-				texture(bright_flame_gradient, flame_gradient_level),
-				brightness
-			);
+        // Adjust for user convenience (0.0 is the border, 1.0 is the center)
+        vec2 flame_gradient_level = vec2(1.0 - squircle_radius(distorted_UV));
+        vec4 flame_color = mix(
+                texture(flame_gradient, flame_gradient_level), 
+                texture(bright_flame_gradient, flame_gradient_level),
+                brightness
+            );
 
-		vec4 distortion = texture(distortion_texture, UV);
-		// Apply the distortion on the background
-		// To better understand this calculus look at what each param does
-		vec4 background_color = texture(
-				TEXTURE,
-				UV + texture(distortion_strength, vec2(radius)).r
-				* distortion_factor
-				* vec2(distortion.x-0.5, distortion.y-0.5)
-		);
-		COLOR = mix(
-			background_color,
-			vec4(flame_color.r, flame_color.g, flame_color.b, 1), 
-			flame_color.a * flame_level
-		);
-	} else {
-		COLOR = vec4(0.);
-	}
+        vec4 distortion = texture(distortion_texture, UV);
+        // Apply distortion to the background based on the radius
+        vec4 background_color = texture(
+                TEXTURE,
+                UV + texture(distortion_strength, vec2(radius)).r
+                * distortion_factor
+                * vec2(distortion.x - 0.5, distortion.y - 0.5)
+        );
+        // Mix background color with flame color based on flame level and alpha
+        COLOR = mix(
+            background_color,
+            vec4(flame_color.r, flame_color.g, flame_color.b, 1.0), 
+            flame_color.a * flame_level
+        );
+    } else {
+        // Set color to transparent if outside clamped width
+        COLOR = vec4(0.0);
+    }
 }
