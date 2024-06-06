@@ -1,14 +1,22 @@
 shader_type canvas_item;
 
-uniform float flame_level: hint_range(0.0, 1.0, 0.05) = 0.0;
-uniform sampler2D flame_gradient; // color ramp
-uniform float width_clamping: hint_range(0.0, 0.5, 0.01) = 0.0; 
+uniform float flame_level: hint_range(0.0, 1.0, 0.05) = 0.0; // the miw value between the flame and the original image
+uniform sampler2D flame_gradient; // color of the fire (you can use the alpha value)
+// `width_clamping` change the width of this texture so that the right and left borders of the fire
+// match the right and left borders of the window.
+// It correpond to the proportion of the border that is not take account
+// Look at the image in the doc folder for a schedule (name: width_clamping.svg)
+uniform float width_clamping: hint_range(0.0, 0.5, 0.01) = 0.0;
 uniform sampler2D flame_distortion_texture; // texture
 uniform float flame_distortion_factor: hint_range(0.0, 2.0, 0.1) = 0.0;
 uniform sampler2D flame_distortion_strength; // curve
 
-uniform float brightness: hint_range(0.0, 1.0, 0.1); // it can be use for hotness
-uniform sampler2D bright_flame_gradient; // color ramp for hot fire 
+// The brightness is used to have 2 different colors for the fire and mix them
+// It is made for animation
+// The `brightness` correspond to the mix value between the normal flame gradient and the bright flame gradient
+uniform float brightness: hint_range(0.0, 1.0, 0.1) = 0.;  
+uniform sampler2D bright_flame_gradient;
+
 
 uniform sampler2D distortion_texture; // texture
 uniform sampler2D distortion_strength; // curve
@@ -71,9 +79,6 @@ void fragment() {
 			vec4(color.r, color.g, color.b, 1), 
 			color.a * flame_level
 		);
-		if (flame_gradient_level.x < 0.) {
-			COLOR = vec4(0.);
-		}
 	} else {
 		COLOR = vec4(0.);
 	}

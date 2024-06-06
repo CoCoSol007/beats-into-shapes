@@ -17,11 +17,34 @@ const FLAME_DISTORTION_SPEED = 75.0
 const TARGET_VOLUME = 24
 const VOLUME_SPEED = 30.
 
+func _on_viewport_resize():
+	# This function changes the width clamping parameter of the background texture
+	# to make the background the same width as the window. Thanks to this,
+	# the fire can be displayed correctly at the border.
+   
+	var window: Window = get_window()
+	if background.texture is CompressedTexture2D:
+		shader_material.set_shader_parameter( 
+			"width_clamping", 
+			clamp(
+				.5 - window.size.x / (
+					background.texture.get_size().x
+					* background.transform.get_scale().x
+					* window.get_screen_transform().x.x
+				) * 0.5,
+				0.,
+				0.5
+			)
+		)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	shader_material = background.material as ShaderMaterial
 	noise_texture = shader_material.get_shader_parameter("distortion_texture").noise
 	flame_noise_texture = shader_material.get_shader_parameter("flame_distortion_texture").noise
+	get_viewport().connect("size_changed", _on_viewport_resize)
+	_on_viewport_resize()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
