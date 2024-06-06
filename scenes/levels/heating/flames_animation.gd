@@ -6,7 +6,6 @@ extends Node
 
 @onready var background := $Background
 @onready var animation_flames = $AnimationFlames
-@onready var camera_2d = $"../Camera2D"
 
 var noise_texture: FastNoiseLite
 var flame_noise_texture: FastNoiseLite
