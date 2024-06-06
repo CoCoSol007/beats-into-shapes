@@ -28,3 +28,14 @@ func _on_h_slider_value_changed(value):
 		# Otherwise, set the texture to normal
 		texture_normal = normal_texture
 
+
+
+func _ready():	
+	material.set_shader_parameter("is_hover", false)
+
+func _on_mouse_entered():
+	material.set_shader_parameter("is_hover", true)
+
+func _on_mouse_exited():
+	material.set_shader_parameter("is_hover", false)
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cnqt0hkp3yl0s"]
+[gd_scene load_steps=37 format=3 uid="uid://cnqt0hkp3yl0s"]
 
 [ext_resource type="Script" path="res://scenes/menu/scrollable_menu.gd" id="1_odp0j"]
 [ext_resource type="Texture2D" uid="uid://d2lw6v37lb1w7" path="res://assets/menu/level_1.png" id="1_yh2c5"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bmjiy3044y8wy" path="res://assets/menu/level_4_locked.png" id="14_fgxro"]
 [ext_resource type="Texture2D" uid="uid://dvkgrbsgf68y3" path="res://assets/menu/trophy.png" id="20_gu2sa"]
 [ext_resource type="Script" path="res://scenes/menu/trophies_button.gd" id="21_n13eo"]
+[ext_resource type="Shader" path="res://scenes/menu/hover_button.gdshader" id="23_8bvqj"]
 [ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="24_h182e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfd4c"]
@@ -37,6 +38,21 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jgkfi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ppc3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vaaki"]
+shader = ExtResource("23_8bvqj")
+shader_parameter/is_hover = false
+shader_parameter/hover_color = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8yl8h"]
+shader = ExtResource("23_8bvqj")
+shader_parameter/is_hover = false
+shader_parameter/hover_color = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ffa7"]
+shader = ExtResource("23_8bvqj")
+shader_parameter/is_hover = false
+shader_parameter/hover_color = Vector3(0.7, 0.7, 0.7)
 
 [node name="Menu" type="Control" groups=["menu"]]
 layout_mode = 3
@@ -243,6 +259,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Volume" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_vaaki")
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -270,6 +287,7 @@ value = 1.0
 script = ExtResource("5_5ai2q")
 
 [node name="Trophy" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_8yl8h")
 layout_mode = 0
 offset_left = 29.0
 offset_top = 35.0
@@ -280,6 +298,7 @@ texture_normal = ExtResource("20_gu2sa")
 script = ExtResource("21_n13eo")
 
 [node name="Credits" type="TextureButton" parent="."]
+material = SubResource("ShaderMaterial_8ffa7")
 custom_minimum_size = Vector2(68, 68)
 layout_mode = 1
 anchors_preset = 3
@@ -299,8 +318,15 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("8_c5hcm")
 
+[connection signal="mouse_entered" from="Volume" to="Volume" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Volume" to="Volume" method="_on_mouse_exited"]
 [connection signal="pressed" from="Volume" to="Volume" method="_on_pressed"]
 [connection signal="value_changed" from="Volume/HSlider" to="Volume" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Volume/HSlider" to="Volume/HSlider" method="_on_value_changed"]
+[connection signal="focus_entered" from="Trophy" to="Trophy" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="Trophy" to="Trophy" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Trophy" to="Trophy" method="_on_mouse_exited"]
 [connection signal="pressed" from="Trophy" to="Trophy" method="_on_pressed"]
+[connection signal="mouse_entered" from="Credits" to="Credits" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Credits" to="Credits" method="_on_mouse_exited"]
 [connection signal="pressed" from="Credits" to="Credits" method="_on_pressed"]

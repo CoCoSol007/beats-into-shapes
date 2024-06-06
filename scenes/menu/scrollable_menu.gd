@@ -25,7 +25,7 @@ func _input(event: InputEvent):
 	# Handle pan gesture input
 	if event is InputEventPanGesture:
 		# Update the target position based on the pan gesture
-		target_position_y = $Control.position.y - event.delta.y * 100
+		target_position_y = $Control.position.y - event.delta.y * 1
 		# Clamp the target position to the scrollable range
 		target_position_y = clamp(target_position_y, -648, 0)
 	# Handle mouse button input
