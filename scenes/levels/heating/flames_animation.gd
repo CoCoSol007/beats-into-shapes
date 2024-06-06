@@ -18,24 +18,24 @@ const TARGET_VOLUME = 24
 const VOLUME_SPEED = 30.
 
 func _on_viewport_resize():
-	# This function changes the width clamping parameter of the background texture
-	# to make the background the same width as the window. Thanks to this,
-	# the fire can be displayed correctly at the border.
+	# Adjusts the width clamping parameter of the background texture
+	# to ensure the background matches the width of the window.
+	# This alignment allows the fire effect to be displayed correctly at the borders.
    
 	var window: Window = get_window()
 	if background.texture is CompressedTexture2D:
 		shader_material.set_shader_parameter( 
 			"width_clamping", 
 			clamp(
-				.5 - window.size.x / (
-					background.texture.get_size().x
-					* background.transform.get_scale().x
-					* window.get_screen_transform().x.x
+				0.5 - window.size.x / (
+					background.texture.get_size().x * background.transform.get_scale().x # Actual size of the background
+					* window.get_screen_transform().x.x # Scale factor of the window
 				) * 0.5,
-				0.,
+				0.0,
 				0.5
 			)
 		)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
