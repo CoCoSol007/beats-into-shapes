@@ -4,10 +4,11 @@ The hammer animation script.
 
 extends AnimationPlayer
 
-func _process(_delta):
+var paused := false
 
+func _process(_delta):
 	# If the player is hitting with the hammer.
-	if Input.is_action_just_pressed("action_main"):
+	if Input.is_action_just_pressed("action_main") and !paused:
 		stop()
 		play("hit")
 

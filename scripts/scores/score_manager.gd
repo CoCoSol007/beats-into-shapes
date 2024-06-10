@@ -11,7 +11,8 @@ const TOO_SCORE = 5
 const FAILED_SCORE = -10
 
 # Reference to the BeatManager node
-@onready var beat_manager = get_node("../BeatManager")
+@onready var beat_manager = $"../PauseAffectedScript/BeatManager"
+
 
 # Variables to store the current score and combo count
 var score: int = 0

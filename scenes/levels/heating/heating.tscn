@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://1ft7t0frbqu0"]
+[gd_scene load_steps=42 format=3 uid="uid://1ft7t0frbqu0"]
 
 [ext_resource type="PackedScene" uid="uid://dwul1oterdmc" path="res://scripts/pause/pause.tscn" id="1_4khu3"]
 [ext_resource type="AudioStream" uid="uid://c3kbupayfpxyo" path="res://musics/heating.mp3" id="1_cuyft"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b0f5uxncim2cf" path="res://scripts/scores/score_manager.tscn" id="3_buh1v"]
 [ext_resource type="PackedScene" uid="uid://cnecogu51saqv" path="res://scripts/seed_up/speedup_animation.tscn" id="4_5try2"]
 [ext_resource type="PackedScene" uid="uid://bbpnhkdf3ds7d" path="res://scenes/levels/heating/metal_bar.tscn" id="4_h8kqc"]
+[ext_resource type="AudioStream" uid="uid://ci8sc0evsglys" path="res://musics/selection.mp3" id="7_x37hy"]
+[ext_resource type="Script" path="res://scenes/levels/heating/rain.gd" id="8_enadb"]
 [ext_resource type="AudioStream" uid="uid://cfnoylr4ixx71" path="res://musics/sounds/fire.wav" id="9_xm3vr"]
 [ext_resource type="PackedScene" uid="uid://cdaq1hxju3fwl" path="res://scripts/tuto/tutorial.tscn" id="11_2jlud"]
 [ext_resource type="Texture2D" uid="uid://t4qrtjvba26d" path="res://assets/heating/particule.png" id="12_gnk7u"]
@@ -18,18 +20,6 @@
 
 [sub_resource type="Animation" id="Animation_mo7pu"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BeatManager:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_4jotm"]
 resource_name = "level"
@@ -49,26 +39,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/0/use_blend = true
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BeatManager:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 115),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(115, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqrff"]
 _data = {
 "RESET": SubResource("Animation_mo7pu"),
 "level": SubResource("Animation_4jotm")
 }
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f3yu8"]
 
 [sub_resource type="Curve" id="Curve_2rw0d"]
 _data = [Vector2(0, 0.691211), 0.0, 0.0, 0, 0, Vector2(0.807263, 0.765321), -1.88338, -1.88338, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -135,14 +111,14 @@ gradient = SubResource("Gradient_gqklo")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv1pm"]
 shader = ExtResource("14_yp8lt")
 shader_parameter/flame_level = 0.0
-shader_parameter/width_clamping = 0.0
-shader_parameter/flame_distortion_factor = 0.0
 shader_parameter/brightness = 0.0
+shader_parameter/flame_distortion_factor = 0.0
 shader_parameter/distortion_factor = 0.0
+shader_parameter/width_clamping = 0.0
 shader_parameter/flame_gradient = SubResource("GradientTexture1D_fue8c")
+shader_parameter/bright_flame_gradient = SubResource("GradientTexture1D_18il5")
 shader_parameter/flame_distortion_texture = SubResource("NoiseTexture2D_4eh6x")
 shader_parameter/flame_distortion_strength = SubResource("CurveTexture_3qwue")
-shader_parameter/bright_flame_gradient = SubResource("GradientTexture1D_18il5")
 shader_parameter/distortion_texture = SubResource("NoiseTexture2D_sn724")
 shader_parameter/distortion_strength = SubResource("CurveTexture_2xobg")
 
@@ -306,16 +282,6 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
-[node name="BeatManager" parent="." instance=ExtResource("2_2vwvw")]
-stream = ExtResource("1_cuyft")
-perfect_time = 0.3
-too_time = 0.5
-speedup_time = 44.0
-speedup_length = 4.0
-tutorial_stop_time = 48.0
-level = 1
-level_name = "heating"
-
 [node name="ScoreManager" parent="." instance=ExtResource("3_buh1v")]
 position = Vector2(0, -264)
 
@@ -411,6 +377,62 @@ press_key = 2
 press_time = 40.0
 hold_length = 4.0
 
+[node name="PauseAffectedScript" type="Node" parent="."]
+
+[node name="BeatManager" parent="PauseAffectedScript" instance=ExtResource("2_2vwvw")]
+stream = ExtResource("7_x37hy")
+speedup_time = 71.0
+speedup_length = 4.0
+level_name = "selection"
+
+[node name="Rain" type="CPUParticles2D" parent="PauseAffectedScript"]
+position = Vector2(0, 1)
+amount = 20
+texture = ExtResource("12_gnk7u")
+emission_shape = 3
+emission_rect_extents = Vector2(600, 300)
+gravity = Vector2(0, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_2rw0d")
+color_ramp = SubResource("Gradient_ilbtj")
+script = ExtResource("8_enadb")
+
+[node name="FlamesAnimation" type="Node" parent="PauseAffectedScript"]
+script = ExtResource("14_v4fny")
+
+[node name="Particles" type="CPUParticles2D" parent="PauseAffectedScript/FlamesAnimation"]
+position = Vector2(1, 341)
+emitting = false
+amount = 400
+randomness = 1.0
+draw_order = 1
+texture = ExtResource("12_gnk7u")
+emission_shape = 3
+emission_rect_extents = Vector2(80, 1)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, -10)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_max = 1.1
+scale_amount_curve = SubResource("Curve_ngg36")
+color_ramp = SubResource("Gradient_qggqa")
+
+[node name="Background" type="Sprite2D" parent="PauseAffectedScript/FlamesAnimation"]
+z_index = -1
+material = SubResource("ShaderMaterial_dv1pm")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_82q7a")
+
+[node name="Sound" type="AudioStreamPlayer" parent="PauseAffectedScript/FlamesAnimation"]
+stream = ExtResource("9_xm3vr")
+
+[node name="AnimationFlames" type="AnimationPlayer" parent="PauseAffectedScript/FlamesAnimation"]
+libraries = {
+"": SubResource("AnimationLibrary_frc1l")
+}
+
 [node name="TutorialIndicator" parent="." instance=ExtResource("11_2jlud")]
 position = Vector2(-184, 260)
 texture = ExtResource("12_yoc53")
@@ -447,50 +469,3 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("14_xcvl4")
 theme_override_font_sizes/font_size = 25
 text = "Heat up the iron ingots"
-
-[node name="Rain" type="CPUParticles2D" parent="."]
-position = Vector2(0, 1)
-amount = 20
-texture = SubResource("CompressedTexture2D_f3yu8")
-emission_shape = 3
-emission_rect_extents = Vector2(600, 300)
-gravity = Vector2(0, 0)
-scale_amount_min = 0.1
-scale_amount_max = 0.5
-scale_amount_curve = SubResource("Curve_2rw0d")
-color_ramp = SubResource("Gradient_ilbtj")
-
-[node name="FlamesAnimation" type="Node" parent="."]
-script = ExtResource("14_v4fny")
-
-[node name="Particles" type="CPUParticles2D" parent="FlamesAnimation"]
-position = Vector2(1, 341)
-emitting = false
-amount = 400
-randomness = 1.0
-draw_order = 1
-texture = ExtResource("12_gnk7u")
-emission_shape = 3
-emission_rect_extents = Vector2(80, 1)
-direction = Vector2(0, -1)
-spread = 15.0
-gravity = Vector2(0, -10)
-initial_velocity_min = 100.0
-initial_velocity_max = 300.0
-scale_amount_max = 1.1
-scale_amount_curve = SubResource("Curve_ngg36")
-color_ramp = SubResource("Gradient_qggqa")
-
-[node name="Background" type="Sprite2D" parent="FlamesAnimation"]
-z_index = -1
-material = SubResource("ShaderMaterial_dv1pm")
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("14_82q7a")
-
-[node name="Sound" type="AudioStreamPlayer" parent="FlamesAnimation"]
-stream = ExtResource("9_xm3vr")
-
-[node name="AnimationFlames" type="AnimationPlayer" parent="FlamesAnimation"]
-libraries = {
-"": SubResource("AnimationLibrary_frc1l")
-}

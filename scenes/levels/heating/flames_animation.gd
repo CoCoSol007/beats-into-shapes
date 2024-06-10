@@ -6,6 +6,9 @@ extends Node
 
 @onready var background := $Background
 @onready var animation_flames = $AnimationFlames
+@onready var sound = $Sound
+@onready var particles = $Particles
+
 
 var noise_texture: FastNoiseLite
 var flame_noise_texture: FastNoiseLite
@@ -15,6 +18,28 @@ const DISTORTION_SPEED = 75.0
 const FLAME_DISTORTION_SPEED = 75.0
 const TARGET_VOLUME = 24
 const VOLUME_SPEED = 30.
+
+var is_running := false
+
+var paused := false:
+	set(value):
+		# Entering pause mode
+		if value and !paused:
+			sound.stop()
+		# Exiting pause mode
+		if !value and paused:
+			var action_main_press := Input.is_action_pressed("action_main")
+			# User pressed action_main during pause mode
+			if action_main_press and !is_running:
+				animation_start()
+			# User released action_main during pause mode
+			elif !action_main_press and is_running:
+				animation_end()
+			# User kept action_main pressed during pause mode
+			if action_main_press and is_running:
+				sound.play()
+		paused = value
+
 
 func _on_viewport_resize():
 	# Adjusts the width clamping parameter of the background texture
@@ -48,26 +73,38 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# Smoothly increase the volume of the sound.
-	if $Sound.is_playing():
-		$Sound.volume_db = min($Sound.volume_db + VOLUME_SPEED * delta, TARGET_VOLUME)
-	else :
-		$Sound.volume_db = 0
+	# exit if is in pause mode
+	if paused:
+		return
 
+	# Smoothly increase the volume of the sound.
+	if sound.is_playing():
+		sound.volume_db = min(sound.volume_db + VOLUME_SPEED * delta, TARGET_VOLUME)
+	else :
+		sound.volume_db = 0
+	
 	if Input.is_action_just_pressed("action_main"):
-		# Activate the flames in the border
-		animation_flames.play("press")
-		# Emit the particles.
-		$Particles.set_emitting(true)
-		# Play the sound.
-		$Sound.play()
+		animation_start()
 	elif Input.is_action_just_released("action_main"):
-		# Disable the flames in the border
-		animation_flames.play("release")
-		# Stop emmiting the particles.
-		$Particles.set_emitting(false)
-		# Stop the sound.
-		$Sound.stop()
+		animation_end()
 	# change smoothly the noise texture
 	noise_texture.offset.z += delta * DISTORTION_SPEED
 	flame_noise_texture.offset.z += delta * FLAME_DISTORTION_SPEED
+
+func animation_start():
+	is_running = true
+	# Activate the flames in the border
+	animation_flames.play("press")
+	# Emit the particles.
+	particles.set_emitting(true)
+	# Play the sound.
+	sound.play()
+
+func animation_end():
+	is_running = false
+	# Disable the flames in the border
+	animation_flames.play("release")
+	# Stop emmiting the particles.
+	particles.set_emitting(false)
+	# Stop the sound.
+	sound.stop()
