@@ -135,14 +135,14 @@ gradient = SubResource("Gradient_gqklo")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv1pm"]
 shader = ExtResource("14_yp8lt")
 shader_parameter/flame_level = 0.0
-shader_parameter/width_clamping = 0.0
-shader_parameter/flame_distortion_factor = 0.0
 shader_parameter/brightness = 0.0
+shader_parameter/flame_distortion_factor = 0.0
 shader_parameter/distortion_factor = 0.0
+shader_parameter/width_clamping = 0.0
 shader_parameter/flame_gradient = SubResource("GradientTexture1D_fue8c")
+shader_parameter/bright_flame_gradient = SubResource("GradientTexture1D_18il5")
 shader_parameter/flame_distortion_texture = SubResource("NoiseTexture2D_4eh6x")
 shader_parameter/flame_distortion_strength = SubResource("CurveTexture_3qwue")
-shader_parameter/bright_flame_gradient = SubResource("GradientTexture1D_18il5")
 shader_parameter/distortion_texture = SubResource("NoiseTexture2D_sn724")
 shader_parameter/distortion_strength = SubResource("CurveTexture_2xobg")
 
