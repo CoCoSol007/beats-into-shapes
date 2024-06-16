@@ -16,7 +16,7 @@ resource_local_to_scene = true
 shader = ExtResource("1_t73k8")
 shader_parameter/scale = 150.0
 shader_parameter/x = 0.0
-shader_parameter/is_lock = 0.0
+shader_parameter/is_locked = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
 
 [node name="Trophy" type="Sprite2D"]
