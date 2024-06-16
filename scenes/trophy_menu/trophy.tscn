@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://f3cmfsg60tr"]
+
+[ext_resource type="Shader" path="res://scenes/trophy_menu/trophy.gdshader" id="1_t73k8"]
+[ext_resource type="Texture2D" uid="uid://d6yo31843xsh" path="res://assets/trophy/default_trophy.svg" id="2_bsmd4"]
+
+[sub_resource type="Curve" id="Curve_bugjn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.215094, 1), 0.0, 0.0, 0, 0, Vector2(0.445283, 0.75663), -0.866841, -0.866841, 0, 0, Vector2(0.933022, 0.40952), -2.11719, -2.11719, 0, 0, Vector2(0.984424, 0), -0.00661466, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_gq4y5"]
+texture_mode = 1
+curve = SubResource("Curve_bugjn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gd6vj"]
+resource_local_to_scene = true
+shader = ExtResource("1_t73k8")
+shader_parameter/scale = 150.0
+shader_parameter/x = 445.0
+shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+
+[node name="Trophy" type="Sprite2D"]
+material = SubResource("ShaderMaterial_gd6vj")
+texture = ExtResource("2_bsmd4")
+metadata/base_x_position = 0
+metadata/description = "Description"
+metadata/title = "TROPHY NAME"

@@ -5,15 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://b4o1dtcp7eefk" path="res://assets/menu/disabled.png" id="2_7173o"]
 [ext_resource type="Script" path="res://scenes/menu/level_button.gd" id="2_ntlvl"]
 [ext_resource type="Texture2D" uid="uid://dy7sp3tuc2bbs" path="res://assets/menu/level_1_hover.png" id="2_sx2pw"]
-[ext_resource type="Texture2D" uid="uid://dqqeu5wobj5u7" path="res://assets/menu/volume.png" id="4_x5u4x"]
-[ext_resource type="Texture2D" uid="uid://bdajesu5wa2ql" path="res://assets/menu/credits.png" id="5_2t5qw"]
 [ext_resource type="Script" path="res://scenes/menu/sound_volume/volume_change.gd" id="5_5ai2q"]
 [ext_resource type="Texture2D" uid="uid://b2cr46c248yk0" path="res://assets/menu/level_2.png" id="5_tv2yb"]
 [ext_resource type="Script" path="res://scenes/menu/sound_volume/volume_button.gd" id="5_u60qm"]
 [ext_resource type="Texture2D" uid="uid://50700f16cbl3" path="res://assets/menu/level_3.png" id="6_2xdj8"]
-[ext_resource type="Texture2D" uid="uid://cj8m1l6fl1eg0" path="res://assets/menu/credits_hovered.png" id="6_cpa0o"]
 [ext_resource type="Texture2D" uid="uid://dbsksp8gboflj" path="res://assets/menu/level_2_hover.png" id="6_e6ady"]
-[ext_resource type="Texture2D" uid="uid://cwwnwwqdq8vwt" path="res://assets/menu/volume_disabled.png" id="6_swbpt"]
 [ext_resource type="Texture2D" uid="uid://d1a21hu0r5pld" path="res://assets/menu/level_4.png" id="7_0sr3a"]
 [ext_resource type="Texture2D" uid="uid://b6bq61ysjl7dl" path="res://assets/menu/level_3_hover.png" id="8_18efn"]
 [ext_resource type="Script" path="res://scenes/menu/credits_button.gd" id="8_c5hcm"]
@@ -24,10 +20,14 @@
 [ext_resource type="Texture2D" uid="uid://bmsdno5shg72o" path="res://assets/menu/level_5_hover.png" id="13_ayhkv"]
 [ext_resource type="Texture2D" uid="uid://cpue22qyqret4" path="res://assets/menu/backgroung.png" id="14_4okw3"]
 [ext_resource type="Texture2D" uid="uid://bmjiy3044y8wy" path="res://assets/menu/level_4_locked.png" id="14_fgxro"]
-[ext_resource type="Texture2D" uid="uid://dvkgrbsgf68y3" path="res://assets/menu/trophy.png" id="20_gu2sa"]
+[ext_resource type="PackedScene" uid="uid://bwojew6ril6yg" path="res://scripts/menu_utils/hover_button.tscn" id="19_o4cj2"]
+[ext_resource type="Texture2D" uid="uid://c7yhtj2138so0" path="res://assets/menu/volume_on.svg" id="21_k8ye3"]
 [ext_resource type="Script" path="res://scenes/menu/trophies_button.gd" id="21_n13eo"]
-[ext_resource type="Shader" path="res://scenes/menu/hover_button.gdshader" id="23_8bvqj"]
+[ext_resource type="Texture2D" uid="uid://bmvi25hcei1tk" path="res://assets/menu/volume_off.svg" id="22_e2x7o"]
+[ext_resource type="Shader" path="res://scripts/menu_utils/hover_button.gdshader" id="23_8bvqj"]
+[ext_resource type="Texture2D" uid="uid://d6yo31843xsh" path="res://assets/trophy/default_trophy.svg" id="23_axu7l"]
 [ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="24_h182e"]
+[ext_resource type="Texture2D" uid="uid://cg8wtjr0ohtgg" path="res://assets/menu/credit.svg" id="25_7yqy7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfd4c"]
 
@@ -41,18 +41,27 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vaaki"]
 shader = ExtResource("23_8bvqj")
-shader_parameter/is_hover = false
-shader_parameter/hover_color = Vector3(0.7, 0.7, 0.7)
+shader_parameter/color = Vector4(0, 0, 0, 1)
+shader_parameter/hover_color = Vector4(0.7, 0.7, 0.7, 1)
+shader_parameter/press_color = Vector4(1, 1, 1, 1)
+shader_parameter/hover_intensity = 0.0
+shader_parameter/press_intensity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8yl8h"]
 shader = ExtResource("23_8bvqj")
-shader_parameter/is_hover = false
-shader_parameter/hover_color = Vector3(0.7, 0.7, 0.7)
+shader_parameter/color = Vector4(0, 0, 0, 1)
+shader_parameter/hover_color = Vector4(0.7, 0.7, 0.7, 1)
+shader_parameter/press_color = Vector4(1, 1, 1, 1)
+shader_parameter/hover_intensity = 0.0
+shader_parameter/press_intensity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ffa7"]
 shader = ExtResource("23_8bvqj")
-shader_parameter/is_hover = false
-shader_parameter/hover_color = Vector3(0.7, 0.7, 0.7)
+shader_parameter/color = Vector4(0, 0, 0, 1)
+shader_parameter/hover_color = Vector4(0.7, 0.7, 0.7, 1)
+shader_parameter/press_color = Vector4(1, 1, 1, 1)
+shader_parameter/hover_intensity = 0.0
+shader_parameter/press_intensity = 0.0
 
 [node name="Menu" type="Control" groups=["menu"]]
 layout_mode = 3
@@ -258,9 +267,11 @@ text = "Beats into Shapes
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Volume" type="TextureButton" parent="."]
+[node name="VolumeHoverScript" parent="." instance=ExtResource("19_o4cj2")]
+press_change_speed = 2.0
+
+[node name="Volume" type="TextureButton" parent="VolumeHoverScript"]
 material = SubResource("ShaderMaterial_vaaki")
-layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -269,38 +280,53 @@ offset_top = -87.0
 offset_right = 85.0
 offset_bottom = -19.0
 grow_vertical = 0
-texture_normal = ExtResource("4_x5u4x")
+focus_neighbor_top = NodePath("../../TrophyHoverScript/Trophy")
+focus_neighbor_right = NodePath("HSlider")
+focus_next = NodePath("HSlider")
+focus_previous = NodePath("../../TrophyHoverScript/Trophy")
+texture_normal = ExtResource("21_k8ye3")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_u60qm")
-normal_texture = ExtResource("4_x5u4x")
-disabled_texture = ExtResource("6_swbpt")
+normal_texture = ExtResource("21_k8ye3")
+disabled_texture = ExtResource("22_e2x7o")
 
-[node name="HSlider" type="HSlider" parent="Volume"]
+[node name="HSlider" type="HSlider" parent="VolumeHoverScript/Volume"]
 layout_mode = 0
 offset_left = 84.0
 offset_right = 308.0
 offset_bottom = 68.0
+focus_neighbor_left = NodePath("..")
+focus_neighbor_top = NodePath("../../../TrophyHoverScript/Trophy")
+focus_neighbor_right = NodePath("../../../CreditsHoverScript/Credits")
+focus_next = NodePath("../../../CreditsHoverScript/Credits")
+focus_previous = NodePath("..")
 max_value = 1.0
 step = 0.01
 value = 1.0
 script = ExtResource("5_5ai2q")
 
-[node name="Trophy" type="TextureButton" parent="."]
+[node name="TrophyHoverScript" parent="." instance=ExtResource("19_o4cj2")]
+
+[node name="Trophy" type="TextureButton" parent="TrophyHoverScript"]
 material = SubResource("ShaderMaterial_8yl8h")
-layout_mode = 0
-offset_left = 29.0
-offset_top = 35.0
-offset_right = 69.0
-offset_bottom = 75.0
-scale = Vector2(1.977, 1.96884)
-texture_normal = ExtResource("20_gu2sa")
+custom_minimum_size = Vector2(80, 80)
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 173.0
+offset_bottom = 173.0
+scale = Vector2(0.6, 0.6)
+focus_neighbor_bottom = NodePath("../../VolumeHoverScript/Volume")
+focus_next = NodePath("../../VolumeHoverScript/Volume")
+focus_previous = NodePath("../../CreditsHoverScript/Credits")
+texture_normal = ExtResource("23_axu7l")
 script = ExtResource("21_n13eo")
 
-[node name="Credits" type="TextureButton" parent="."]
+[node name="CreditsHoverScript" parent="." instance=ExtResource("19_o4cj2")]
+
+[node name="Credits" type="TextureButton" parent="CreditsHoverScript"]
 material = SubResource("ShaderMaterial_8ffa7")
 custom_minimum_size = Vector2(68, 68)
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -312,21 +338,24 @@ offset_right = -16.0
 offset_bottom = -17.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("5_2t5qw")
-texture_hover = ExtResource("6_cpa0o")
+focus_neighbor_left = NodePath("../../VolumeHoverScript/Volume/HSlider")
+focus_neighbor_top = NodePath("../../TrophyHoverScript/Trophy")
+focus_next = NodePath("../../TrophyHoverScript/Trophy")
+focus_previous = NodePath("../../VolumeHoverScript/Volume/HSlider")
+texture_normal = ExtResource("25_7yqy7")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("8_c5hcm")
 
-[connection signal="mouse_entered" from="Volume" to="Volume" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Volume" to="Volume" method="_on_mouse_exited"]
-[connection signal="pressed" from="Volume" to="Volume" method="_on_pressed"]
-[connection signal="value_changed" from="Volume/HSlider" to="Volume" method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="Volume/HSlider" to="Volume/HSlider" method="_on_value_changed"]
-[connection signal="focus_entered" from="Trophy" to="Trophy" method="_on_focus_entered"]
-[connection signal="mouse_entered" from="Trophy" to="Trophy" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Trophy" to="Trophy" method="_on_mouse_exited"]
-[connection signal="pressed" from="Trophy" to="Trophy" method="_on_pressed"]
-[connection signal="mouse_entered" from="Credits" to="Credits" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Credits" to="Credits" method="_on_mouse_exited"]
-[connection signal="pressed" from="Credits" to="Credits" method="_on_pressed"]
+[connection signal="mouse_entered" from="VolumeHoverScript/Volume" to="VolumeHoverScript/Volume" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VolumeHoverScript/Volume" to="VolumeHoverScript/Volume" method="_on_mouse_exited"]
+[connection signal="pressed" from="VolumeHoverScript/Volume" to="VolumeHoverScript/Volume" method="_on_pressed"]
+[connection signal="value_changed" from="VolumeHoverScript/Volume/HSlider" to="VolumeHoverScript/Volume" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="VolumeHoverScript/Volume/HSlider" to="VolumeHoverScript/Volume/HSlider" method="_on_value_changed"]
+[connection signal="focus_entered" from="TrophyHoverScript/Trophy" to="TrophyHoverScript/Trophy" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="TrophyHoverScript/Trophy" to="TrophyHoverScript/Trophy" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TrophyHoverScript/Trophy" to="TrophyHoverScript/Trophy" method="_on_mouse_exited"]
+[connection signal="pressed" from="TrophyHoverScript/Trophy" to="TrophyHoverScript/Trophy" method="_on_pressed"]
+[connection signal="mouse_entered" from="CreditsHoverScript/Credits" to="CreditsHoverScript/Credits" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CreditsHoverScript/Credits" to="CreditsHoverScript/Credits" method="_on_mouse_exited"]
+[connection signal="pressed" from="CreditsHoverScript/Credits" to="CreditsHoverScript/Credits" method="_on_pressed"]

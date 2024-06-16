@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvkgrbsgf68y3"
-path="res://.godot/imported/trophy.png-99aa5a1de34135413b0d02ed88b362c2.ctex"
+uid="uid://c7yhtj2138so0"
+path="res://.godot/imported/volume_on.svg-3f27eb0f279963bcc1e511097d27da7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/trophy.png"
-dest_files=["res://.godot/imported/trophy.png-99aa5a1de34135413b0d02ed88b362c2.ctex"]
+source_file="res://assets/menu/volume_on.svg"
+dest_files=["res://.godot/imported/volume_on.svg-3f27eb0f279963bcc1e511097d27da7b.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
