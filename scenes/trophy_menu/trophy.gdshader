@@ -12,24 +12,23 @@ uniform float scale = 150.0;
 uniform float x;
 // Set to 1.0 if the trophy is locked, otherwise set to 0.0
 // When the trophy is locked, it appears in black
-uniform float is_lock = 0.0;
+uniform float is_locked = 0.0;
 uniform sampler2D transparency_curve;
 
 
 void fragment() {
 	// Adjust the alpha channel based on the transparency curve
-	COLOR.a *= step(1.5, COLOR.r + COLOR.g + COLOR.b)
-		 * texture(
-			transparency_curve, 
-			vec2(smoothstep(
-				0.0, 
-				1.0, 
-				abs(x + (UV.x - 0.5) * scale - center_x) / max_dist
-			))
-		).r;
+	COLOR.a *= texture(
+		transparency_curve, 
+		vec2(smoothstep(
+			0.0, 
+			1.0, 
+			abs(x + (UV.x - 0.5) * scale - center_x) / max_dist
+		))
+	).r;
 	COLOR.rgb = mix(
 		COLOR.rgb,
 		vec3(0.0),
-		is_lock
+		is_locked
 	);
 }

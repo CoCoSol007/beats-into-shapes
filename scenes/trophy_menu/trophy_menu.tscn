@@ -39,7 +39,7 @@ resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
 shader_parameter/x = 445.0
-shader_parameter/is_lock = 0.0
+shader_parameter/is_locked = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5iyq5"]
@@ -47,7 +47,7 @@ resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
 shader_parameter/x = 445.0
-shader_parameter/is_lock = 0.0
+shader_parameter/is_locked = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y3adp"]
@@ -55,7 +55,7 @@ resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
 shader_parameter/x = 445.0
-shader_parameter/is_lock = 0.0
+shader_parameter/is_locked = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xp83s"]
@@ -63,7 +63,7 @@ resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
 shader_parameter/x = 445.0
-shader_parameter/is_lock = 0.0
+shader_parameter/is_locked = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_onnar"]
@@ -71,7 +71,7 @@ resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
 shader_parameter/x = 445.0
-shader_parameter/is_lock = 0.0
+shader_parameter/is_locked = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
 
 [sub_resource type="LabelSettings" id="LabelSettings_3o5nl"]
