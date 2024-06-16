@@ -14,8 +14,11 @@ Play as the hero and learn step-by-step how to forge weapons in a chill, relaxed
 ## Documentation
 See all the project documentation [here](/docs)
 
+See all the svg images and sketch [here](https://www.figma.com/design/i4OFqWsSMmk0AW6OUtyf3B/Beats-into-shapes?t=ICflNE9DRQtmYzKb-1)
+
 ## Our Team
 
 - **Tipragot**: Programmer
 - **CoCo_sol**: Programmer - Art
 - **Edmond**: Art
+- **Plouf-Charles**: Programmer
