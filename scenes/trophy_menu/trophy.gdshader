@@ -23,7 +23,7 @@ void fragment() {
 		vec2(smoothstep(
 			0.0, 
 			1.0, 
-			abs(x + (UV.x - 0.5) * scale - center_x) / max_dist
+			abs(x + UV.x * scale - center_x) / max_dist
 		))
 	).r;
 	COLOR.rgb = mix(

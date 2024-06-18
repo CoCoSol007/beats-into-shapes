@@ -6,6 +6,7 @@ extends Node
 
 const DIST_BETWEEN_TROPHIES = 185.0
 const PAN_SENSIBILITY = 1.0
+const HALF_TROPHY_SIZE = 75.0
 
 var target := 0
 var trophy_position := 0.0
@@ -14,7 +15,11 @@ func _ready():
 	var i: int = 0
 	for trophy in get_children():
 		trophy.set_meta("base_x_position", i * DIST_BETWEEN_TROPHIES)
-		trophy.position.x = i * DIST_BETWEEN_TROPHIES
+		var _on_trophy_pressed = func():
+			trophy_pressed(i)
+		trophy.connect("pressed", _on_trophy_pressed)
+		trophy.position.y = -HALF_TROPHY_SIZE
+		trophy.position.x = i * DIST_BETWEEN_TROPHIES  - HALF_TROPHY_SIZE
 		i += 1
 	_on_position_update()
 	update_label()
@@ -47,6 +52,9 @@ func _on_arrow_right_pressed():
 func _on_arrow_left_pressed():
 	change_target(true)
 
+func trophy_pressed(trophy_index: int):
+	if abs(trophy_position - trophy_index) < 2.5:
+		target = trophy_index
 
 func change_target(is_movement_right: bool):
 	if target > trophy_position and !is_movement_right:
@@ -66,7 +74,7 @@ func _process(delta: float):
 	if round(previous_trophy_position) != round(trophy_position):
 		update_label()
 	for trophy in get_children():
-		trophy.position.x = trophy.get_meta("base_x_position") - trophy_position * DIST_BETWEEN_TROPHIES
+		trophy.position.x = trophy.get_meta("base_x_position") - trophy_position * DIST_BETWEEN_TROPHIES - HALF_TROPHY_SIZE
 	_on_position_update()
 
 func _on_position_update():
@@ -75,7 +83,7 @@ func _on_position_update():
 
 func update_label():
 	var child = get_child(round(trophy_position))
-	if child is Sprite2D:
+	if child:
 		title.text = child.get_meta("title", "error").to_upper()
 		description.text = child.get_meta("description", "Error")
 	else:

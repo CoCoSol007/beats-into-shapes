@@ -1,14 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://chw5w3s4mjry"]
+[gd_scene load_steps=22 format=3 uid="uid://chw5w3s4mjry"]
 
 [ext_resource type="Texture2D" uid="uid://dxbiuv4qb6p7v" path="res://assets/menu/background2.png" id="1_1q1rq"]
 [ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="2_kyutg"]
 [ext_resource type="Script" path="res://scenes/credit_menu/quit_button.gd" id="3_axaya"]
 [ext_resource type="Texture2D" uid="uid://3mx0lgtb0gn6" path="res://assets/trophy/arrow_left.svg" id="4_05qxv"]
 [ext_resource type="PackedScene" uid="uid://bwojew6ril6yg" path="res://scripts/menu_utils/hover_button.tscn" id="4_c6r0b"]
-[ext_resource type="PackedScene" uid="uid://f3cmfsg60tr" path="res://scenes/trophy_menu/trophy.tscn" id="5_kvx21"]
 [ext_resource type="Shader" path="res://scripts/menu_utils/hover_button.gdshader" id="5_lo7ee"]
 [ext_resource type="Script" path="res://scenes/trophy_menu/trophies_displayer.gd" id="5_xd5cl"]
 [ext_resource type="Shader" path="res://scenes/trophy_menu/trophy.gdshader" id="7_u7ioe"]
+[ext_resource type="PackedScene" uid="uid://4rvr8ck32yyp" path="res://scenes/trophy_menu/trophy.tscn" id="8_jdyuh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ihgto"]
 shader = ExtResource("5_lo7ee")
@@ -27,52 +27,60 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 
 [sub_resource type="Curve" id="Curve_bugjn"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.215094, 1), 0.0, 0.0, 0, 0, Vector2(0.445283, 0.75663), -0.866841, -0.866841, 0, 0, Vector2(0.847561, 0.274725), -2.11719, -2.11719, 0, 0, Vector2(0.984424, 0), -0.00661466, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.215094, 1), 0.0, 0.0, 0, 0, Vector2(0.445283, 0.75663), -0.866841, -0.866841, 0, 0, Vector2(0.933022, 0.40952), -2.11719, -2.11719, 0, 0, Vector2(0.984424, 0), -0.00661466, 0.0, 0, 0]
 point_count = 5
 
-[sub_resource type="CurveTexture" id="CurveTexture_gq4y5"]
+[sub_resource type="CurveTexture" id="CurveTexture_lhpo8"]
 texture_mode = 1
 curve = SubResource("Curve_bugjn")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbmhe"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yikbt"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
-shader_parameter/x = 445.0
+shader_parameter/x = null
 shader_parameter/is_locked = 0.0
-shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5iyq5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hr156"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
-shader_parameter/x = 445.0
+shader_parameter/x = null
 shader_parameter/is_locked = 0.0
-shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y3adp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3q13t"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
-shader_parameter/x = 445.0
+shader_parameter/x = null
 shader_parameter/is_locked = 0.0
-shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xp83s"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xohyg"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
-shader_parameter/x = 445.0
+shader_parameter/x = null
 shader_parameter/is_locked = 0.0
-shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_onnar"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oj6lh"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
-shader_parameter/x = 445.0
+shader_parameter/x = null
 shader_parameter/is_locked = 0.0
-shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b12c7"]
+resource_local_to_scene = true
+shader = ExtResource("7_u7ioe")
+shader_parameter/scale = 150.0
+shader_parameter/x = null
+shader_parameter/is_locked = 0.0
+shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
 [sub_resource type="LabelSettings" id="LabelSettings_3o5nl"]
 line_spacing = 5.0
@@ -173,28 +181,53 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("5_xd5cl")
 
-[node name="0" parent="Trophies" instance=ExtResource("5_kvx21")]
-material = SubResource("ShaderMaterial_pbmhe")
-position = Vector2(370, 0)
-metadata/base_x_position = 370
+[node name="0" parent="Trophies" instance=ExtResource("8_jdyuh")]
+material = SubResource("ShaderMaterial_yikbt")
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.0
+offset_bottom = 150.0
 
-[node name="1" parent="Trophies" instance=ExtResource("5_kvx21")]
-material = SubResource("ShaderMaterial_5iyq5")
-position = Vector2(-370, 0)
-metadata/base_x_position = -370
+[node name="1" parent="Trophies" instance=ExtResource("8_jdyuh")]
+material = SubResource("ShaderMaterial_hr156")
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.0
+offset_bottom = 150.0
 
-[node name="2" parent="Trophies" instance=ExtResource("5_kvx21")]
-material = SubResource("ShaderMaterial_y3adp")
-position = Vector2(-185, 0)
-metadata/base_x_position = -185
+[node name="2" parent="Trophies" instance=ExtResource("8_jdyuh")]
+material = SubResource("ShaderMaterial_3q13t")
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.0
+offset_bottom = 150.0
 
-[node name="3" parent="Trophies" instance=ExtResource("5_kvx21")]
-material = SubResource("ShaderMaterial_xp83s")
+[node name="3" parent="Trophies" instance=ExtResource("8_jdyuh")]
+material = SubResource("ShaderMaterial_xohyg")
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.0
+offset_bottom = 150.0
 
-[node name="4" parent="Trophies" instance=ExtResource("5_kvx21")]
-material = SubResource("ShaderMaterial_onnar")
-position = Vector2(185, 0)
-metadata/base_x_position = 185
+[node name="4" parent="Trophies" instance=ExtResource("8_jdyuh")]
+material = SubResource("ShaderMaterial_oj6lh")
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.0
+offset_bottom = 150.0
+
+[node name="5" parent="Trophies" instance=ExtResource("8_jdyuh")]
+material = SubResource("ShaderMaterial_b12c7")
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.0
+offset_bottom = 150.0
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
