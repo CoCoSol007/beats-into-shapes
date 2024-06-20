@@ -288,13 +288,13 @@ position = Vector2(0, -264)
 [node name="SpeedupAnimation" parent="." instance=ExtResource("4_5try2")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(0.989557, 1)
+scale = Vector2(1, 1)
 
 [node name="MetalBars" type="Node2D" parent="."]
 
 [node name="MetalBar" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
-position = Vector2(710.022, -400)
+position = Vector2(710, -400)
 press_key = 2
 press_time = 8.0
 hold_length = 4.0
@@ -383,6 +383,7 @@ hold_length = 4.0
 stream = ExtResource("7_x37hy")
 speedup_time = 71.0
 speedup_length = 4.0
+level = 1
 level_name = "selection"
 
 [node name="Rain" type="CPUParticles2D" parent="PauseAffectedScript"]
