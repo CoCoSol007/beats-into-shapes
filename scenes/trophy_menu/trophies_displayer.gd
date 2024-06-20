@@ -1,12 +1,14 @@
-extends Node
+extends Control
 
 @onready var title = $"../Title"
 @onready var description = $"../Description"
 
 
 const DIST_BETWEEN_TROPHIES = 185.0
-const PAN_SENSIBILITY = 1.0
-const HALF_TROPHY_SIZE = 75.0
+const TROPHY_SIZE = 150
+const HALF_TROPHY_SIZE = TROPHY_SIZE / 2.0
+
+var hover_manager = HoverManager.new()
 
 var target := 0
 var trophy_position := 0.0
@@ -23,6 +25,8 @@ func _ready():
 		i += 1
 	_on_position_update()
 	update_label()
+	hover_manager.self_ = self
+	hover_manager._ready()
 
 
 var scrolled_last_up := false
@@ -46,11 +50,13 @@ func _input(event: InputEvent):
 				change_target(false)
 			scrolled_last_down = !scrolled_last_down
 
+
+
 func _on_arrow_right_pressed():
-	change_target(false)
+	change_target(true)
 
 func _on_arrow_left_pressed():
-	change_target(true)
+	change_target(false)
 
 func trophy_pressed(trophy_index: int):
 	if abs(trophy_position - trophy_index) < 2.5:
@@ -67,14 +73,24 @@ func change_target(is_movement_right: bool):
 
 
 func _process(delta: float):
+	hover_manager._process(delta)
+
 	var previous_trophy_position: float = trophy_position
 	update_trohy_position(delta, target)
 	if previous_trophy_position == trophy_position:
 		return
 	if round(previous_trophy_position) != round(trophy_position):
 		update_label()
+	var mouse_position = get_viewport().get_mouse_position()
 	for trophy in get_children():
-		trophy.position.x = trophy.get_meta("base_x_position") - trophy_position * DIST_BETWEEN_TROPHIES - HALF_TROPHY_SIZE
+		var new_x_position: float = trophy.get_meta("base_x_position") - trophy_position * DIST_BETWEEN_TROPHIES - HALF_TROPHY_SIZE
+		trophy.position.x = new_x_position
+		if position.y - HALF_TROPHY_SIZE < mouse_position.y and mouse_position.y < position.y + HALF_TROPHY_SIZE and (
+			new_x_position + position.x < mouse_position.x and mouse_position.x < new_x_position + TROPHY_SIZE + position.x
+		):
+			trophy.emit_signal("mouse_entered")
+		else:
+			trophy.emit_signal("mouse_exited")
 	_on_position_update()
 
 func _on_position_update():

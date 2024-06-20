@@ -12,11 +12,14 @@ texture_mode = 1
 curve = SubResource("Curve_bugjn")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nybde"]
-resource_local_to_scene = true
 shader = ExtResource("1_p5n4j")
 shader_parameter/scale = 150.0
 shader_parameter/x = null
 shader_parameter/is_locked = 0.0
+shader_parameter/hover_brightness = 0.9
+shader_parameter/press_scale = 0.8
+shader_parameter/hover_intensity = 0.0
+shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
 [node name="Trophy" type="TextureButton"]

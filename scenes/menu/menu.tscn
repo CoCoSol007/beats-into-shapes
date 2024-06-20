@@ -267,10 +267,9 @@ text = "Beats into Shapes
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VolumeHoverScript" parent="." instance=ExtResource("19_o4cj2")]
-press_change_speed = 2.0
+[node name="HoverButtons" parent="." instance=ExtResource("19_o4cj2")]
 
-[node name="Volume" type="TextureButton" parent="VolumeHoverScript"]
+[node name="Volume" type="TextureButton" parent="HoverButtons"]
 material = SubResource("ShaderMaterial_vaaki")
 anchors_preset = 2
 anchor_top = 1.0
@@ -280,10 +279,10 @@ offset_top = -87.0
 offset_right = 85.0
 offset_bottom = -19.0
 grow_vertical = 0
-focus_neighbor_top = NodePath("../../TrophyHoverScript/Trophy")
+focus_neighbor_top = NodePath("../Trophy")
 focus_neighbor_right = NodePath("HSlider")
 focus_next = NodePath("HSlider")
-focus_previous = NodePath("../../TrophyHoverScript/Trophy")
+focus_previous = NodePath("../Trophy")
 texture_normal = ExtResource("21_k8ye3")
 ignore_texture_size = true
 stretch_mode = 0
@@ -291,24 +290,22 @@ script = ExtResource("5_u60qm")
 normal_texture = ExtResource("21_k8ye3")
 disabled_texture = ExtResource("22_e2x7o")
 
-[node name="HSlider" type="HSlider" parent="VolumeHoverScript/Volume"]
+[node name="HSlider" type="HSlider" parent="HoverButtons/Volume"]
 layout_mode = 0
 offset_left = 84.0
 offset_right = 308.0
 offset_bottom = 68.0
 focus_neighbor_left = NodePath("..")
-focus_neighbor_top = NodePath("../../../TrophyHoverScript/Trophy")
-focus_neighbor_right = NodePath("../../../CreditsHoverScript/Credits")
-focus_next = NodePath("../../../CreditsHoverScript/Credits")
+focus_neighbor_top = NodePath("../../Trophy")
+focus_neighbor_right = NodePath("../../Credits")
+focus_next = NodePath("../../Credits")
 focus_previous = NodePath("..")
 max_value = 1.0
 step = 0.01
 value = 1.0
 script = ExtResource("5_5ai2q")
 
-[node name="TrophyHoverScript" parent="." instance=ExtResource("19_o4cj2")]
-
-[node name="Trophy" type="TextureButton" parent="TrophyHoverScript"]
+[node name="Trophy" type="TextureButton" parent="HoverButtons"]
 material = SubResource("ShaderMaterial_8yl8h")
 custom_minimum_size = Vector2(80, 80)
 offset_left = 23.0
@@ -316,15 +313,13 @@ offset_top = 23.0
 offset_right = 173.0
 offset_bottom = 173.0
 scale = Vector2(0.6, 0.6)
-focus_neighbor_bottom = NodePath("../../VolumeHoverScript/Volume")
-focus_next = NodePath("../../VolumeHoverScript/Volume")
-focus_previous = NodePath("../../CreditsHoverScript/Credits")
+focus_neighbor_bottom = NodePath("../Volume")
+focus_next = NodePath("../Volume")
+focus_previous = NodePath("../Credits")
 texture_normal = ExtResource("23_axu7l")
 script = ExtResource("21_n13eo")
 
-[node name="CreditsHoverScript" parent="." instance=ExtResource("19_o4cj2")]
-
-[node name="Credits" type="TextureButton" parent="CreditsHoverScript"]
+[node name="Credits" type="TextureButton" parent="HoverButtons"]
 material = SubResource("ShaderMaterial_8ffa7")
 custom_minimum_size = Vector2(68, 68)
 anchors_preset = 3
@@ -338,24 +333,24 @@ offset_right = -16.0
 offset_bottom = -17.0
 grow_horizontal = 0
 grow_vertical = 0
-focus_neighbor_left = NodePath("../../VolumeHoverScript/Volume/HSlider")
-focus_neighbor_top = NodePath("../../TrophyHoverScript/Trophy")
-focus_next = NodePath("../../TrophyHoverScript/Trophy")
-focus_previous = NodePath("../../VolumeHoverScript/Volume/HSlider")
+focus_neighbor_left = NodePath("../Volume/HSlider")
+focus_neighbor_top = NodePath("../Trophy")
+focus_next = NodePath("../Trophy")
+focus_previous = NodePath("../Volume/HSlider")
 texture_normal = ExtResource("25_7yqy7")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("8_c5hcm")
 
-[connection signal="mouse_entered" from="VolumeHoverScript/Volume" to="VolumeHoverScript/Volume" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VolumeHoverScript/Volume" to="VolumeHoverScript/Volume" method="_on_mouse_exited"]
-[connection signal="pressed" from="VolumeHoverScript/Volume" to="VolumeHoverScript/Volume" method="_on_pressed"]
-[connection signal="value_changed" from="VolumeHoverScript/Volume/HSlider" to="VolumeHoverScript/Volume" method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="VolumeHoverScript/Volume/HSlider" to="VolumeHoverScript/Volume/HSlider" method="_on_value_changed"]
-[connection signal="focus_entered" from="TrophyHoverScript/Trophy" to="TrophyHoverScript/Trophy" method="_on_focus_entered"]
-[connection signal="mouse_entered" from="TrophyHoverScript/Trophy" to="TrophyHoverScript/Trophy" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="TrophyHoverScript/Trophy" to="TrophyHoverScript/Trophy" method="_on_mouse_exited"]
-[connection signal="pressed" from="TrophyHoverScript/Trophy" to="TrophyHoverScript/Trophy" method="_on_pressed"]
-[connection signal="mouse_entered" from="CreditsHoverScript/Credits" to="CreditsHoverScript/Credits" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CreditsHoverScript/Credits" to="CreditsHoverScript/Credits" method="_on_mouse_exited"]
-[connection signal="pressed" from="CreditsHoverScript/Credits" to="CreditsHoverScript/Credits" method="_on_pressed"]
+[connection signal="mouse_entered" from="HoverButtons/Volume" to="HoverButtons/Volume" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HoverButtons/Volume" to="HoverButtons/Volume" method="_on_mouse_exited"]
+[connection signal="pressed" from="HoverButtons/Volume" to="HoverButtons/Volume" method="_on_pressed"]
+[connection signal="value_changed" from="HoverButtons/Volume/HSlider" to="HoverButtons/Volume" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="HoverButtons/Volume/HSlider" to="HoverButtons/Volume/HSlider" method="_on_value_changed"]
+[connection signal="focus_entered" from="HoverButtons/Trophy" to="HoverButtons/Trophy" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="HoverButtons/Trophy" to="HoverButtons/Trophy" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HoverButtons/Trophy" to="HoverButtons/Trophy" method="_on_mouse_exited"]
+[connection signal="pressed" from="HoverButtons/Trophy" to="HoverButtons/Trophy" method="_on_pressed"]
+[connection signal="mouse_entered" from="HoverButtons/Credits" to="HoverButtons/Credits" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HoverButtons/Credits" to="HoverButtons/Credits" method="_on_mouse_exited"]
+[connection signal="pressed" from="HoverButtons/Credits" to="HoverButtons/Credits" method="_on_pressed"]
