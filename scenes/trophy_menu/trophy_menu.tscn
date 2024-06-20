@@ -34,7 +34,7 @@ point_count = 5
 texture_mode = 1
 curve = SubResource("Curve_bugjn")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0hm00"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2k7l"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -46,7 +46,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cg3g6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8imty"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -58,7 +58,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0yyrp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_20pxh"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -70,7 +70,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xf5tl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cxxqe"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -82,7 +82,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_11vht"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcdyy"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -94,7 +94,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t875h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7pty"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -106,7 +106,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ugb2n"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vwbb"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -216,7 +216,7 @@ grow_vertical = 0
 script = ExtResource("7_48p04")
 
 [node name="0" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_0hm00")
+material = SubResource("ShaderMaterial_k2k7l")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -224,7 +224,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="1" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_cg3g6")
+material = SubResource("ShaderMaterial_8imty")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -232,7 +232,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="2" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_0yyrp")
+material = SubResource("ShaderMaterial_20pxh")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -240,7 +240,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="3" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_xf5tl")
+material = SubResource("ShaderMaterial_cxxqe")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -248,7 +248,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="4" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_11vht")
+material = SubResource("ShaderMaterial_pcdyy")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -256,7 +256,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="5" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_t875h")
+material = SubResource("ShaderMaterial_j7pty")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -264,7 +264,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="6" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_ugb2n")
+material = SubResource("ShaderMaterial_7vwbb")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0

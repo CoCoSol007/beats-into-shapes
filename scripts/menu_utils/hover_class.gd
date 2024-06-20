@@ -45,13 +45,13 @@ func process(delta):
 
 func _on_mouse_entered():
 	# Start increasing the hover effect
-	if _hover_advancement == 0.0:
-		return
 	_is_hover_changing = true
 	_is_hover_increasing = true
 
 func _on_mouse_exited():
 	# Start decreasing the hover effect
+	if _hover_advancement == 0.0:
+		return
 	_is_hover_changing = true
 	_is_hover_increasing = false
 
