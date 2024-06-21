@@ -48,7 +48,8 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_et2gl")
 text = "CoCo_Sol (Dev, Art)
 Edmond (Art)
-Tipragot (Dev)"
+Tipragot (Dev)
+Plouf-Charles (Dev)"
 horizontal_alignment = 1
 
 [node name="Song" type="Label" parent="."]
