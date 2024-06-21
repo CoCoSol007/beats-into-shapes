@@ -68,7 +68,8 @@ func _ready():
 	flame_noise_texture = shader_material.get_shader_parameter("flame_distortion_texture").noise
 	get_viewport().connect("size_changed", _on_viewport_resize)
 	_on_viewport_resize()
-	
+	animation_flames.play("RESET")
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
