@@ -5,7 +5,7 @@ Allows scrolling through the menu with input events
 
 extends Control
 
-const PAN_SENSIBILITY = 1.0
+const PAN_SENSIBILITY = 100.0
 var target_position_y: float
 @export var scroll_speed: int = 75
 
