@@ -5,6 +5,7 @@ Allows scrolling through the menu with input events
 
 extends Control
 
+const PAN_SENSIBILITY = 1.0
 var target_position_y: float
 @export var scroll_speed: int = 75
 
@@ -25,7 +26,7 @@ func _input(event: InputEvent):
 	# Handle pan gesture input
 	if event is InputEventPanGesture:
 		# Update the target position based on the pan gesture
-		target_position_y = $Control.position.y - event.delta.y * 1
+		target_position_y = $Control.position.y - event.delta.y * PAN_SENSIBILITY
 		# Clamp the target position to the scrollable range
 		target_position_y = clamp(target_position_y, -648, 0)
 	# Handle mouse button input

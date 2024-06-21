@@ -4,7 +4,8 @@ The programme that show the speedup animation.
 
 extends Node2D
 
-@onready var beat_manager = get_node("../BeatManager")
+@onready var beat_manager = $"../PauseAffectedScript/BeatManager"
+
 
 func _ready():
 	beat_manager.speedup_started.connect(on_speedup_started)

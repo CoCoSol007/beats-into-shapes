@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxku67pbrtf4o"
-path="res://.godot/imported/level_5_hover.png-db5eab9503a6280289f0e5ba520861cf.ctex"
+uid="uid://3mx0lgtb0gn6"
+path="res://.godot/imported/arrow_left.svg-603a746ebb7420d51aab75e09fef5e75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/level_5_hover.png"
-dest_files=["res://.godot/imported/level_5_hover.png-db5eab9503a6280289f0e5ba520861cf.ctex"]
+source_file="res://assets/trophy/arrow_left.svg"
+dest_files=["res://.godot/imported/arrow_left.svg-603a746ebb7420d51aab75e09fef5e75.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://et4t84lvk7es"]
+[gd_scene load_steps=5 format=3 uid="uid://et4t84lvk7es"]
 
 [ext_resource type="Script" path="res://scenes/credit_menu/quit_button.gd" id="1_k3n5r"]
 [ext_resource type="Texture2D" uid="uid://dxbiuv4qb6p7v" path="res://assets/menu/background2.png" id="2_5rc6t"]
 [ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="2_et2gl"]
+[ext_resource type="Script" path="res://scenes/credit_menu/link_handler.gd" id="3_u4cm0"]
 
 [node name="Credits" type="Control" groups=["menu"]]
 layout_mode = 3
@@ -13,7 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
-z_index = -161
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,12 +79,13 @@ grow_horizontal = 2
 scale = Vector2(1.00093, 1)
 theme_override_fonts/normal_font = ExtResource("2_et2gl")
 bbcode_enabled = true
-text = "[url=\"https://pixabay.com/music/beats-take-a-break-cozy-ambient-lofi-199738]Take A Break (Cozy Ambient Lofi) - FASSounds[/url]
+text = "[url=https://pixabay.com/music/beats-take-a-break-cozy-ambient-lofi-199738]Take A Break (Cozy Ambient Lofi) - FASSounds[/url]
 [url=https://pixabay.com/music/beats-good-night-160166]Good Night - FASSounds[/url]
 [url=https://freetouse.com/music/avanti/slow-down]Slow Down - Avanti[/url]
 [url=https://pixabay.com/music/beats-lofi-chill-medium-version-159456]LoFi Chill (Medium Version) - BoDleasons[/url]
 [url=https://pixabay.com/music/beats-chill-night-154287]Chill Night - FASSounds[/url]
 [url=https://pixabay.com/music/beats-jazz-cafe-112190]Jazz Cafe - FASSounds[/url]"
+script = ExtResource("3_u4cm0")
 
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(200, 60)
@@ -105,4 +106,5 @@ theme_override_font_sizes/font_size = 25
 text = "Quit"
 script = ExtResource("1_k3n5r")
 
+[connection signal="meta_clicked" from="Song/RichTextLabel" to="Song/RichTextLabel" method="_on_meta_clicked"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

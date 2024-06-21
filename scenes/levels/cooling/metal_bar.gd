@@ -25,7 +25,7 @@ func pressed(time: float, status: Constants.ActionStatus):
 		# If the bar is not already being cooling.
 		if is_nan(start_time): 
 			# Set the start time.
-			start_time = time		
+			start_time = time
 
 
 func released(time: float, _status: Constants.ActionStatus):

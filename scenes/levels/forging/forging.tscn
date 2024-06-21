@@ -23,7 +23,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BeatManager:position")
+tracks/0/path = NodePath("PauseAffectedScript/BeatManager:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,7 +39,7 @@ length = 130.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BeatManager:position")
+tracks/0/path = NodePath("PauseAffectedScript/BeatManager:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -101,15 +101,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
-
-[node name="BeatManager" parent="." instance=ExtResource("2_yup70")]
-stream = ExtResource("3_75twk")
-too_time = 0.25
-speedup_time = 80.0
-speedup_length = 32.0
-tutorial_stop_time = 37.0
-level = 2
-level_name = "forging"
 
 [node name="ScoreManager" parent="." instance=ExtResource("3_3yx73")]
 position = Vector2(0, -264)
@@ -370,7 +361,7 @@ hard_key = true
 
 [node name="MetalBar30" parent="MetalBars" instance=ExtResource("4_3a8kb")]
 modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(7403.07, 0)
+position = Vector2(7403.27, 0)
 flip_v = true
 forged_texture = Array[Texture2D]([ExtResource("7_l2r6k"), ExtResource("7_ib8d0"), ExtResource("9_f5b7l")])
 press_key = 2
@@ -451,7 +442,7 @@ hard_key = true
 
 [node name="MetalBar39" parent="MetalBars" instance=ExtResource("4_3a8kb")]
 modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(9003.07, 0)
+position = Vector2(9003.27, 0)
 flip_v = true
 forged_texture = Array[Texture2D]([ExtResource("7_l2r6k"), ExtResource("7_ib8d0"), ExtResource("9_f5b7l")])
 press_key = 2
@@ -855,7 +846,7 @@ hard_key = true
 
 [node name="MetalBar87" parent="MetalBars" instance=ExtResource("4_3a8kb")]
 modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(21903.1, 0)
+position = Vector2(21903.3, 0)
 flip_v = true
 forged_texture = Array[Texture2D]([ExtResource("7_l2r6k"), ExtResource("7_ib8d0"), ExtResource("9_f5b7l")])
 press_key = 2
@@ -1125,7 +1116,7 @@ hard_key = true
 
 [node name="MetalBar117" parent="MetalBars" instance=ExtResource("4_3a8kb")]
 modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(27503.1, 0)
+position = Vector2(27503.3, 0)
 flip_v = true
 forged_texture = Array[Texture2D]([ExtResource("7_l2r6k"), ExtResource("7_ib8d0"), ExtResource("9_f5b7l")])
 press_key = 2
@@ -1504,7 +1495,18 @@ hard_key = true
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.989557, 1)
 
-[node name="HammerAnimation" type="AnimationPlayer" parent="."]
+[node name="PauseAffectedScript" type="Node" parent="."]
+
+[node name="BeatManager" parent="PauseAffectedScript" instance=ExtResource("2_yup70")]
+stream = ExtResource("3_75twk")
+too_time = 0.25
+speedup_time = 80.0
+speedup_length = 32.0
+tutorial_stop_time = 37.0
+level = 2
+level_name = "forging"
+
+[node name="HammerAnimation" type="AnimationPlayer" parent="PauseAffectedScript"]
 root_node = NodePath("Hammer")
 libraries = {
 "": SubResource("AnimationLibrary_mbrjy")
@@ -1512,14 +1514,14 @@ libraries = {
 speed_scale = 10.0
 script = ExtResource("7_fhc30")
 
-[node name="Hammer" type="Sprite2D" parent="HammerAnimation"]
+[node name="Hammer" type="Sprite2D" parent="PauseAffectedScript/HammerAnimation"]
 position = Vector2(-224, 68)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("8_egfbd")
 offset = Vector2(40, -1480)
 flip_h = true
 
-[node name="Sound" type="AudioStreamPlayer" parent="HammerAnimation"]
+[node name="Sound" type="AudioStreamPlayer" parent="PauseAffectedScript/HammerAnimation"]
 stream = ExtResource("9_68apw")
 volume_db = -20.0
 
@@ -1566,4 +1568,4 @@ theme_override_fonts/font = ExtResource("17_01o5v")
 theme_override_font_sizes/font_size = 25
 text = "Forge objects"
 
-[connection signal="node_pressed" from="BeatManager" to="HammerAnimation" method="_on_beat_manager_node_pressed"]
+[connection signal="node_pressed" from="PauseAffectedScript/BeatManager" to="PauseAffectedScript/HammerAnimation" method="_on_beat_manager_node_pressed"]

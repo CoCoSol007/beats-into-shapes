@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvkgrbsgf68y3"
-path="res://.godot/imported/trophy.png-99aa5a1de34135413b0d02ed88b362c2.ctex"
+uid="uid://tgwjxkqs5r37"
+path="res://.godot/imported/svg_icon.png-d7fcbf5ddef043b56b184cc961908dbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/trophy.png"
-dest_files=["res://.godot/imported/trophy.png-99aa5a1de34135413b0d02ed88b362c2.ctex"]
+source_file="res://addons/merovi.svgtexture2d/svg_icon.png"
+dest_files=["res://.godot/imported/svg_icon.png-d7fcbf5ddef043b56b184cc961908dbc.ctex"]
 
 [params]
 
