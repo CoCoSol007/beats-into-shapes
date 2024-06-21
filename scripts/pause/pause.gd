@@ -5,6 +5,7 @@ The code related to the pause in the game.
 extends Node2D
 
 @onready var pause_affected_script = $"../PauseAffectedScript"
+@export var camera_effects = true;
 
 var paused: bool = false
 
@@ -26,3 +27,7 @@ func pause():
 func _on_quit_pressed():
 	SceneTransition.change_scene("res://scenes/menu/menu.tscn")
 	Engine.time_scale = 1
+
+
+func _on_check_box_toggled(toggled_on):
+	camera_effects = toggled_on

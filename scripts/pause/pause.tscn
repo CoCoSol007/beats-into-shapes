@@ -118,6 +118,20 @@ text = "Beats into Shapes
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CameraEffects" type="CheckBox" parent="."]
+visible = false
+z_index = 4001
+offset_left = -160.0
+offset_top = 135.0
+offset_right = 36.0
+offset_bottom = 169.0
+scale = Vector2(1.69291, 1.69291)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_1rt4g")
+theme_override_font_sizes/font_size = 25
+button_pressed = true
+text = "Camera effects "
+
 [connection signal="pressed" from="Pause/Resume" to="." method="pause"]
 [connection signal="pressed" from="Pause/Quit" to="." method="_on_quit_pressed"]
 [connection signal="mouse_entered" from="Volume" to="Volume" method="_on_mouse_entered"]
@@ -125,3 +139,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="Volume" to="Volume" method="_on_pressed"]
 [connection signal="value_changed" from="Volume/HSlider" to="Volume" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Volume/HSlider" to="Volume/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="CameraEffects" to="." method="_on_check_box_toggled"]

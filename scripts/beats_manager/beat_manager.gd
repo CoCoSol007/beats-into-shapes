@@ -137,10 +137,11 @@ func _process(_delta):
 		node.update(time - node.press_time)
 		
 	# update camera
-	var zoom_level = beat_steps(time / 2.0)
-	var zoom = 1 + zoom_level * zoom_intensity
-	camera.zoom.y = zoom
-	camera.zoom.x = zoom
+	if owner.get_node("PauseMenu").camera_effects:
+		var zoom_level = beat_steps(time / 2.0)
+		var zoom = 1 + zoom_level * zoom_intensity
+		camera.zoom.y = zoom
+		camera.zoom.x = zoom
 	 
 	
 	for i in range(len(handled_nodes) - 1, -1, -1):
