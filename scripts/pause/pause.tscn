@@ -1,12 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwul1oterdmc"]
+[gd_scene load_steps=11 format=3 uid="uid://dwul1oterdmc"]
 
 [ext_resource type="Script" path="res://scripts/pause/pause.gd" id="1_f4psy"]
 [ext_resource type="Shader" path="res://scripts/pause/background.gdshader" id="1_m64na"]
 [ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="3_1rt4g"]
+[ext_resource type="Shader" path="res://scripts/menu_utils/hover_button.gdshader" id="4_uxl7f"]
+[ext_resource type="Texture2D" uid="uid://c7yhtj2138so0" path="res://assets/menu/volume_on.svg" id="5_dmmf5"]
+[ext_resource type="Script" path="res://scenes/menu/sound_volume/volume_button.gd" id="6_4c855"]
+[ext_resource type="Texture2D" uid="uid://bmvi25hcei1tk" path="res://assets/menu/volume_off.svg" id="7_kp0nh"]
+[ext_resource type="Script" path="res://scenes/menu/sound_volume/volume_change.gd" id="8_n570j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pdchp"]
 shader = ExtResource("1_m64na")
-shader_parameter/amount = 2.0
+shader_parameter/amount = 3.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_chbh0"]
+shader = ExtResource("4_uxl7f")
+shader_parameter/color = Vector4(0, 0, 0, 1)
+shader_parameter/hover_color = Vector4(0.7, 0.7, 0.7, 1)
+shader_parameter/press_color = Vector4(1, 1, 1, 1)
+shader_parameter/hover_intensity = 0.0
+shader_parameter/press_intensity = 0.0
 
 [node name="PauseMenu" type="Node2D"]
 z_index = 2000
@@ -15,14 +28,14 @@ script = ExtResource("1_f4psy")
 [node name="ColorRect" type="ColorRect" parent="." groups=["menu"]]
 visible = false
 top_level = true
-z_index = 2000
+z_index = 4000
 material = SubResource("ShaderMaterial_pdchp")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -576.0
+offset_left = -1500.0
 offset_top = -324.0
-offset_right = -576.0
+offset_right = 348.0
 offset_bottom = -324.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -30,7 +43,7 @@ grow_vertical = 2
 [node name="Pause" type="VBoxContainer" parent="."]
 visible = false
 top_level = true
-z_index = 2000
+z_index = 4001
 anchors_preset = -1
 anchor_top = 0.003
 anchor_bottom = 0.003
@@ -54,5 +67,76 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_1rt4g")
 text = "Quit"
 
+[node name="Volume" type="TextureButton" parent="."]
+visible = false
+z_index = 4001
+material = SubResource("ShaderMaterial_chbh0")
+offset_left = -153.0
+offset_top = 44.0
+offset_right = -85.0
+offset_bottom = 112.0
+focus_neighbor_top = NodePath("../Trophy")
+focus_neighbor_right = NodePath("HSlider")
+focus_next = NodePath("HSlider")
+focus_previous = NodePath("../Trophy")
+texture_normal = ExtResource("5_dmmf5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_4c855")
+normal_texture = ExtResource("5_dmmf5")
+disabled_texture = ExtResource("7_kp0nh")
+
+[node name="HSlider" type="HSlider" parent="Volume"]
+layout_mode = 0
+offset_left = 84.0
+offset_right = 308.0
+offset_bottom = 68.0
+focus_neighbor_left = NodePath("..")
+focus_neighbor_top = NodePath("../../Trophy")
+focus_neighbor_right = NodePath("../../Credits")
+focus_next = NodePath("../../Credits")
+focus_previous = NodePath("..")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("8_n570j")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 4001
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -188.0
+offset_top = -100.0
+offset_right = 190.0
+offset_bottom = -31.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_1rt4g")
+theme_override_font_sizes/font_size = 50
+text = "Beats into Shapes
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CameraEffects" type="CheckBox" parent="."]
+visible = false
+z_index = 4001
+offset_left = -160.0
+offset_top = 135.0
+offset_right = 36.0
+offset_bottom = 169.0
+scale = Vector2(1.69291, 1.69291)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_1rt4g")
+theme_override_font_sizes/font_size = 25
+button_pressed = true
+text = "Camera effects "
+
 [connection signal="pressed" from="Pause/Resume" to="." method="pause"]
 [connection signal="pressed" from="Pause/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="Volume" to="Volume" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Volume" to="Volume" method="_on_mouse_exited"]
+[connection signal="pressed" from="Volume" to="Volume" method="_on_pressed"]
+[connection signal="value_changed" from="Volume/HSlider" to="Volume" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Volume/HSlider" to="Volume/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="CameraEffects" to="." method="_on_check_box_toggled"]

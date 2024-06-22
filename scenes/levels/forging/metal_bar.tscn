@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dnygvdh4tseox"]
 
 [ext_resource type="Script" path="res://scenes/levels/forging/metal_bar.gd" id="1_3gufo"]
-[ext_resource type="Texture2D" uid="uid://c6gdryw4e4ovh" path="res://scenes/levels/forging/assets/happy_iron.png" id="1_n4hpl"]
-[ext_resource type="Texture2D" uid="uid://dhdab68h1te28" path="res://scenes/levels/forging/assets/particule.png" id="3_hpsyw"]
+[ext_resource type="Texture2D" uid="uid://c6gdryw4e4ovh" path="res://assets/forging/happy_iron.png" id="1_n4hpl"]
+[ext_resource type="Texture2D" uid="uid://dhdab68h1te28" path="res://assets/forging/particule.png" id="3_hpsyw"]
 
 [sub_resource type="Shader" id="Shader_qre3r"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.2.2.stable's ParticleProcessMaterial.

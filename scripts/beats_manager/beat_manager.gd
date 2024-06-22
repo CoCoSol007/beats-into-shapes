@@ -9,6 +9,8 @@ signal missed_press(time: float, key: Constants.ActionKey)
 signal speedup_started(time: float)
 signal song_finished()
 
+@onready var camera = $"../../Camera2D"
+
 @export var stream: AudioStreamMP3
 @export var perfect_time: float = 0.1
 @export var too_time: float = 0.3
@@ -135,10 +137,11 @@ func _process(_delta):
 		node.update(time - node.press_time)
 		
 	# update camera
-	var zoom_level = beat_steps(time / 2.0)
-	var zoom = 1 + zoom_level * zoom_intensity
-	$"../Camera2D".zoom.y = zoom
-	$"../Camera2D".zoom.x = zoom
+	if owner.get_node("PauseMenu").camera_effects:
+		var zoom_level = beat_steps(time / 2.0)
+		var zoom = 1 + zoom_level * zoom_intensity
+		camera.zoom.y = zoom
+		camera.zoom.x = zoom
 	 
 	
 	for i in range(len(handled_nodes) - 1, -1, -1):

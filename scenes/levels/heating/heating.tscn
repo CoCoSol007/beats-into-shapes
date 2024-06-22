@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://1ft7t0frbqu0"]
+[gd_scene load_steps=42 format=3 uid="uid://1ft7t0frbqu0"]
 
 [ext_resource type="PackedScene" uid="uid://dwul1oterdmc" path="res://scripts/pause/pause.tscn" id="1_4khu3"]
 [ext_resource type="AudioStream" uid="uid://c3kbupayfpxyo" path="res://musics/heating.mp3" id="1_cuyft"]
@@ -6,29 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://b0f5uxncim2cf" path="res://scripts/scores/score_manager.tscn" id="3_buh1v"]
 [ext_resource type="PackedScene" uid="uid://cnecogu51saqv" path="res://scripts/seed_up/speedup_animation.tscn" id="4_5try2"]
 [ext_resource type="PackedScene" uid="uid://bbpnhkdf3ds7d" path="res://scenes/levels/heating/metal_bar.tscn" id="4_h8kqc"]
-[ext_resource type="Texture2D" uid="uid://crxj5jd14gl44" path="res://assets/heating/background.png" id="5_gc8l0"]
-[ext_resource type="Texture2D" uid="uid://t4qrtjvba26d" path="res://assets/heating/particule.png" id="7_hmt5k"]
-[ext_resource type="Script" path="res://scenes/levels/heating/flames.gd" id="8_d55qm"]
+[ext_resource type="AudioStream" uid="uid://ci8sc0evsglys" path="res://musics/selection.mp3" id="7_x37hy"]
+[ext_resource type="Script" path="res://scenes/levels/heating/rain.gd" id="8_enadb"]
 [ext_resource type="AudioStream" uid="uid://cfnoylr4ixx71" path="res://musics/sounds/fire.wav" id="9_xm3vr"]
 [ext_resource type="PackedScene" uid="uid://cdaq1hxju3fwl" path="res://scripts/tuto/tutorial.tscn" id="11_2jlud"]
+[ext_resource type="Texture2D" uid="uid://t4qrtjvba26d" path="res://assets/heating/particule.png" id="12_gnk7u"]
 [ext_resource type="Texture2D" uid="uid://msc5fgvr282y" path="res://assets/tuto/main.png" id="12_yoc53"]
 [ext_resource type="Texture2D" uid="uid://bmq3weuqf0rp6" path="res://assets/tuto/main_pressed.png" id="13_7v6yg"]
+[ext_resource type="Texture2D" uid="uid://crxj5jd14gl44" path="res://assets/heating/background.png" id="14_82q7a"]
+[ext_resource type="Script" path="res://scenes/levels/heating/flames_animation.gd" id="14_v4fny"]
 [ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="14_xcvl4"]
+[ext_resource type="Shader" path="res://scenes/levels/heating/flame.gdshader" id="14_yp8lt"]
 
 [sub_resource type="Animation" id="Animation_mo7pu"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BeatManager:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_4jotm"]
 resource_name = "level"
@@ -48,24 +39,20 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/0/use_blend = true
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BeatManager:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 115),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(115, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqrff"]
 _data = {
 "RESET": SubResource("Animation_mo7pu"),
 "level": SubResource("Animation_4jotm")
 }
+
+[sub_resource type="Curve" id="Curve_2rw0d"]
+_data = [Vector2(0, 0.691211), 0.0, 0.0, 0, 0, Vector2(0.807263, 0.765321), -1.88338, -1.88338, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ilbtj"]
+offsets = PackedFloat32Array(0.74, 1)
+colors = PackedColorArray(0.501961, 0.501961, 0.501961, 0.486275, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_ngg36"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.448529, 0.725275), 0.0, 0.0, 0, 0, Vector2(0.801471, 0.318681), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -76,13 +63,213 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.479167, 0.853333, 0.98)
 colors = PackedColorArray(1, 1, 0, 1, 1, 0.313433, 0, 1, 0.429619, 7.70092e-07, 3.60981e-07, 1, 0.286275, 0, 0, 0.517647)
 
-[sub_resource type="Curve" id="Curve_2rw0d"]
-_data = [Vector2(0, 0.691211), 0.0, 0.0, 0, 0, Vector2(0.807263, 0.765321), -1.88338, -1.88338, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Gradient" id="Gradient_luyax"]
+offsets = PackedFloat32Array(0.217054, 0.356589, 0.468992, 0.55814, 0.709302)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.509091, 0, 1, 0.966667, 1, 0, 1, 0.968627, 1, 0, 0.266667, 0.968627, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_18il5"]
+gradient = SubResource("Gradient_luyax")
+
+[sub_resource type="Curve" id="Curve_ux5s0"]
+_data = [Vector2(0.388112, 0), 0.0, 0.0, 0, 0, Vector2(0.657343, 0.252131), 2.26339, 2.26339, 0, 0, Vector2(0.835664, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_ilbtj"]
-offsets = PackedFloat32Array(0.74, 1)
-colors = PackedColorArray(0.501961, 0.501961, 0.501961, 0.486275, 1, 1, 1, 0)
+[sub_resource type="CurveTexture" id="CurveTexture_2xobg"]
+texture_mode = 1
+curve = SubResource("Curve_ux5s0")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pmts6"]
+noise_type = 3
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sn724"]
+noise = SubResource("FastNoiseLite_pmts6")
+
+[sub_resource type="Curve" id="Curve_8lgj0"]
+_data = [Vector2(0.699301, 0), 0.0, 0.0, 0, 0, Vector2(0.86014, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.806108), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3qwue"]
+texture_mode = 1
+curve = SubResource("Curve_8lgj0")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1t7o8"]
+fractal_octaves = 2
+fractal_lacunarity = 1.4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4eh6x"]
+in_3d_space = true
+noise = SubResource("FastNoiseLite_1t7o8")
+
+[sub_resource type="Gradient" id="Gradient_gqklo"]
+offsets = PackedFloat32Array(0, 0.282946, 0.395349, 0.488372, 0.600775)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.509091, 0, 1, 0.966667, 1, 0, 1, 0.968627, 1, 0, 0.266667, 0.968627, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fue8c"]
+gradient = SubResource("Gradient_gqklo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dv1pm"]
+shader = ExtResource("14_yp8lt")
+shader_parameter/flame_level = 0.0
+shader_parameter/brightness = 0.0
+shader_parameter/flame_distortion_factor = 0.0
+shader_parameter/distortion_factor = 0.0
+shader_parameter/width_clamping = 0.0
+shader_parameter/flame_gradient = SubResource("GradientTexture1D_fue8c")
+shader_parameter/bright_flame_gradient = SubResource("GradientTexture1D_18il5")
+shader_parameter/flame_distortion_texture = SubResource("NoiseTexture2D_4eh6x")
+shader_parameter/flame_distortion_strength = SubResource("CurveTexture_3qwue")
+shader_parameter/distortion_texture = SubResource("NoiseTexture2D_sn724")
+shader_parameter/distortion_strength = SubResource("CurveTexture_2xobg")
+
+[sub_resource type="Animation" id="Animation_hlvop"]
+resource_name = "RESET"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:material:shader_parameter/flame_level")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:material:shader_parameter/flame_distortion_factor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:material:shader_parameter/distortion_factor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:material:shader_parameter/brightness")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_kmnad"]
+resource_name = "press"
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:material:shader_parameter/flame_level")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.5, -0.024816, 0, 0.024816, 0, 1, -0.025, 0, 0.025, 0, 0.8, -0.0175, 0, 0.0175, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:material:shader_parameter/flame_distortion_factor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.2, -0.02, -0.000885367, 0.02, 0.000885367, 0.5, -0.03, 0.000629067, 0.03, -0.000629067, 0.3, -0.0125, 0, 0.0125, 0),
+"times": PackedFloat32Array(0.2, 0.4, 0.8)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:material:shader_parameter/distortion_factor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.07, -0.02, 0, 0.02, 0, 0.3, -0.025, 0, 0.025, 0, 0.1, -0.055, 0, 0.055, 0),
+"times": PackedFloat32Array(0.2, 0.4, 0.84)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:material:shader_parameter/brightness")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.04, -0.000504052, 0.04, 0.000504052, 1, -0.015, 0, 0.015, 0, 0, -0.045, 0, 0.045, 0),
+"times": PackedFloat32Array(0.2, 0.4, 0.8)
+}
+
+[sub_resource type="Animation" id="Animation_mh8f7"]
+resource_name = "release"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:material:shader_parameter/flame_level")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.8, -0.0175, 0, 0.0175, 0, 0, -0.130546, 0.0186995, 0.025, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:material:shader_parameter/flame_distortion_factor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.3, -0.0125, 0, 0.0125, 0, 0.2, -0.03, 0.000629067, 0.03, -0.000629067),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:material:shader_parameter/distortion_factor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.1, -0.055, 0, 0.055, 0, 0, -0.025, 0, 0.025, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:material:shader_parameter/brightness")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.04, 0, 0.04, 0, 0, -0.0381476, -0.000504052, 0.0381476, 0.000504052),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_frc1l"]
+_data = {
+"RESET": SubResource("Animation_hlvop"),
+"press": SubResource("Animation_kmnad"),
+"release": SubResource("Animation_mh8f7")
+}
 
 [node name="Selection2" type="Node2D"]
 
@@ -95,35 +282,19 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
-[node name="BeatManager" parent="." instance=ExtResource("2_2vwvw")]
-stream = ExtResource("1_cuyft")
-perfect_time = 0.3
-too_time = 0.5
-speedup_time = 44.0
-speedup_length = 4.0
-tutorial_stop_time = 48.0
-level = 1
-level_name = "heating"
-
 [node name="ScoreManager" parent="." instance=ExtResource("3_buh1v")]
 position = Vector2(0, -264)
 
 [node name="SpeedupAnimation" parent="." instance=ExtResource("4_5try2")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(0.989557, 1)
-
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -1
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("5_gc8l0")
+scale = Vector2(1, 1)
 
 [node name="MetalBars" type="Node2D" parent="."]
 
 [node name="MetalBar" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
-position = Vector2(710.02, -400)
-rotation = -0.00552058
+position = Vector2(710, -400)
 press_key = 2
 press_time = 8.0
 hold_length = 4.0
@@ -131,7 +302,6 @@ hold_length = 4.0
 [node name="MetalBar2" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(1420.02, -400)
-rotation = -0.00552058
 press_key = 2
 press_time = 16.0
 hold_length = 4.0
@@ -140,7 +310,6 @@ hard_key = true
 [node name="MetalBar3" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(2130.02, -400)
-rotation = -0.00552058
 press_key = 2
 press_time = 24.0
 hold_length = 4.0
@@ -148,7 +317,6 @@ hold_length = 4.0
 [node name="MetalBar4" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(2840.02, -400)
-rotation = -0.00552058
 press_key = 2
 press_time = 32.0
 hold_length = 4.0
@@ -157,7 +325,6 @@ hard_key = true
 [node name="MetalBar5" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(4970.02, -400)
-rotation = -0.00552058
 press_key = 2
 press_time = 56.0
 hold_length = 4.0
@@ -166,7 +333,6 @@ hard_key = true
 [node name="MetalBar8" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(5680.02, -400)
-rotation = -0.00552058
 press_key = 2
 press_time = 64.0
 hold_length = 4.0
@@ -175,7 +341,6 @@ hard_key = true
 [node name="MetalBar9" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(6390.02, -400)
-rotation = -0.00552058
 press_key = 2
 press_time = 72.0
 hold_length = 4.0
@@ -184,7 +349,6 @@ hard_key = true
 [node name="MetalBar10" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(7100.02, -400)
-rotation = -0.00552058
 press_key = 2
 press_time = 80.0
 hold_length = 4.0
@@ -193,7 +357,6 @@ hard_key = true
 [node name="MetalBar11" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(7810.02, -400)
-rotation = -0.00552058
 press_key = 2
 press_time = 88.0
 hold_length = 4.0
@@ -202,7 +365,6 @@ hard_key = true
 [node name="MetalBar6" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(4260.02, -400)
-rotation = -0.00552058
 press_key = 2
 press_time = 48.0
 hold_length = 4.0
@@ -211,18 +373,42 @@ hard_key = true
 [node name="MetalBar7" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(3550.02, -400)
-rotation = -0.00552058
 press_key = 2
 press_time = 40.0
 hold_length = 4.0
 
-[node name="Flames" type="CPUParticles2D" parent="."]
+[node name="PauseAffectedScript" type="Node" parent="."]
+
+[node name="BeatManager" parent="PauseAffectedScript" instance=ExtResource("2_2vwvw")]
+stream = ExtResource("7_x37hy")
+speedup_time = 71.0
+speedup_length = 4.0
+level = 1
+level_name = "selection"
+
+[node name="Rain" type="CPUParticles2D" parent="PauseAffectedScript"]
+position = Vector2(0, 1)
+amount = 20
+texture = ExtResource("12_gnk7u")
+emission_shape = 3
+emission_rect_extents = Vector2(600, 300)
+gravity = Vector2(0, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_2rw0d")
+color_ramp = SubResource("Gradient_ilbtj")
+script = ExtResource("8_enadb")
+
+[node name="FlamesAnimation" type="Node" parent="PauseAffectedScript"]
+script = ExtResource("14_v4fny")
+
+[node name="Particles" type="CPUParticles2D" parent="PauseAffectedScript/FlamesAnimation"]
 position = Vector2(1, 341)
 emitting = false
 amount = 400
 randomness = 1.0
 draw_order = 1
-texture = ExtResource("7_hmt5k")
+texture = ExtResource("12_gnk7u")
 emission_shape = 3
 emission_rect_extents = Vector2(80, 1)
 direction = Vector2(0, -1)
@@ -233,10 +419,20 @@ initial_velocity_max = 300.0
 scale_amount_max = 1.1
 scale_amount_curve = SubResource("Curve_ngg36")
 color_ramp = SubResource("Gradient_qggqa")
-script = ExtResource("8_d55qm")
 
-[node name="Sound" type="AudioStreamPlayer" parent="Flames"]
+[node name="Background" type="Sprite2D" parent="PauseAffectedScript/FlamesAnimation"]
+z_index = -1
+material = SubResource("ShaderMaterial_dv1pm")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_82q7a")
+
+[node name="Sound" type="AudioStreamPlayer" parent="PauseAffectedScript/FlamesAnimation"]
 stream = ExtResource("9_xm3vr")
+
+[node name="AnimationFlames" type="AnimationPlayer" parent="PauseAffectedScript/FlamesAnimation"]
+libraries = {
+"": SubResource("AnimationLibrary_frc1l")
+}
 
 [node name="TutorialIndicator" parent="." instance=ExtResource("11_2jlud")]
 position = Vector2(-184, 260)
@@ -274,15 +470,3 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("14_xcvl4")
 theme_override_font_sizes/font_size = 25
 text = "Heat up the iron ingots"
-
-[node name="Rain" type="CPUParticles2D" parent="."]
-position = Vector2(0, 1)
-amount = 20
-texture = ExtResource("7_hmt5k")
-emission_shape = 3
-emission_rect_extents = Vector2(600, 300)
-gravity = Vector2(0, 0)
-scale_amount_min = 0.1
-scale_amount_max = 0.5
-scale_amount_curve = SubResource("Curve_2rw0d")
-color_ramp = SubResource("Gradient_ilbtj")

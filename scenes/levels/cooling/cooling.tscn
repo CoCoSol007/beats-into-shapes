@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ct82acwuajwl4" path="res://scripts/beats_manager/beat_manager.tscn" id="2_2vwvw"]
 [ext_resource type="PackedScene" uid="uid://b0f5uxncim2cf" path="res://scripts/scores/score_manager.tscn" id="3_buh1v"]
 [ext_resource type="PackedScene" uid="uid://cnecogu51saqv" path="res://scripts/seed_up/speedup_animation.tscn" id="4_5try2"]
-[ext_resource type="PackedScene" path="res://scenes/levels/cooling/metal_bar.tscn" id="4_h8kqc"]
+[ext_resource type="PackedScene" uid="uid://cfbegrs7n6xod" path="res://scenes/levels/cooling/metal_bar.tscn" id="4_h8kqc"]
 [ext_resource type="Texture2D" uid="uid://pqkxw70q00r0" path="res://assets/forging/coin.png" id="6_c3vob"]
 [ext_resource type="Texture2D" uid="uid://b8tldru8jg3gj" path="res://assets/cooling/background.png" id="6_f3sfc"]
 [ext_resource type="Texture2D" uid="uid://dao48xgm7gtsy" path="res://assets/cooling/barel.png" id="7_vttrc"]
@@ -26,7 +26,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BeatManager:position")
+tracks/0/path = NodePath("PauseAffectedScript/BeatManager:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -57,7 +57,7 @@ tracks/0/use_blend = true
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BeatManager:position")
+tracks/1/path = NodePath("PauseAffectedScript/BeatManager:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -88,15 +88,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
-
-[node name="BeatManager" parent="." instance=ExtResource("2_2vwvw")]
-stream = ExtResource("1_cuyft")
-too_time = 0.25
-speedup_time = 78.0
-speedup_length = 16.0
-tutorial_stop_time = 42.0
-level = 3
-level_name = "cooling"
 
 [node name="ScoreManager" parent="." instance=ExtResource("3_buh1v")]
 position = Vector2(0, -264)
@@ -519,6 +510,17 @@ z_index = -1
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_f3sfc")
 
+[node name="PauseAffectedScript" type="Node" parent="."]
+
+[node name="BeatManager" parent="PauseAffectedScript" instance=ExtResource("2_2vwvw")]
+stream = ExtResource("1_cuyft")
+too_time = 0.25
+speedup_time = 78.0
+speedup_length = 16.0
+tutorial_stop_time = 42.0
+level = 3
+level_name = "cooling"
+
 [node name="Barel" type="Sprite2D" parent="."]
 z_index = 3
 scale = Vector2(0.6, 0.6)
@@ -583,7 +585,7 @@ theme_override_fonts/font = ExtResource("20_ll8h4")
 theme_override_font_sizes/font_size = 25
 text = "Cool down objects"
 
-[connection signal="node_pressed" from="BeatManager" to="Smoke" method="_on_beat_manager_node_pressed"]
-[connection signal="node_pressed" from="BeatManager" to="Plouf" method="_on_beat_manager_node_pressed"]
-[connection signal="node_released" from="BeatManager" to="Smoke" method="_on_beat_manager_node_released"]
-[connection signal="node_released" from="BeatManager" to="Plouf" method="_on_beat_manager_node_released"]
+[connection signal="node_pressed" from="PauseAffectedScript/BeatManager" to="Smoke" method="_on_beat_manager_node_pressed"]
+[connection signal="node_pressed" from="PauseAffectedScript/BeatManager" to="Plouf" method="_on_beat_manager_node_pressed"]
+[connection signal="node_released" from="PauseAffectedScript/BeatManager" to="Smoke" method="_on_beat_manager_node_released"]
+[connection signal="node_released" from="PauseAffectedScript/BeatManager" to="Plouf" method="_on_beat_manager_node_released"]

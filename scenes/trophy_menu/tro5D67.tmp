@@ -1,0 +1,196 @@
+[gd_scene load_steps=20 format=3 uid="uid://chw5w3s4mjry"]
+
+[ext_resource type="Texture2D" uid="uid://dxbiuv4qb6p7v" path="res://assets/menu/background2.png" id="1_1q1rq"]
+[ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="2_kyutg"]
+[ext_resource type="Script" path="res://scenes/credit_menu/quit_button.gd" id="3_axaya"]
+[ext_resource type="Texture2D" uid="uid://3mx0lgtb0gn6" path="res://assets/trophy/arrow_left.svg" id="4_05qxv"]
+[ext_resource type="PackedScene" uid="uid://bwojew6ril6yg" path="res://scripts/menu_utils/hover_button.tscn" id="4_c6r0b"]
+[ext_resource type="PackedScene" uid="uid://f3cmfsg60tr" path="res://scenes/trophy_menu/trophy.tscn" id="5_kvx21"]
+[ext_resource type="Shader" path="res://scripts/menu_utils/hover_button.gdshader" id="5_lo7ee"]
+[ext_resource type="Script" path="res://scenes/trophy_menu/trophies_displayer.gd" id="5_xd5cl"]
+[ext_resource type="Shader" path="res://scenes/trophy_menu/trophy.gdshader" id="7_u7ioe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihgto"]
+shader = ExtResource("5_lo7ee")
+shader_parameter/color = Vector4(0.949, 0.655, 0.529, 0.3)
+shader_parameter/hover_color = Vector4(0.949, 0.655, 0.529, 1)
+shader_parameter/press_color = Vector4(1, 1, 1, 1)
+shader_parameter/hover_intensity = 0.0
+shader_parameter/press_intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3224e"]
+shader = ExtResource("5_lo7ee")
+shader_parameter/color = Vector4(0.949, 0.655, 0.529, 0.3)
+shader_parameter/hover_color = Vector4(0.949, 0.655, 0.529, 1)
+shader_parameter/press_color = Vector4(1, 1, 1, 1)
+shader_parameter/hover_intensity = 0.0
+shader_parameter/press_intensity = 0.0
+
+[sub_resource type="Curve" id="Curve_bugjn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.215094, 1), 0.0, 0.0, 0, 0, Vector2(0.445283, 0.75663), -0.866841, -0.866841, 0, 0, Vector2(0.933022, 0.40952), -2.11719, -2.11719, 0, 0, Vector2(0.984424, 0), -0.00661466, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_gq4y5"]
+texture_mode = 1
+curve = SubResource("Curve_bugjn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5iyq5"]
+resource_local_to_scene = true
+shader = ExtResource("7_u7ioe")
+shader_parameter/scale = 150.0
+shader_parameter/x = 445.0
+shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y3adp"]
+resource_local_to_scene = true
+shader = ExtResource("7_u7ioe")
+shader_parameter/scale = 150.0
+shader_parameter/x = 445.0
+shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xp83s"]
+resource_local_to_scene = true
+shader = ExtResource("7_u7ioe")
+shader_parameter/scale = 150.0
+shader_parameter/x = 445.0
+shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onnar"]
+resource_local_to_scene = true
+shader = ExtResource("7_u7ioe")
+shader_parameter/scale = 150.0
+shader_parameter/x = 445.0
+shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbmhe"]
+resource_local_to_scene = true
+shader = ExtResource("7_u7ioe")
+shader_parameter/scale = 150.0
+shader_parameter/x = 445.0
+shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4fcfu"]
+resource_local_to_scene = true
+shader = ExtResource("7_u7ioe")
+shader_parameter/scale = 150.0
+shader_parameter/x = 445.0
+shader_parameter/transparency_curve = SubResource("CurveTexture_gq4y5")
+
+[node name="TrophyMenu" type="Control" groups=["menu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_1q1rq")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -108.0
+offset_right = 100.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_kyutg")
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+script = ExtResource("3_axaya")
+
+[node name="RightHoverScript" parent="." instance=ExtResource("4_c6r0b")]
+
+[node name="ArrowRight" type="TextureButton" parent="RightHoverScript"]
+material = SubResource("ShaderMaterial_ihgto")
+custom_minimum_size = Vector2(42, 72)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -191.0
+offset_right = -22.0
+offset_bottom = -119.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 3.14159
+texture_normal = ExtResource("4_05qxv")
+
+[node name="LeftHoverScript" parent="." instance=ExtResource("4_c6r0b")]
+
+[node name="ArrowLeft" type="TextureButton" parent="LeftHoverScript"]
+material = SubResource("ShaderMaterial_3224e")
+custom_minimum_size = Vector2(42, 72)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -263.0
+offset_right = 106.0
+offset_bottom = -191.0
+grow_vertical = 0
+focus_mode = 1
+texture_normal = ExtResource("4_05qxv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -231.0
+offset_bottom = -231.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("5_xd5cl")
+
+[node name="Trophy1" parent="Control" instance=ExtResource("5_kvx21")]
+material = SubResource("ShaderMaterial_5iyq5")
+position = Vector2(-370, 0)
+metadata/base_x_position = -370
+
+[node name="Trophy2" parent="Control" instance=ExtResource("5_kvx21")]
+material = SubResource("ShaderMaterial_y3adp")
+position = Vector2(-185, 0)
+metadata/base_x_position = -185
+
+[node name="Trophy3" parent="Control" instance=ExtResource("5_kvx21")]
+material = SubResource("ShaderMaterial_xp83s")
+
+[node name="Trophy4" parent="Control" instance=ExtResource("5_kvx21")]
+material = SubResource("ShaderMaterial_onnar")
+position = Vector2(185, 0)
+metadata/base_x_position = 185
+
+[node name="Trophy5" parent="Control" instance=ExtResource("5_kvx21")]
+material = SubResource("ShaderMaterial_pbmhe")
+position = Vector2(370, 0)
+metadata/base_x_position = 370
+
+[node name="TrophyOut" parent="Control" instance=ExtResource("5_kvx21")]
+material = SubResource("ShaderMaterial_4fcfu")
+position = Vector2(555, 0)
+metadata/base_x_position = 555
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="RightHoverScript/ArrowRight" to="Control" method="_on_arrow_right_pressed"]
+[connection signal="pressed" from="LeftHoverScript/ArrowLeft" to="Control" method="_on_arrow_left_pressed"]

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cipjcnt62j00a"
-path="res://.godot/imported/claw.blend-cf2418022e1260169bbacac576c0358c.scn"
+path="res://.godot/imported/claw.blend-032a85a8e3ba61461641a0799801e04f.scn"
 
 [deps]
 
-source_file="res://levels/cooling/assets/claw.blend"
-dest_files=["res://.godot/imported/claw.blend-cf2418022e1260169bbacac576c0358c.scn"]
+source_file="res://assets/cooling/claw.blend"
+dest_files=["res://.godot/imported/claw.blend-032a85a8e3ba61461641a0799801e04f.scn"]
 
 [params]
 
