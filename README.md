@@ -60,7 +60,7 @@ Play as the hero and learn step-by-step how to forge weapons in a chill, relaxed
 
 ### Reusable and Generic Code
 
-Our game is designed with a generic and reusable code structure that can be adapted for other rhythm-based games. This flexibility allows developers to easily modify and expand the game mechanics, integrate new musical elements, and create diverse rhythm-based experiences. The codebase is well-documented and modular, ensuring that future projects can leverage the foundational work done in **Beats into Shape** for innovative and exciting new rhythm games.
+Our game is designed with a generic and reusable code structure that can be adapted for other rhythm-based games. This flexibility allows developers to easily modify and expand the game mechanics, integrate new musical elements, and create diverse rhythm-based experiences. The codebase is well-documented and modular, ensuring that future projects can leverage the foundational work done in **Beats into Shape** for innovative and exciting new rhythm games. You can find all documentation [here](/docs/beats_manager.md).
 
 ### Free-to-Use Assets
 
@@ -73,6 +73,8 @@ See all the project documentation [here](/docs)
 See all the svg images and sketch [here](https://www.figma.com/design/i4OFqWsSMmk0AW6OUtyf3B/Beats-into-shapes?t=ICflNE9DRQtmYzKb-1)
 
 See all about our license [here](/LICENSE)
+
+See how our beats manager works [here](/docs/beats_manager.md)
 
 ## Tutorial level by level
 
