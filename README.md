@@ -72,6 +72,8 @@ See all the project documentation [here](/docs)
 
 See all the svg images and sketch [here](https://www.figma.com/design/i4OFqWsSMmk0AW6OUtyf3B/Beats-into-shapes?t=ICflNE9DRQtmYzKb-1)
 
+See all about our license [here](/LICENSE)
+
 ## Tutorial level by level
 
 todo
