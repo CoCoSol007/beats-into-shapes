@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://chw5w3s4mjry"]
 
-[ext_resource type="Texture2D" uid="uid://dxbiuv4qb6p7v" path="res://assets/menu/background2.png" id="1_1q1rq"]
+[ext_resource type="Texture2D" uid="uid://do3l83lcyfqll" path="res://assets/backgroung.png" id="1_1q1rq"]
 [ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="2_kyutg"]
 [ext_resource type="Script" path="res://scenes/credit_menu/quit_button.gd" id="3_axaya"]
 [ext_resource type="Texture2D" uid="uid://3mx0lgtb0gn6" path="res://assets/trophy/arrow_left.svg" id="4_05qxv"]
@@ -34,7 +34,7 @@ point_count = 5
 texture_mode = 1
 curve = SubResource("Curve_bugjn")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2k7l"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwo1a"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -46,7 +46,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8imty"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqomj"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -58,7 +58,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_20pxh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_om8p5"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -70,7 +70,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cxxqe"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8m2ek"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -82,7 +82,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcdyy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btu8p"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -94,7 +94,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7pty"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_csvtv"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -106,7 +106,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vwbb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdeq5"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -216,7 +216,7 @@ grow_vertical = 0
 script = ExtResource("7_48p04")
 
 [node name="0" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_k2k7l")
+material = SubResource("ShaderMaterial_cwo1a")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -224,7 +224,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="1" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_8imty")
+material = SubResource("ShaderMaterial_vqomj")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -232,7 +232,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="2" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_20pxh")
+material = SubResource("ShaderMaterial_om8p5")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -240,7 +240,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="3" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_cxxqe")
+material = SubResource("ShaderMaterial_8m2ek")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -248,7 +248,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="4" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_pcdyy")
+material = SubResource("ShaderMaterial_btu8p")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -256,7 +256,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="5" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_j7pty")
+material = SubResource("ShaderMaterial_csvtv")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -264,7 +264,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="6" parent="Control" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_7vwbb")
+material = SubResource("ShaderMaterial_cdeq5")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
