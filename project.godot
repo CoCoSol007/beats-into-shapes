@@ -25,7 +25,6 @@ MenuMusic="*res://scenes/menu/menu_music.tscn"
 
 window/size/mode=2
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_height"
 
 [input]
 
@@ -60,3 +59,4 @@ pause={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.243137, 0.164706, 0.215686, 1)
