@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bow1bhqs23nd1"]
+
+[ext_resource type="Script" path="res://scripts/trophy_manager/base_trophy.gd" id="1_ypiab"]
+[ext_resource type="Script" path="res://scripts/trophy_manager/full_perfect.gd" id="2_ly47h"]
+
+[node name="FullPerfect" type="Node"]
+script = ExtResource("1_ypiab")
+metadata/level = 0
+
+[node name="Script" type="Node" parent="."]
+script = ExtResource("2_ly47h")

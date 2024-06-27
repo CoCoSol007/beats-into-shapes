@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://cplmy24l2po5i"]
+[gd_scene load_steps=27 format=3 uid="uid://cplmy24l2po5i"]
 
 [ext_resource type="PackedScene" uid="uid://dwul1oterdmc" path="res://scripts/pause/pause.tscn" id="1_12wap"]
 [ext_resource type="PackedScene" uid="uid://ct82acwuajwl4" path="res://scripts/beats_manager/beat_manager.tscn" id="1_ee43e"]
 [ext_resource type="AudioStream" uid="uid://ci8sc0evsglys" path="res://musics/selection.mp3" id="2_8vh7p"]
 [ext_resource type="PackedScene" uid="uid://cqjhwem3buo2k" path="res://scenes/levels/selection/metal_bar.tscn" id="3_aciwk"]
 [ext_resource type="PackedScene" uid="uid://cnecogu51saqv" path="res://scripts/seed_up/speedup_animation.tscn" id="4_0l1x7"]
+[ext_resource type="PackedScene" uid="uid://c5ijeqivocyui" path="res://scripts/trophy_manager/trophy_manager.tscn" id="4_gg43m"]
 [ext_resource type="PackedScene" uid="uid://b0f5uxncim2cf" path="res://scripts/scores/score_manager.tscn" id="4_ol24q"]
 [ext_resource type="Texture2D" uid="uid://bxfwkaw4xr3dj" path="res://assets/selection/background.png" id="5_2fgvi"]
 [ext_resource type="Script" path="res://scenes/levels/selection/piston.gd" id="7_ly1uq"]
@@ -149,6 +150,8 @@ libraries = {
 
 [node name="ScoreManager" parent="." instance=ExtResource("4_ol24q")]
 position = Vector2(0, -264)
+
+[node name="TrophyManager" parent="." instance=ExtResource("4_gg43m")]
 
 [node name="SpeedupAnimation" parent="." instance=ExtResource("4_0l1x7")]
 

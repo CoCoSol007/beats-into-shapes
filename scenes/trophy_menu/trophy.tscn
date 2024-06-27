@@ -30,5 +30,4 @@ offset_right = 75.0
 offset_bottom = 75.0
 texture_normal = ExtResource("1_lp5mx")
 metadata/base_x_position = 0
-metadata/title = "trophy name"
 metadata/description = "Description"
