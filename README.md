@@ -1,6 +1,19 @@
+<br>
+<br>
+<div align="center">
+
+<p><img src="assets/icon.png" alt="Logo" width="150"></p>
+
+<p>An unique rhythm game.</p>
+
+![GitHub Stars](https://img.shields.io/github/stars/CoCoSol007/beats-into-shapes?style=for-the-badge&color=F3450D)
+![GitHub Forks](https://img.shields.io/github/forks/CoCoSol007/beats-into-shapes?style=for-the-badge&color=A65AC8)
+
+</div>
+
 # Beats into Shape
 
-**Beats into Shape** is our submission to [Youth Hacking 4 Freedom](https://fsfe.org/activities/yh4f/). We decided to craft a unique rhythm game where you forge items from the very beginning of the process.
+**Beats into Shape** is our submission to [Youth Hacking 4 Freedom](https://fsfe.org/activities/yh4f/). We decided to craft an unique rhythm game where you forge items from the very beginning of the process.
 
 ## Table of Contents
 
