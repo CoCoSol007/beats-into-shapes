@@ -13,7 +13,7 @@ class_name BaseTrophy extends Node
 		return unlock
 	set(value):
 		if value:
-			get_parent().unlocked_trophies = true
+			get_parent().trophy_unlocked(self)
 			unlock = true
 
 @export var description: String = "default description"
