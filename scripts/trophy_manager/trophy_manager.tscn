@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/trophy_manager/trophy_manager.gd" id="1_6hqvl"]
 [ext_resource type="Script" path="res://scripts/trophy_manager/base_trophy.gd" id="1_scngr"]
-[ext_resource type="Script" path="res://scripts/trophy_manager/game_finished.gd" id="2_xtxlm"]
+[ext_resource type="Script" path="res://scripts/trophy_manager/functionnal_factory.gd" id="3_yx78r"]
 [ext_resource type="PackedScene" uid="uid://bow1bhqs23nd1" path="res://scripts/trophy_manager/full_perfect.tscn" id="4_jpsai"]
-[ext_resource type="Script" path="res://scripts/trophy_manager/full_bad.gd" id="5_5ywnf"]
-[ext_resource type="Script" path="res://scripts/trophy_manager/perfect_plus.gd" id="6_1bmfr"]
+[ext_resource type="Script" path="res://scripts/trophy_manager/oh_no.gd" id="5_7e405"]
+[ext_resource type="Script" path="res://scripts/trophy_manager/really_good.gd" id="6_n6a8h"]
 
 [node name="TrophyManager" type="Node"]
 script = ExtResource("1_6hqvl")
@@ -14,7 +14,7 @@ script = ExtResource("1_6hqvl")
 script = ExtResource("1_scngr")
 
 [node name="Script" type="Node" parent="functional factory"]
-script = ExtResource("2_xtxlm")
+script = ExtResource("3_yx78r")
 
 [node name="outstanding selector" parent="." instance=ExtResource("4_jpsai")]
 
@@ -31,13 +31,13 @@ metadata/level = 3
 script = ExtResource("1_scngr")
 
 [node name="Script" type="Node" parent="oh no"]
-script = ExtResource("5_5ywnf")
+script = ExtResource("5_7e405")
 
 [node name="really good" type="Node" parent="."]
 script = ExtResource("1_scngr")
 
 [node name="Script" type="Node" parent="really good"]
-script = ExtResource("6_1bmfr")
+script = ExtResource("6_n6a8h")
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 
