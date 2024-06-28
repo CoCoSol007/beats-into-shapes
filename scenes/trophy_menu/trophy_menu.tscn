@@ -35,7 +35,7 @@ point_count = 5
 texture_mode = 1
 curve = SubResource("Curve_bugjn")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y22vk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87ggc"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -47,7 +47,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lnjth"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1od66"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -59,7 +59,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6466h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6uqrx"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -71,7 +71,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4wph"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hg111"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -83,7 +83,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3ctc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cxeya"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -95,7 +95,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vi446"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfkt4"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -107,7 +107,7 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2jne7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iq8u8"]
 resource_local_to_scene = true
 shader = ExtResource("7_u7ioe")
 shader_parameter/scale = 150.0
@@ -219,7 +219,7 @@ grow_vertical = 0
 script = ExtResource("7_48p04")
 
 [node name="functional factory" parent="TrophiesDisplayer" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_y22vk")
+material = SubResource("ShaderMaterial_87ggc")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -227,7 +227,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="outstanding selector" parent="TrophiesDisplayer" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_lnjth")
+material = SubResource("ShaderMaterial_1od66")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -235,7 +235,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="so hot" parent="TrophiesDisplayer" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_6466h")
+material = SubResource("ShaderMaterial_6uqrx")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -243,7 +243,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="pro shaper" parent="TrophiesDisplayer" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_f4wph")
+material = SubResource("ShaderMaterial_hg111")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -251,7 +251,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="last are the best" parent="TrophiesDisplayer" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_x3ctc")
+material = SubResource("ShaderMaterial_cxeya")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -259,7 +259,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="oh no" parent="TrophiesDisplayer" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_vi446")
+material = SubResource("ShaderMaterial_hfkt4")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -267,7 +267,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 
 [node name="really good" parent="TrophiesDisplayer" instance=ExtResource("8_jdyuh")]
-material = SubResource("ShaderMaterial_2jne7")
+material = SubResource("ShaderMaterial_iq8u8")
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
@@ -301,6 +301,7 @@ grow_horizontal = 2
 text = "trophy description"
 label_settings = SubResource("LabelSettings_y22ho")
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="ArrowsHoverManager/ArrowRight" to="TrophiesDisplayer" method="_on_arrow_right_pressed"]
