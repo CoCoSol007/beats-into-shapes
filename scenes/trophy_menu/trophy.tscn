@@ -23,7 +23,6 @@ shader = ExtResource("1_p5n4j")
 shader_parameter/scale = 150.0
 shader_parameter/x = null
 shader_parameter/is_locked = 0.0
-shader_parameter/hover_brightness = 0.9
 shader_parameter/hover_color = Vector3(0.7, 0.7, 0.7)
 shader_parameter/press_scale = 0.8
 shader_parameter/hover_intensity = 0.0
