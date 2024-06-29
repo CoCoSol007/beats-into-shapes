@@ -1,13 +1,11 @@
-<br>
-<br>
 <div align="center">
+   <p>
+      <img src="assets/icon.png" alt="Logo" width="300"></p>
 
-<p><img src="assets/icon.png" alt="Logo" width="300"></p>
+   <p>An unique rhythm game.</p>
 
-<p>An unique rhythm game.</p>
-
-![GitHub Stars](https://img.shields.io/github/stars/CoCoSol007/beats-into-shapes?style=for-the-badge&color=F3450D)
-![GitHub Forks](https://img.shields.io/github/forks/CoCoSol007/beats-into-shapes?style=for-the-badge&color=A65AC8)
+   ![GitHub Stars](https://img.shields.io/github/stars/CoCoSol007/beats-into-shapes?style=for-the-badge&color=F3450D)
+   ![GitHub Forks](https://img.shields.io/github/forks/CoCoSol007/beats-into-shapes?style=for-the-badge&color=A65AC8)
 
 </div>
 
@@ -15,9 +13,7 @@
 
 **Beats into Shape** is our submission to [Youth Hacking 4 Freedom](https://fsfe.org/activities/yh4f/). We decided to craft a unique rhythm game where you forge items from the very beginning of the process.
 
-
-
-<h2>Download Link</h2> 
+## Download Link
   
 | Platform | Link |
 |----------|------|
@@ -25,7 +21,6 @@
 | Windows | [![Windows](https://img.shields.io/badge/Download%20for%20Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://example.com/download/windows) |
 | Linux | [![Linux](https://img.shields.io/badge/Download%20for%20Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white)](https://example.com/download/linux) |
 | Mac (Beta) | [![Mac](https://img.shields.io/badge/Download%20for%20Mac%20(Beta)-999999?style=for-the-badge&logo=apple&logoColor=white)](https://example.com/download/mac-beta) |
-
 
 ## Table of Contents
 
@@ -37,7 +32,7 @@
    - [Reusable and Generic Code](#reusable-and-generic-code)
    - [Free-to-Use Assets](#free-to-use-assets)
 5. [Documentation](#documentation)
-6. [Tutorial Level by Level](#tutorial-level-by-level)
+6. [Tutorial Level by Level](#tutorial-levels-one-by-one)
 7. [Our Team](#our-team)
 8. [Music](#music)
 
@@ -78,7 +73,7 @@ Play as the hero and learn step-by-step how to forge weapons in a chill, relaxed
 
 ### Reusable and Generic Code
 
-Our game is designed with a generic and reusable code structure that can be adapted for other rhythm-based games. This flexibility allows developers to easily modify and expand the game mechanics, integrate new musical elements, and create diverse rhythm-based experiences. The codebase is well-documented and modular, ensuring that future projects can leverage the foundational work done in **Beats into Shape** for innovative and exciting new rhythm games. You can find all documentation [here](/docs/beats_manager.md).
+Our game is designed with a generic and reusable code structure that can be adapted for other rhythm-based games. This flexibility allows developers to easily modify and expand the game mechanics, integrate new musical elements, and create diverse rhythm-based experiences. The codebase is well-documented and modular, ensuring that future projects can leverage the foundational work done in **Beats into Shape** for innovative and exciting new rhythm games.
 
 ### Free-to-Use Assets
 
@@ -92,25 +87,28 @@ See all the SVG images and sketches [here](https://www.figma.com/design/i4OFqWsS
 
 See all about our license [here](/LICENSE)
 
-See how our beats manager works [here](/docs/beats_manager.md)
+![GPL3](https://upload.wikimedia.org/wikipedia/commons/c/cb/GPLv3_Logo_filled.png)
 
-## Tutorial Level by Level
+## Tutorial levels one by one
 
-TODO
+See all the tutorial levels one by one by clicking on the [link](/docs/tuto.md).
 
 ## Our Team
 
 Thank you to all collaborators for your hard work and dedication.
 
-- **Tipragot**: Programmer
 - **CoCo_sol**: Programmer - Art
-- **Edmond**: Art
 - **Plouf-Charles**: Programmer
+- **Tipragot**: Programmer
+- **Edmond**: Art
+- **Bijunoka**: Art
 
 ### Music
+
+A special thanks to the music creator who made the game even better.
 
 - [Take A Break (Cozy Ambient Lofi) - FASSounds](https://pixabay.com/music/beats-take-a-break-cozy-ambient-lofi-199738) (menu)
 - [Good Night - FASSounds](https://pixabay.com/music/beats-good-night-160166) (cooling)
 - [Slow Down - Avanti](https://freetouse.com/music/avanti/slow-down) (selection)
 - [LoFi Chill (Medium Version) - BoDleasons](https://pixabay.com/music/beats-lofi-chill-medium-version-159456) (heating)
-- [Jazz Cafe - FASSounds](https://pixabay.com/music/beats-jazz-cafe-112190) (cooling)
+- [Jazz Cafe - FASSounds](https://pixabay.com/music/beats-jazz-cafe-112190) (forging )
