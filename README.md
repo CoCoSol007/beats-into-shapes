@@ -20,10 +20,6 @@
   <h3 align="center">Beats into Shapes</h3>
 
   <p align="center">
-      An unique rhythm game.
-     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
     <br />
     <b>Beats into Shape</b> is our submission to <a href="https://fsfe.org/activities/yh4f/">Youth Hacking 4 Freedom</a>. 
     <br/> 
