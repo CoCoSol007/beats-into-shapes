@@ -15,7 +15,6 @@ func _ready():
 	# Load unlocked trophies from save file if it exists
 	if ResourceLoader.exists("user://unlocked_trophies.res"):
 		unlocked_trophies = ResourceLoader.load("user://unlocked_trophies.res")
-		print(unlocked_trophies.unlocked_trophies)
 		# Remove trophies that do not exist
 		var to_delete: Array[String] = []
 		for trophy in unlocked_trophies.unlocked_trophies:
