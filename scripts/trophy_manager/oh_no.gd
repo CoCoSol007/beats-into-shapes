@@ -27,5 +27,5 @@ func _on_action_status(action: Constants.ActionStatus):
 func _on_finished_level(_level, _score):
 	# If only_bad is true, unlock the trophy
 	if only_bad:
-		owner.unlock = true
+		get_parent().unlock = true
 

@@ -24,7 +24,7 @@ func _on_enter_level(level):
 
 func _on_action_status(action: Constants.ActionStatus):
 	# If an action that is not perfect is pressed, set only_perfect to false
-	if action != Constants.ActionStatus.PERFECT:
+	if not (action in Constants.PERFECT_STATUS):
 		only_perfect = false
 
 func _on_finished_level(level, _score):
