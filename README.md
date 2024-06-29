@@ -156,13 +156,13 @@ A special thanks to the music creator who made the game even better.
 - [LoFi Chill (Medium Version) - BoDleasons](https://pixabay.com/music/beats-lofi-chill-medium-version-159456) (heating)
 - [Jazz Cafe - FASSounds](https://pixabay.com/music/beats-jazz-cafe-112190) (forging)
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/cocosol007/beats-into-shapes.svg?style=for-the-badge
 [contributors-url]: https://github.com/cocosol007/beats-into-shapes/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/cocosol007/beats-into-shapes.svg?style=for-the-badge
 [forks-url]: https://github.com/cocosol007/beats-into-shapes/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/cocosol007/beats-into-shapes.svg?style=for-the-badge
 [stars-url]: https://github.com/cocosol007/beats-into-shapes/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/cocosol007/beats-into-shapes.svg?style=for-the-badge
 [issues-url]: https://github.com/cocosol007/beats-into-shapes/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/cocosol007/beats-into-shapes.svg?style=for-the-badge
 [license-url]: https://github.com/cocosol007/beats-into-shapes/blob/master/LICENSE
