@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://4rvr8ck32yyp"]
+[gd_scene load_steps=8 format=3 uid="uid://4rvr8ck32yyp"]
 
 [ext_resource type="Texture2D" uid="uid://d6yo31843xsh" path="res://assets/trophy/default_trophy.svg" id="1_lp5mx"]
 [ext_resource type="Shader" path="res://scenes/trophy_menu/trophy.gdshader" id="1_p5n4j"]
+
+[sub_resource type="Curve" id="Curve_ki104"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.445122, 0.274725), 0.0, 0.0, 0, 0, Vector2(1, 0.263736), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_c4xka"]
+curve = SubResource("Curve_ki104")
 
 [sub_resource type="Curve" id="Curve_bugjn"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.215094, 1), 0.0, 0.0, 0, 0, Vector2(0.445283, 0.75663), -0.866841, -0.866841, 0, 0, Vector2(0.933022, 0.40952), -2.11719, -2.11719, 0, 0, Vector2(0.984424, 0), -0.00661466, 0.0, 0, 0]
@@ -17,10 +24,12 @@ shader_parameter/scale = 150.0
 shader_parameter/x = null
 shader_parameter/is_locked = 0.0
 shader_parameter/hover_brightness = 0.9
+shader_parameter/hover_color = Vector3(0.7, 0.7, 0.7)
 shader_parameter/press_scale = 0.8
 shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 shader_parameter/transparency_curve = SubResource("CurveTexture_lhpo8")
+shader_parameter/hover_distance_factor = SubResource("CurveTexture_c4xka")
 
 [node name="Trophy" type="TextureButton"]
 material = SubResource("ShaderMaterial_nybde")

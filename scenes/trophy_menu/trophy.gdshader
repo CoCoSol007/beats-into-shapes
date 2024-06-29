@@ -21,7 +21,9 @@ uniform sampler2D transparency_curve;
 uniform float is_locked = 0.0;
 
 // Brightness multiplier when the element is hovered
-uniform float hover_brightness = 0.9;
+uniform vec3 hover_color = vec3(0.7);
+// How much the color will be changhed according to its distance from hover_color
+uniform sampler2D hover_distance_factor;
 
 // Scale multiplier when the element is pressed
 // This value must be different from 0.0
@@ -53,14 +55,21 @@ void fragment() {
 		))
 	).r;
 	
-	// Adjust the color for locked state and hover state
+	// Adjust the color for locked state
 	COLOR.rgb = mix(
 		COLOR.rgb, 
 		vec3(0.0), 
 		is_locked
-	) * mix(
-		1.0, 
-		hover_brightness, 
+	);
+	// Adjust the color for hover state
+	vec3 dist = hover_color - COLOR.rgb;
+	COLOR.rgb += mix(
+		vec3(0.0),
+		vec3(
+			sign(dist.r) * texture(hover_distance_factor, vec2(abs(dist.r))).r,
+			sign(dist.g) * texture(hover_distance_factor, vec2(abs(dist.g))).r,
+			sign(dist.b) * texture(hover_distance_factor, vec2(abs(dist.b))).r
+		),
 		hover_intensity
 	);
 }
