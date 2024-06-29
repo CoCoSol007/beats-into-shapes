@@ -180,7 +180,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.5, -0.024816, 0, 0.024816, 0, 1, -0.025, 0, 0.025, 0, 0.8, -0.0175, 0, 0.0175, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.2, -0.024816, 0, 0.024816, 0, 0.6, -0.025, 0, 0.025, 0, 0.4, -0.0175, 0, 0.0175, 0),
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.8)
 }
 tracks/1/type = "bezier"
@@ -227,7 +227,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.8, -0.0175, 0, 0.0175, 0, 0, -0.130546, 0.0186995, 0.025, 0),
+"points": PackedFloat32Array(0.4, -0.0175, 0, 0.0175, 0, 0, -0.130546, 0.0186995, 0.025, 0),
 "times": PackedFloat32Array(0, 0.6)
 }
 tracks/1/type = "bezier"
@@ -295,8 +295,7 @@ position = Vector2(0, -264)
 
 [node name="MetalBar" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
-position = Vector2(710.022, -400)
-rotation = -0.00582407
+position = Vector2(710, -400)
 press_key = 2
 press_time = 8.0
 hold_length = 4.0
@@ -304,7 +303,7 @@ hold_length = 4.0
 [node name="MetalBar2" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(1420.02, -400)
-rotation = -0.00582407
+rotation = -0.00576839
 press_key = 2
 press_time = 16.0
 hold_length = 4.0
@@ -313,7 +312,7 @@ hard_key = true
 [node name="MetalBar3" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(2130.02, -400)
-rotation = -0.00582407
+rotation = -0.00576839
 press_key = 2
 press_time = 24.0
 hold_length = 4.0
@@ -321,7 +320,7 @@ hold_length = 4.0
 [node name="MetalBar4" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(2840.02, -400)
-rotation = -0.00582407
+rotation = -0.00576839
 press_key = 2
 press_time = 32.0
 hold_length = 4.0
@@ -330,7 +329,7 @@ hard_key = true
 [node name="MetalBar5" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(4970.02, -400)
-rotation = -0.00582407
+rotation = -0.00576839
 press_key = 2
 press_time = 56.0
 hold_length = 4.0
@@ -339,7 +338,7 @@ hard_key = true
 [node name="MetalBar8" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(5680.02, -400)
-rotation = -0.00582407
+rotation = -0.00576839
 press_key = 2
 press_time = 64.0
 hold_length = 4.0
@@ -348,7 +347,7 @@ hard_key = true
 [node name="MetalBar9" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(6390.02, -400)
-rotation = -0.00582407
+rotation = -0.00576839
 press_key = 2
 press_time = 72.0
 hold_length = 4.0
@@ -357,7 +356,7 @@ hard_key = true
 [node name="MetalBar10" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(7100.02, -400)
-rotation = -0.00582407
+rotation = -0.00576839
 press_key = 2
 press_time = 80.0
 hold_length = 4.0
@@ -366,7 +365,7 @@ hard_key = true
 [node name="MetalBar11" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(7810.02, -400)
-rotation = -0.00582407
+rotation = -0.00576839
 press_key = 2
 press_time = 88.0
 hold_length = 4.0
@@ -375,7 +374,7 @@ hard_key = true
 [node name="MetalBar6" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(4260.02, -400)
-rotation = -0.00582407
+rotation = -0.00576839
 press_key = 2
 press_time = 48.0
 hold_length = 4.0
@@ -384,7 +383,7 @@ hard_key = true
 [node name="MetalBar7" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(3550.02, -400)
-rotation = -0.00582407
+rotation = -0.00576839
 press_key = 2
 press_time = 40.0
 hold_length = 4.0
