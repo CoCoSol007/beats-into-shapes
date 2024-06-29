@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://cnlmomupi4s2g"]
+[gd_scene load_steps=27 format=3 uid="uid://cnlmomupi4s2g"]
 
 [ext_resource type="AudioStream" uid="uid://dd5blbk5tojjn" path="res://musics/cooling.mp3" id="1_cuyft"]
 [ext_resource type="PackedScene" uid="uid://ct82acwuajwl4" path="res://scripts/beats_manager/beat_manager.tscn" id="2_2vwvw"]
 [ext_resource type="PackedScene" uid="uid://b0f5uxncim2cf" path="res://scripts/scores/score_manager.tscn" id="3_buh1v"]
+[ext_resource type="PackedScene" uid="uid://c5ijeqivocyui" path="res://scripts/trophy_manager/trophy_manager.tscn" id="3_i0u4g"]
 [ext_resource type="PackedScene" uid="uid://cnecogu51saqv" path="res://scripts/seed_up/speedup_animation.tscn" id="4_5try2"]
 [ext_resource type="PackedScene" uid="uid://cfbegrs7n6xod" path="res://scenes/levels/cooling/metal_bar.tscn" id="4_h8kqc"]
 [ext_resource type="Texture2D" uid="uid://pqkxw70q00r0" path="res://assets/forging/coin.png" id="6_c3vob"]
@@ -92,6 +93,8 @@ libraries = {
 [node name="ScoreManager" parent="." instance=ExtResource("3_buh1v")]
 position = Vector2(0, -264)
 
+[node name="TrophyManager" parent="." instance=ExtResource("3_i0u4g")]
+
 [node name="SpeedupAnimation" parent="." instance=ExtResource("4_5try2")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -102,7 +105,7 @@ z_index = 2
 
 [node name="MetalBar2" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-4800, -324)
+position = Vector2(-4804.27, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 16.0
@@ -110,7 +113,7 @@ hold_length = 2.0
 
 [node name="MetalBar3" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-6000, -324)
+position = Vector2(-6004.27, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 20.0
@@ -119,7 +122,7 @@ hard_key = true
 
 [node name="MetalBar4" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-7200, -324)
+position = Vector2(-7204.27, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 24.0
@@ -127,7 +130,7 @@ hold_length = 2.0
 
 [node name="MetalBar5" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-8400, -324)
+position = Vector2(-8404.27, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 28.0
@@ -136,7 +139,7 @@ hard_key = true
 
 [node name="MetalBar8" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-9600, -324)
+position = Vector2(-9604.27, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 32.0
@@ -144,7 +147,7 @@ hold_length = 2.0
 
 [node name="MetalBar6" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-10800, -324)
+position = Vector2(-10804.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 36.0
@@ -153,7 +156,7 @@ hard_key = true
 
 [node name="MetalBar7" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-12000, -324)
+position = Vector2(-12004.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 40.0
@@ -161,7 +164,7 @@ hold_length = 2.0
 
 [node name="MetalBar9" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-13200, -324)
+position = Vector2(-13204.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 44.0
@@ -170,7 +173,7 @@ hard_key = true
 
 [node name="MetalBar10" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-14400, -324)
+position = Vector2(-14404.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 48.0
@@ -179,7 +182,7 @@ hard_key = true
 
 [node name="MetalBar18" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-15000, -324)
+position = Vector2(-15004.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 50.0
@@ -188,7 +191,7 @@ hard_key = true
 
 [node name="MetalBar11" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-15600, -324)
+position = Vector2(-15604.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 52.0
@@ -197,7 +200,7 @@ hard_key = true
 
 [node name="MetalBar12" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-16800, -324)
+position = Vector2(-16804.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 56.0
@@ -206,7 +209,7 @@ hard_key = true
 
 [node name="MetalBar19" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-17400, -324)
+position = Vector2(-17404.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 58.0
@@ -215,7 +218,7 @@ hard_key = true
 
 [node name="MetalBar13" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-18000, -324)
+position = Vector2(-18004.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 60.0
@@ -224,7 +227,7 @@ hard_key = true
 
 [node name="MetalBar14" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-19200, -324)
+position = Vector2(-19204.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 64.0
@@ -233,7 +236,7 @@ hard_key = true
 
 [node name="MetalBar15" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-20400, -324)
+position = Vector2(-20404.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 68.0
@@ -242,7 +245,7 @@ hard_key = true
 
 [node name="MetalBar16" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-21600, -324)
+position = Vector2(-21604.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 72.0
@@ -251,7 +254,7 @@ hard_key = true
 
 [node name="MetalBar17" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-22800, -324)
+position = Vector2(-22804.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 76.0
@@ -260,7 +263,7 @@ hard_key = true
 
 [node name="MetalBar20" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-28800, -324)
+position = Vector2(-28804.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 96.0
@@ -269,7 +272,7 @@ hard_key = true
 
 [node name="MetalBar42" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(30000, -324)
+position = Vector2(30004.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -279,7 +282,7 @@ hard_key = true
 
 [node name="MetalBar43" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(31200, -324)
+position = Vector2(31204.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -289,7 +292,7 @@ hard_key = true
 
 [node name="MetalBar44" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(-32400, -324)
+position = Vector2(-32404.3, -324)
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
 press_time = 108.0
@@ -298,7 +301,7 @@ hard_key = true
 
 [node name="MetalBar21" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(34800, -324)
+position = Vector2(34804.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -308,7 +311,7 @@ hard_key = true
 
 [node name="MetalBar22" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(36000, -324)
+position = Vector2(36004.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -318,7 +321,7 @@ hard_key = true
 
 [node name="MetalBar23" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(37200, -324)
+position = Vector2(37204.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -328,7 +331,7 @@ hard_key = true
 
 [node name="MetalBar24" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(38400, -324)
+position = Vector2(38404.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -338,7 +341,7 @@ hard_key = true
 
 [node name="MetalBar25" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(39600, -324)
+position = Vector2(39604.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -348,7 +351,7 @@ hard_key = true
 
 [node name="MetalBar26" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(40800, -324)
+position = Vector2(40804.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -358,7 +361,7 @@ hard_key = true
 
 [node name="MetalBar27" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(42000, -324)
+position = Vector2(42004.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -368,7 +371,7 @@ hard_key = true
 
 [node name="MetalBar28" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(43200, -324)
+position = Vector2(43204.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -378,7 +381,7 @@ hard_key = true
 
 [node name="MetalBar30" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(44400, -324)
+position = Vector2(44404.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -388,7 +391,7 @@ hard_key = true
 
 [node name="MetalBar31" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(45600, -324)
+position = Vector2(45604.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -398,7 +401,7 @@ hard_key = true
 
 [node name="MetalBar33" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(46800, -324)
+position = Vector2(46804.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -408,7 +411,7 @@ hard_key = true
 
 [node name="MetalBar34" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(48000, -324)
+position = Vector2(48004.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -418,7 +421,7 @@ hard_key = true
 
 [node name="MetalBar35" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(49200, -324)
+position = Vector2(49204.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -428,7 +431,7 @@ hard_key = true
 
 [node name="MetalBar36" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(50400, -324)
+position = Vector2(50404.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -438,7 +441,7 @@ hard_key = true
 
 [node name="MetalBar37" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(51600, -324)
+position = Vector2(51604.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -448,7 +451,7 @@ hard_key = true
 
 [node name="MetalBar38" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(52800, -324)
+position = Vector2(52804.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -458,7 +461,7 @@ hard_key = true
 
 [node name="MetalBar45" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(53400, -324)
+position = Vector2(53404.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -468,7 +471,7 @@ hard_key = true
 
 [node name="MetalBar39" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(54000, -324)
+position = Vector2(54004.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -478,7 +481,7 @@ hard_key = true
 
 [node name="MetalBar40" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(55200, -324)
+position = Vector2(55204.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -488,7 +491,7 @@ hard_key = true
 
 [node name="MetalBar46" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 0.498039, 0.498039, 1)
-position = Vector2(55800, -324)
+position = Vector2(55804.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -497,7 +500,7 @@ hold_length = 1.0
 hard_key = true
 
 [node name="MetalBar41" parent="MetalBars" instance=ExtResource("4_h8kqc")]
-position = Vector2(56400, -324)
+position = Vector2(56404.3, -324)
 direction = -1
 forged_texture = Array[Texture2D]([ExtResource("6_c3vob"), ExtResource("7_yeed8"), ExtResource("8_4t403"), ExtResource("9_xtlqh")])
 press_key = 2
@@ -562,7 +565,7 @@ offset_left = -707.0
 offset_top = -332.0
 offset_right = -156.0
 offset_bottom = -195.0
-theme_override_colors/font_color = Color(0.231373, 0.494118, 0.309804, 1)
+theme_override_colors/font_color = Color(0.231373, 0.494118, 0.3098, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("20_ll8h4")
@@ -578,7 +581,7 @@ offset_left = -518.0
 offset_top = -230.0
 offset_right = 95.0
 offset_bottom = -93.0
-theme_override_colors/font_color = Color(0.231373, 0.494118, 0.309804, 1)
+theme_override_colors/font_color = Color(0.231373, 0.494118, 0.3098, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("20_ll8h4")

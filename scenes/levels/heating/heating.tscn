@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://1ft7t0frbqu0"]
+[gd_scene load_steps=42 format=3 uid="uid://1ft7t0frbqu0"]
 
 [ext_resource type="PackedScene" uid="uid://dwul1oterdmc" path="res://scripts/pause/pause.tscn" id="1_4khu3"]
 [ext_resource type="AudioStream" uid="uid://c3kbupayfpxyo" path="res://musics/heating.mp3" id="1_cuyft"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0f5uxncim2cf" path="res://scripts/scores/score_manager.tscn" id="3_buh1v"]
 [ext_resource type="PackedScene" uid="uid://cnecogu51saqv" path="res://scripts/seed_up/speedup_animation.tscn" id="4_5try2"]
 [ext_resource type="PackedScene" uid="uid://bbpnhkdf3ds7d" path="res://scenes/levels/heating/metal_bar.tscn" id="4_h8kqc"]
+[ext_resource type="PackedScene" uid="uid://c5ijeqivocyui" path="res://scripts/trophy_manager/trophy_manager.tscn" id="4_trwyu"]
 [ext_resource type="Script" path="res://scenes/levels/heating/rain.gd" id="8_enadb"]
 [ext_resource type="AudioStream" uid="uid://cfnoylr4ixx71" path="res://musics/sounds/fire.wav" id="9_xm3vr"]
 [ext_resource type="PackedScene" uid="uid://cdaq1hxju3fwl" path="res://scripts/tuto/tutorial.tscn" id="11_2jlud"]
@@ -284,6 +285,8 @@ libraries = {
 [node name="ScoreManager" parent="." instance=ExtResource("3_buh1v")]
 position = Vector2(0, -264)
 
+[node name="TrophyManager" parent="." instance=ExtResource("4_trwyu")]
+
 [node name="SpeedupAnimation" parent="." instance=ExtResource("4_5try2")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -293,6 +296,7 @@ position = Vector2(0, -264)
 [node name="MetalBar" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(710.022, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 8.0
 hold_length = 4.0
@@ -300,6 +304,7 @@ hold_length = 4.0
 [node name="MetalBar2" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(1420.02, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 16.0
 hold_length = 4.0
@@ -308,6 +313,7 @@ hard_key = true
 [node name="MetalBar3" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(2130.02, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 24.0
 hold_length = 4.0
@@ -315,6 +321,7 @@ hold_length = 4.0
 [node name="MetalBar4" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(2840.02, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 32.0
 hold_length = 4.0
@@ -323,6 +330,7 @@ hard_key = true
 [node name="MetalBar5" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(4970.02, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 56.0
 hold_length = 4.0
@@ -331,6 +339,7 @@ hard_key = true
 [node name="MetalBar8" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(5680.02, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 64.0
 hold_length = 4.0
@@ -339,6 +348,7 @@ hard_key = true
 [node name="MetalBar9" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(6390.02, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 72.0
 hold_length = 4.0
@@ -347,6 +357,7 @@ hard_key = true
 [node name="MetalBar10" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(7100.02, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 80.0
 hold_length = 4.0
@@ -355,6 +366,7 @@ hard_key = true
 [node name="MetalBar11" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(7810.02, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 88.0
 hold_length = 4.0
@@ -363,6 +375,7 @@ hard_key = true
 [node name="MetalBar6" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(4260.02, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 48.0
 hold_length = 4.0
@@ -371,6 +384,7 @@ hard_key = true
 [node name="MetalBar7" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(3550.02, -400)
+rotation = -0.00582407
 press_key = 2
 press_time = 40.0
 hold_length = 4.0

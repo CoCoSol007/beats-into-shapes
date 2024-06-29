@@ -1,4 +1,4 @@
-extends Control
+class_name TrophiesDisplayer extends Control
 
 @onready var title = $"../Title" # Reference to the title label
 @onready var description = $"../Description" # Reference to the description label
@@ -104,12 +104,12 @@ func update_label():
 	# Update the title and description labels based on the current trophy
 	var child = get_child(round(trophy_position))
 	if child:
-		title.text = child.get_meta("title", "error").to_upper()
+		title.text = child.name.to_upper()
 		description.text = child.get_meta("description", "Error")
 	else:
 		title.text = "ERROR"
 		description.text = "Error"
-		
+
 
 # For more information about the formulas used here, see:
 # https://www.youtube.com/watch?v=KPoeNZZ6H4s
