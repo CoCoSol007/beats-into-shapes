@@ -2,7 +2,7 @@
 <br>
 <div align="center">
 
-<p><img src="assets/icon.png" alt="Logo" width="150"></p>
+<p><img src="assets/icon.png" alt="Logo" width="300"></p>
 
 <p>An unique rhythm game.</p>
 
@@ -13,28 +13,33 @@
 
 # Beats into Shape
 
-**Beats into Shape** is our submission to [Youth Hacking 4 Freedom](https://fsfe.org/activities/yh4f/). We decided to craft an unique rhythm game where you forge items from the very beginning of the process.
+**Beats into Shape** is our submission to [Youth Hacking 4 Freedom](https://fsfe.org/activities/yh4f/). We decided to craft a unique rhythm game where you forge items from the very beginning of the process.
+
+
+
+<h2>Download Link</h2> 
+  
+| Platform | Link |
+|----------|------|
+| Play Online | [![Play Online](https://img.shields.io/badge/Play%20Online-0078D4?style=for-the-badge&logo=web&logoColor=white)](https://example.com/play-online) |
+| Windows | [![Windows](https://img.shields.io/badge/Download%20for%20Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://example.com/download/windows) |
+| Linux | [![Linux](https://img.shields.io/badge/Download%20for%20Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white)](https://example.com/download/linux) |
+| Mac (Beta) | [![Mac](https://img.shields.io/badge/Download%20for%20Mac%20(Beta)-999999?style=for-the-badge&logo=apple&logoColor=white)](https://example.com/download/mac-beta) |
+
 
 ## Table of Contents
 
-| Section                                              |
-|------------------------------------------------------|
-| 1. [Download Link](#download-link)                   |
-| 2. [Images](#images)                                 |
-| 3. [Gameplay](#gameplay)                             |
-| 4. [Universe](#universe)                             |
-| 5. [Use Case](#use-case)                             |
-|    - [Entertainment with Engaging Music](#entertainment-with-engaging-music) |
-|    - [Reusable and Generic Code](#reusable-and-generic-code)                 |
-|    - [Free-to-Use Assets](#free-to-use-assets)                             |
-| 6. [Documentation](#documentation)                   |
-| 7. [Tutorial Level by Level](#tutorial-level-by-level)|
-| 8. [Our Team](#our-team)                             |
-| 9. [Musics](#musics)                                 |
-
-## Download link
-
-todo
+1. [Images](#images)
+2. [Gameplay](#gameplay)
+3. [Universe](#universe)
+4. [Use Case](#use-case)
+   - [Entertainment with Engaging Music](#entertainment-with-engaging-music)
+   - [Reusable and Generic Code](#reusable-and-generic-code)
+   - [Free-to-Use Assets](#free-to-use-assets)
+5. [Documentation](#documentation)
+6. [Tutorial Level by Level](#tutorial-level-by-level)
+7. [Our Team](#our-team)
+8. [Music](#music)
 
 ## Images
 
@@ -83,15 +88,15 @@ All the assets in **Beats into Shape** are completely free for any use, as they 
 
 See all the project documentation [here](/docs)
 
-See all the svg images and sketch [here](https://www.figma.com/design/i4OFqWsSMmk0AW6OUtyf3B/Beats-into-shapes?t=ICflNE9DRQtmYzKb-1)
+See all the SVG images and sketches [here](https://www.figma.com/design/i4OFqWsSMmk0AW6OUtyf3B/Beats-into-shapes?t=ICflNE9DRQtmYzKb-1)
 
 See all about our license [here](/LICENSE)
 
 See how our beats manager works [here](/docs/beats_manager.md)
 
-## Tutorial level by level
+## Tutorial Level by Level
 
-todo
+TODO
 
 ## Our Team
 
@@ -102,7 +107,7 @@ Thank you to all collaborators for your hard work and dedication.
 - **Edmond**: Art
 - **Plouf-Charles**: Programmer
 
-### Musics
+### Music
 
 - [Take A Break (Cozy Ambient Lofi) - FASSounds](https://pixabay.com/music/beats-take-a-break-cozy-ambient-lofi-199738) (menu)
 - [Good Night - FASSounds](https://pixabay.com/music/beats-good-night-160166) (cooling)
