@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://1ft7t0frbqu0"]
+[gd_scene load_steps=42 format=3 uid="uid://1ft7t0frbqu0"]
 
 [ext_resource type="PackedScene" uid="uid://dwul1oterdmc" path="res://scripts/pause/pause.tscn" id="1_4khu3"]
 [ext_resource type="AudioStream" uid="uid://c3kbupayfpxyo" path="res://musics/heating.mp3" id="1_cuyft"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0f5uxncim2cf" path="res://scripts/scores/score_manager.tscn" id="3_buh1v"]
 [ext_resource type="PackedScene" uid="uid://cnecogu51saqv" path="res://scripts/seed_up/speedup_animation.tscn" id="4_5try2"]
 [ext_resource type="PackedScene" uid="uid://bbpnhkdf3ds7d" path="res://scenes/levels/heating/metal_bar.tscn" id="4_h8kqc"]
+[ext_resource type="PackedScene" uid="uid://c5ijeqivocyui" path="res://scripts/trophy_manager/trophy_manager.tscn" id="4_trwyu"]
 [ext_resource type="Script" path="res://scenes/levels/heating/rain.gd" id="8_enadb"]
 [ext_resource type="AudioStream" uid="uid://cfnoylr4ixx71" path="res://musics/sounds/fire.wav" id="9_xm3vr"]
 [ext_resource type="PackedScene" uid="uid://cdaq1hxju3fwl" path="res://scripts/tuto/tutorial.tscn" id="11_2jlud"]
@@ -283,6 +284,8 @@ libraries = {
 
 [node name="ScoreManager" parent="." instance=ExtResource("3_buh1v")]
 position = Vector2(0, -264)
+
+[node name="TrophyManager" parent="." instance=ExtResource("4_trwyu")]
 
 [node name="SpeedupAnimation" parent="." instance=ExtResource("4_5try2")]
 

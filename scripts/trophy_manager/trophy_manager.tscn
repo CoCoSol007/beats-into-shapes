@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5ijeqivocyui"]
+
+[ext_resource type="Script" path="res://scripts/trophy_manager/trophy_manager.gd" id="1_6hqvl"]
+[ext_resource type="Script" path="res://scripts/trophy_manager/base_trophy.gd" id="1_scngr"]
+[ext_resource type="Script" path="res://scripts/trophy_manager/functionnal_factory.gd" id="3_yx78r"]
+[ext_resource type="PackedScene" uid="uid://bow1bhqs23nd1" path="res://scripts/trophy_manager/full_perfect.tscn" id="4_jpsai"]
+[ext_resource type="Script" path="res://scripts/trophy_manager/oh_no.gd" id="5_7e405"]
+[ext_resource type="Script" path="res://scripts/trophy_manager/really_good.gd" id="6_n6a8h"]
+
+[node name="TrophyManager" type="Node"]
+script = ExtResource("1_6hqvl")
+
+[node name="functional factory" type="Node" parent="."]
+script = ExtResource("1_scngr")
+description = "Complete all four levels of the game, including Metal Selection, Heating Metals, Forging, and Cooling."
+
+[node name="Script" type="Node" parent="functional factory"]
+script = ExtResource("3_yx78r")
+
+[node name="outstanding selector" parent="." instance=ExtResource("4_jpsai")]
+description = "Achieve a perfect score in the Metal Selection level by choosing the correct metals without making any mistakes."
+
+[node name="so hot" parent="." instance=ExtResource("4_jpsai")]
+description = "Achieve a perfect score in the Heating Metals level by heating the metals to the ideal temperature without any errors."
+metadata/level = 1
+
+[node name="pro shaper" parent="." instance=ExtResource("4_jpsai")]
+description = "Achieve a perfect score in the Forging level by shaping the heated metals precisely."
+metadata/level = 2
+
+[node name="last are the best" parent="." instance=ExtResource("4_jpsai")]
+description = " Achieve a perfect score in the Cooling level by cooling the forged metals correctly without causing any cracks or weaknesses."
+metadata/level = 3
+
+[node name="oh no" type="Node" parent="."]
+script = ExtResource("1_scngr")
+description = "Complete a level where every action is marked as either \"too late\" or \"too soon,\" without hitting the correct timing once."
+
+[node name="Script" type="Node" parent="oh no"]
+script = ExtResource("5_7e405")
+
+[node name="really good" type="Node" parent="."]
+script = ExtResource("1_scngr")
+description = "Perform ten perfect+ actions consecutively without making any mistakes."
+
+[node name="Script" type="Node" parent="really good"]
+script = ExtResource("6_n6a8h")
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+
+[connection signal="finished_level" from="." to="functional factory/Script" method="_on_finished_level"]

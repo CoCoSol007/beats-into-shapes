@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://cnlmomupi4s2g"]
+[gd_scene load_steps=27 format=3 uid="uid://cnlmomupi4s2g"]
 
 [ext_resource type="AudioStream" uid="uid://dd5blbk5tojjn" path="res://musics/cooling.mp3" id="1_cuyft"]
 [ext_resource type="PackedScene" uid="uid://ct82acwuajwl4" path="res://scripts/beats_manager/beat_manager.tscn" id="2_2vwvw"]
 [ext_resource type="PackedScene" uid="uid://b0f5uxncim2cf" path="res://scripts/scores/score_manager.tscn" id="3_buh1v"]
+[ext_resource type="PackedScene" uid="uid://c5ijeqivocyui" path="res://scripts/trophy_manager/trophy_manager.tscn" id="3_i0u4g"]
 [ext_resource type="PackedScene" uid="uid://cnecogu51saqv" path="res://scripts/seed_up/speedup_animation.tscn" id="4_5try2"]
 [ext_resource type="PackedScene" uid="uid://cfbegrs7n6xod" path="res://scenes/levels/cooling/metal_bar.tscn" id="4_h8kqc"]
 [ext_resource type="Texture2D" uid="uid://pqkxw70q00r0" path="res://assets/forging/coin.png" id="6_c3vob"]
@@ -91,6 +92,8 @@ libraries = {
 
 [node name="ScoreManager" parent="." instance=ExtResource("3_buh1v")]
 position = Vector2(0, -264)
+
+[node name="TrophyManager" parent="." instance=ExtResource("3_i0u4g")]
 
 [node name="SpeedupAnimation" parent="." instance=ExtResource("4_5try2")]
 
@@ -562,7 +565,7 @@ offset_left = -707.0
 offset_top = -332.0
 offset_right = -156.0
 offset_bottom = -195.0
-theme_override_colors/font_color = Color(0.231373, 0.494118, 0.309804, 1)
+theme_override_colors/font_color = Color(0.231373, 0.494118, 0.3098, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("20_ll8h4")
@@ -578,7 +581,7 @@ offset_left = -518.0
 offset_top = -230.0
 offset_right = 95.0
 offset_bottom = -93.0
-theme_override_colors/font_color = Color(0.231373, 0.494118, 0.309804, 1)
+theme_override_colors/font_color = Color(0.231373, 0.494118, 0.3098, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("20_ll8h4")

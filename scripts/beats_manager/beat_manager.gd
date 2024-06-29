@@ -13,6 +13,7 @@ signal song_finished()
 
 @export var stream: AudioStreamMP3
 @export var perfect_time: float = 0.1
+@export var perfect_plus_time: float = 0.05
 @export var too_time: float = 0.3
 @export var speedup_time: float = 20.0
 @export var speedup_scale: float = 0.25
@@ -92,7 +93,10 @@ func _process(_delta):
 			node_pressed.emit(node, time, Constants.ActionStatus.MISSED)
 			handled_nodes.append(unhandled_nodes.pop_at(i))
 		elif node.press_key in pressed_keys:
-			if abs(distance_to_press) <= perfect_time:
+			if abs(distance_to_press) <= perfect_plus_time:
+				node.pressed(time - node.press_time, Constants.ActionStatus.PERFECT_PLUS)
+				node_pressed.emit(node, time, Constants.ActionStatus.PERFECT_PLUS)
+			elif abs(distance_to_press) <= perfect_time:
 				node.pressed(time - node.press_time, Constants.ActionStatus.PERFECT)
 				node_pressed.emit(node, time, Constants.ActionStatus.PERFECT)
 			else:
@@ -120,6 +124,9 @@ func _process(_delta):
 			if distance_to_release > too_time:
 				node.released(time - node.press_time, Constants.ActionStatus.VERY_SOON)
 				node_released.emit(node, time, Constants.ActionStatus.VERY_SOON)
+			elif abs(distance_to_release) <= perfect_plus_time:
+				node.released(time - node.press_time, Constants.ActionStatus.PERFECT_PLUS)
+				node_released.emit(node, time, Constants.ActionStatus.PERFECT_PLUS)
 			elif abs(distance_to_release) <= perfect_time:
 				node.released(time - node.press_time, Constants.ActionStatus.PERFECT)
 				node_released.emit(node, time, Constants.ActionStatus.PERFECT)
