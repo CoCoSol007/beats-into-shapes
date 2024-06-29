@@ -1,19 +1,75 @@
+<a id="readme-top"></a>
 <div align="center">
-   <p>
-      <img src="assets/icon.png" alt="Logo" width="300"></p>
 
-   <p>An unique rhythm game.</p>
-
-   ![GitHub Stars](https://img.shields.io/github/stars/CoCoSol007/beats-into-shapes?style=for-the-badge&color=F3450D)
-   ![GitHub Forks](https://img.shields.io/github/forks/CoCoSol007/beats-into-shapes?style=for-the-badge&color=A65AC8)
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
 </div>
 
-# Beats into Shape
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/CoCoSol007/beats-into-shapes">
+      <img src="assets/icon.png" alt="Logo" width="300"></p>
+     
+  </a>
 
-**Beats into Shape** is our submission to [Youth Hacking 4 Freedom](https://fsfe.org/activities/yh4f/). We decided to craft a unique rhythm game where you forge items from the very beginning of the process.
+  <h3 align="center">Beats into Shapes</h3>
 
-## Download Link
+  <p align="center">
+      An unique rhythm game.
+     <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <b>Beats into Shape</b> is our submission to <a href="https://fsfe.org/activities/yh4f/">Youth Hacking 4 Freedom</a>. 
+    <br/> 
+    We decided to craft a unique rhythm game where you forge items from the very beginning of the process.
+
+  </p>
+</div>
+
+---
+
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#download-links">Download Links</a>
+    </li>
+    <li>
+      <a href="#images">Images</a>
+      <ul>
+        <li><a href="#level-1-selection">Level 1 (Selection)</a></li>
+        <li><a href="#level-2-heating">Level 2 (Heating)</a></li>
+        <li><a href="#level-3-forging">Level 3 (Forging)</a></li>
+        <li><a href="#level-4-cooling">Level 4 (Cooling)</a></li>
+      </ul>
+    </li>
+    <li><a href="#gameplay">Gameplay</a></li>
+    <li><a href="#universe">Universe</a></li>
+    <li>
+      <a href="#use-case">Use Case</a>
+      <ul>
+        <li><a href="#entertainment-with-engaging-music">Entertainment with Engaging Music</a></li>
+        <li><a href="#reusable-and-generic-code">Reusable and Generic Code</a></li>
+        <li><a href="#free-to-use-assets">Free-to-Use Assets</a></li>
+      </ul>
+    </li>
+    <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#tutorial-levels-one-by-one">Tutorial Level by Level</a></li>
+    <li><a href="#our-team">Our Team</a></li>
+    <li><a href="#music">Music</a></li>
+  </ol>
+</details>
+
+
+## Download Links
   
 | Platform | Link |
 |----------|------|
@@ -22,19 +78,6 @@
 | Linux | [![Linux](https://img.shields.io/badge/Download%20for%20Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white)](https://example.com/download/linux) |
 | Mac (Beta) | [![Mac](https://img.shields.io/badge/Download%20for%20Mac%20(Beta)-999999?style=for-the-badge&logo=apple&logoColor=white)](https://example.com/download/mac-beta) |
 
-## Table of Contents
-
-1. [Images](#images)
-2. [Gameplay](#gameplay)
-3. [Universe](#universe)
-4. [Use Case](#use-case)
-   - [Entertainment with Engaging Music](#entertainment-with-engaging-music)
-   - [Reusable and Generic Code](#reusable-and-generic-code)
-   - [Free-to-Use Assets](#free-to-use-assets)
-5. [Documentation](#documentation)
-6. [Tutorial Level by Level](#tutorial-levels-one-by-one)
-7. [Our Team](#our-team)
-8. [Music](#music)
 
 ## Images
 
@@ -111,4 +154,34 @@ A special thanks to the music creator who made the game even better.
 - [Good Night - FASSounds](https://pixabay.com/music/beats-good-night-160166) (cooling)
 - [Slow Down - Avanti](https://freetouse.com/music/avanti/slow-down) (selection)
 - [LoFi Chill (Medium Version) - BoDleasons](https://pixabay.com/music/beats-lofi-chill-medium-version-159456) (heating)
-- [Jazz Cafe - FASSounds](https://pixabay.com/music/beats-jazz-cafe-112190) (forging )
+- [Jazz Cafe - FASSounds](https://pixabay.com/music/beats-jazz-cafe-112190) (forging)
+
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/othneildrew
+[product-screenshot]: images/screenshot.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[Svelte-url]: https://svelte.dev/
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com 
