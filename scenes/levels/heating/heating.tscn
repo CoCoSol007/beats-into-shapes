@@ -295,7 +295,7 @@ position = Vector2(0, -264)
 
 [node name="MetalBar" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
-position = Vector2(710, -400)
+position = Vector2(710.022, -400)
 press_key = 2
 press_time = 8.0
 hold_length = 4.0
@@ -303,7 +303,6 @@ hold_length = 4.0
 [node name="MetalBar2" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(1420.02, -400)
-rotation = -0.00576839
 press_key = 2
 press_time = 16.0
 hold_length = 4.0
@@ -312,7 +311,6 @@ hard_key = true
 [node name="MetalBar3" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(2130.02, -400)
-rotation = -0.00576839
 press_key = 2
 press_time = 24.0
 hold_length = 4.0
@@ -320,7 +318,6 @@ hold_length = 4.0
 [node name="MetalBar4" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(2840.02, -400)
-rotation = -0.00576839
 press_key = 2
 press_time = 32.0
 hold_length = 4.0
@@ -329,7 +326,6 @@ hard_key = true
 [node name="MetalBar5" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(4970.02, -400)
-rotation = -0.00576839
 press_key = 2
 press_time = 56.0
 hold_length = 4.0
@@ -338,7 +334,6 @@ hard_key = true
 [node name="MetalBar8" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(5680.02, -400)
-rotation = -0.00576839
 press_key = 2
 press_time = 64.0
 hold_length = 4.0
@@ -347,7 +342,6 @@ hard_key = true
 [node name="MetalBar9" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(6390.02, -400)
-rotation = -0.00576839
 press_key = 2
 press_time = 72.0
 hold_length = 4.0
@@ -356,7 +350,6 @@ hard_key = true
 [node name="MetalBar10" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(7100.02, -400)
-rotation = -0.00576839
 press_key = 2
 press_time = 80.0
 hold_length = 4.0
@@ -365,7 +358,6 @@ hard_key = true
 [node name="MetalBar11" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(7810.02, -400)
-rotation = -0.00576839
 press_key = 2
 press_time = 88.0
 hold_length = 4.0
@@ -374,7 +366,6 @@ hard_key = true
 [node name="MetalBar6" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(4260.02, -400)
-rotation = -0.00576839
 press_key = 2
 press_time = 48.0
 hold_length = 4.0
@@ -383,7 +374,6 @@ hard_key = true
 [node name="MetalBar7" parent="MetalBars" instance=ExtResource("4_h8kqc")]
 self_modulate = Color(1, 1, 1, 1)
 position = Vector2(3550.02, -400)
-rotation = -0.00576839
 press_key = 2
 press_time = 40.0
 hold_length = 4.0
@@ -395,7 +385,7 @@ stream = ExtResource("1_cuyft")
 speedup_time = 71.0
 speedup_length = 4.0
 level = 1
-level_name = "selection"
+level_name = "heating"
 
 [node name="Rain" type="CPUParticles2D" parent="PauseAffectedScript"]
 position = Vector2(0, 1)
