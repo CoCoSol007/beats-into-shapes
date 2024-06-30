@@ -45,6 +45,7 @@
         <li><a href="#level-2-heating">Level 2 (Heating)</a></li>
         <li><a href="#level-3-forging">Level 3 (Forging)</a></li>
         <li><a href="#level-4-cooling">Level 4 (Cooling)</a></li>
+        <li><a href="#trophies-menu">Trophies</a></li>
       </ul>
     </li>
     <li><a href="#gameplay">Gameplay</a></li>
@@ -93,6 +94,10 @@
 ### Level 4 (cooling)
 
 ![5](/docs/images/5.png)
+
+### Trophies menu
+
+![5](/docs/images/6.png)
 
 ## Gameplay
 
