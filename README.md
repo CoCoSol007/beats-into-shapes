@@ -70,9 +70,9 @@
 | Platform | Link |
 |----------|------|
 | Play Online | [![Play Online](https://img.shields.io/badge/Play%20Online-0078D4?style=for-the-badge&logo=web&logoColor=white)](https://example.com/play-online) |
-| Windows | [![Windows](https://img.shields.io/badge/Download%20for%20Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://example.com/download/windows) |
-| Linux | [![Linux](https://img.shields.io/badge/Download%20for%20Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white)](https://example.com/download/linux) |
-| Mac (Beta) | [![Mac](https://img.shields.io/badge/Download%20for%20Mac%20(Beta)-999999?style=for-the-badge&logo=apple&logoColor=white)](https://example.com/download/mac-beta) |
+| Windows | [![Windows](https://img.shields.io/badge/Download%20for%20Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/CoCoSol007/beats-into-shapes/releases/download/release/beats-into-shapes-windows.exe) |
+| Linux | [![Linux](https://img.shields.io/badge/Download%20for%20Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white)](https://github.com/CoCoSol007/beats-into-shapes/releases/download/release/beats-into-shapes-Linux.zip) |
+| Mac (Beta) | [![Mac](https://img.shields.io/badge/Download%20for%20Mac%20(Beta)-999999?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/CoCoSol007/beats-into-shapes/releases/download/release/beats-into-shapes-MacOS.zip) |
 
 
 ## Images
