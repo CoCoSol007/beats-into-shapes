@@ -21,7 +21,7 @@
 
   <p align="center">
     <br />
-    <b>Beats into Shape</b> is our submission to <a href="https://fsfe.org/activities/yh4f/">Youth Hacking 4 Freedom</a>. 
+    <b>Beats into Shape</b>  is a winning project from <a href="https://fsfe.org/activities/yh4f/">Youth Hacking 4 Freedom 2024</a>. 
     <br/> 
     We decided to craft a unique rhythm game where you forge items from the very beginning of the process.
 
