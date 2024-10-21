@@ -35,4 +35,3 @@ var remaining_time:
 		if value < 0.0: value = max(0.0, bonus_line_length + value)
 		if value == 0.0: $Label.text = ""
 		else: $Label.text = "%.1f" % value
-

@@ -39,4 +39,3 @@ func _input(event: InputEvent):
 		elif event.button_index == 5:
 			target_position_y = target_position_y - scroll_speed
 			target_position_y = clamp(target_position_y, -648, 0)
-
