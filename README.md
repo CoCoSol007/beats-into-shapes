@@ -21,7 +21,7 @@
 
   <p align="center">
     <br />
-    <b>Beats into Shape</b> is our submission to <a href="https://fsfe.org/activities/yh4f/">Youth Hacking 4 Freedom</a>. 
+    <b>Beats into Shape</b>  is a winning project from <a href="https://fsfe.org/activities/yh4f/">Youth Hacking 4 Freedom 2024</a>. 
     <br/> 
     We decided to craft a unique rhythm game where you forge items from the very beginning of the process.
 
@@ -71,9 +71,9 @@
 | Platform | Link |
 |----------|------|
 | Play Online | [![Play Online](https://img.shields.io/badge/Play%20Online-0078D4?style=for-the-badge&logo=web&logoColor=white)](https://edmondada.itch.io/beats-into-shapes) |
-| Windows | [![Windows](https://img.shields.io/badge/Download%20for%20Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/CoCoSol007/beats-into-shapes/releases/download/release/beats-into-shapes-windows.exe) |
-| Linux | [![Linux](https://img.shields.io/badge/Download%20for%20Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white)](https://github.com/CoCoSol007/beats-into-shapes/releases/download/release/beats-into-shapes-Linux.zip) |
-| Mac (Beta) | [![Mac](https://img.shields.io/badge/Download%20for%20Mac%20(Beta)-999999?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/CoCoSol007/beats-into-shapes/releases/download/release/beats-into-shapes-MacOS.zip) |
+| Windows | [![Windows](https://img.shields.io/badge/Download%20for%20Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/CoCoSol007/beats-into-shapes/releases/download/release-v1.0.1/beats-into-shapes-Windows.exe) |
+| Linux | [![Linux](https://img.shields.io/badge/Download%20for%20Linux-FCC624?style=for-the-badge&logo=linux&logoColor=white)](https://github.com/CoCoSol007/beats-into-shapes/releases/download/release-v1.0.1/beats-into-shapes-Linux.zip) |
+| Mac (Beta) | [![Mac](https://img.shields.io/badge/Download%20for%20Mac%20(Beta)-999999?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/CoCoSol007/beats-into-shapes/releases/download/release-v1.0.1/beats-into-shapes-MacOS.zip) |
 
 
 ## Images
