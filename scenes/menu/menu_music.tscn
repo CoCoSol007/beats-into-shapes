@@ -6,4 +6,5 @@
 [node name="MenuMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_s6snr")
 autoplay = true
+parameters/looping = true
 script = ExtResource("2_25jrs")
