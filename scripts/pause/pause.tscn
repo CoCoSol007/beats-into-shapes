@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwul1oterdmc"]
+[gd_scene load_steps=15 format=3 uid="uid://dwul1oterdmc"]
 
 [ext_resource type="Script" path="res://scripts/pause/pause.gd" id="1_f4psy"]
 [ext_resource type="Shader" path="res://scripts/pause/background.gdshader" id="1_m64na"]
@@ -20,6 +20,254 @@ shader_parameter/hover_color = Vector4(0.7, 0.7, 0.7, 1)
 shader_parameter/press_color = Vector4(1, 1, 1, 1)
 shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
+
+[sub_resource type="Animation" id="Animation_ln6sw"]
+resource_name = "Spawn"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pause:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-150, 553), Vector2(-150, -324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-188, 739.363), Vector2(-188, -100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraEffects:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-160, 1024.96), Vector2(-160, 135)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Volume:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-152.003, 931.363), Vector2(-153, 44)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Animation/Timer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ney77"]
+resource_name = "Despawn"
+length = 3.3
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pause:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-150, -324), Vector2(-150, -1245)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Volume:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-153, 44), Vector2(-153, -987)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-188, -100), Vector2(-153, -939)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CameraEffects:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-160, 135), Vector2(-160, -946)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Animation/Timer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 3.29),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Animation/Timer:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["3", "2", "1"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.30303),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ixdxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-188, 773)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraEffects:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-160, 873)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Volume:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-152, 931)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pause:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-150, 553)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Animation/Timer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Animation/Timer:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["3"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqxlq"]
+_data = {
+"Despawn": SubResource("Animation_ney77"),
+"RESET": SubResource("Animation_ixdxr"),
+"Spawn": SubResource("Animation_ln6sw")
+}
 
 [node name="PauseMenu" type="Node2D"]
 z_index = 2000
@@ -48,9 +296,9 @@ anchors_preset = -1
 anchor_top = 0.003
 anchor_bottom = 0.003
 offset_left = -150.0
-offset_top = -325.944
+offset_top = 551.056
 offset_right = 150.0
-offset_bottom = 322.056
+offset_bottom = 1199.06
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -71,10 +319,10 @@ text = "Quit"
 visible = false
 z_index = 4001
 material = SubResource("ShaderMaterial_chbh0")
-offset_left = -153.0
-offset_top = 44.0
-offset_right = -85.0
-offset_bottom = 112.0
+offset_left = -152.0
+offset_top = 931.0
+offset_right = -84.0
+offset_bottom = 999.0
 focus_neighbor_top = NodePath("../Trophy")
 focus_neighbor_right = NodePath("HSlider")
 focus_next = NodePath("HSlider")
@@ -107,9 +355,9 @@ z_index = 4001
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = -188.0
-offset_top = -100.0
+offset_top = 773.0
 offset_right = 190.0
-offset_bottom = -31.0
+offset_bottom = 842.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_1rt4g")
 theme_override_font_sizes/font_size = 50
@@ -122,15 +370,31 @@ vertical_alignment = 1
 visible = false
 z_index = 4001
 offset_left = -160.0
-offset_top = 135.0
+offset_top = 873.0
 offset_right = 36.0
-offset_bottom = 169.0
+offset_bottom = 907.0
 scale = Vector2(1.69291, 1.69291)
 focus_mode = 0
 theme_override_fonts/font = ExtResource("3_1rt4g")
 theme_override_font_sizes/font_size = 25
 button_pressed = true
 text = "Camera effects "
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hqxlq")
+}
+
+[node name="Timer" type="Label" parent="Animation"]
+visible = false
+offset_left = -27.0
+offset_top = -48.0
+offset_right = 30.0
+offset_bottom = 53.0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_1rt4g")
+theme_override_font_sizes/font_size = 100
+text = "3"
 
 [connection signal="pressed" from="Pause/Resume" to="." method="pause"]
 [connection signal="pressed" from="Pause/Quit" to="." method="_on_quit_pressed"]

@@ -15,19 +15,23 @@ func _process(_delta):
 func pause():
 	paused = !paused
 	if paused:
-		for child in get_children(): child.show()
-		Engine.time_scale = 0
+		for child in get_children(): 
+			if child.name != "Animation":
+				child.show()
+		$Animation.play("Spawn")
 	else:
-		for child in get_children(): child.hide()
-		Engine.time_scale = 1
+		$Animation.play("Despawn")
+		await $Animation.animation_finished
+		for child in get_children(): 
+			if child.name != "Animation":
+				child.hide()
 	for child in pause_affected_script.get_children():
 		if child.paused != null: 
 			child.paused = paused
  
 func _on_quit_pressed():
 	SceneTransition.change_scene("res://scenes/menu/menu.tscn")
-	Engine.time_scale = 1
-
 
 func _on_check_box_toggled(toggled_on):
 	camera_effects = toggled_on
+	
