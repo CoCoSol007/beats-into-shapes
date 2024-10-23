@@ -34,9 +34,9 @@ var scrolled_last_down := false # Track the last scroll direction down
 func _input(event: InputEvent):
 	# Handle keyboard input for right and left arrow keys
 	if event is InputEventKey:
-		if event.is_action_pressed("action_right"):
+		if Input.is_key_pressed(KEY_RIGHT):
 			_on_arrow_right_pressed()
-		if event.is_action_pressed("action_left"):
+		if Input.is_key_pressed(KEY_LEFT):
 			_on_arrow_left_pressed()
 	# Handle mouse button input for scrolling
 	if event is InputEventMouseButton:
