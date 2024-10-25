@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cnqt0hkp3yl0s"]
+[gd_scene load_steps=37 format=3 uid="uid://cnqt0hkp3yl0s"]
 
 [ext_resource type="Script" path="res://scenes/menu/scrollable_menu.gd" id="1_odp0j"]
 [ext_resource type="Texture2D" uid="uid://d2lw6v37lb1w7" path="res://assets/menu/level_1.png" id="1_yh2c5"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://d6yo31843xsh" path="res://assets/trophy/default_trophy.svg" id="23_axu7l"]
 [ext_resource type="FontFile" uid="uid://b1adut1bw37gc" path="res://assets/fonts/main_font.otf" id="24_h182e"]
 [ext_resource type="Texture2D" uid="uid://cg8wtjr0ohtgg" path="res://assets/menu/credit.svg" id="25_7yqy7"]
+[ext_resource type="Texture2D" uid="uid://fp4vts2727pt" path="res://assets/menu/close.svg" id="25_kpf3o"]
+[ext_resource type="Script" path="res://scenes/menu/close_button.gd" id="27_o3hpy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfd4c"]
 
@@ -52,6 +54,14 @@ shader_parameter/hover_intensity = 0.0
 shader_parameter/press_intensity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ffa7"]
+shader = ExtResource("23_8bvqj")
+shader_parameter/color = Vector4(0, 0, 0, 1)
+shader_parameter/hover_color = Vector4(0.7, 0.7, 0.7, 1)
+shader_parameter/press_color = Vector4(1, 1, 1, 1)
+shader_parameter/hover_intensity = 0.0
+shader_parameter/press_intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7m7bd"]
 shader = ExtResource("23_8bvqj")
 shader_parameter/color = Vector4(0, 0, 0, 1)
 shader_parameter/hover_color = Vector4(0.7, 0.7, 0.7, 1)
@@ -287,6 +297,26 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("8_c5hcm")
 
+[node name="Close" type="TextureButton" parent="HoverButtons"]
+material = SubResource("ShaderMaterial_7m7bd")
+custom_minimum_size = Vector2(68, -68)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = 82.0
+grow_horizontal = 0
+focus_neighbor_left = NodePath("../Volume/HSlider")
+focus_neighbor_top = NodePath("../Trophy")
+focus_next = NodePath("../Trophy")
+focus_previous = NodePath("../Volume/HSlider")
+texture_normal = ExtResource("25_kpf3o")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("27_o3hpy")
+
 [connection signal="mouse_entered" from="HoverButtons/Volume" to="HoverButtons/Volume" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HoverButtons/Volume" to="HoverButtons/Volume" method="_on_mouse_exited"]
 [connection signal="pressed" from="HoverButtons/Volume" to="HoverButtons/Volume" method="_on_pressed"]
@@ -299,3 +329,6 @@ script = ExtResource("8_c5hcm")
 [connection signal="mouse_entered" from="HoverButtons/Credits" to="HoverButtons/Credits" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HoverButtons/Credits" to="HoverButtons/Credits" method="_on_mouse_exited"]
 [connection signal="pressed" from="HoverButtons/Credits" to="HoverButtons/Credits" method="_on_pressed"]
+[connection signal="mouse_entered" from="HoverButtons/Close" to="HoverButtons/Close" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HoverButtons/Close" to="HoverButtons/Close" method="_on_mouse_exited"]
+[connection signal="pressed" from="HoverButtons/Close" to="HoverButtons/Close" method="_on_pressed"]
