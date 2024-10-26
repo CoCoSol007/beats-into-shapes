@@ -39,3 +39,6 @@ func _ready():
 		# Set the score display to indicate the minimum score required
 		$Score.text = ">" + str(min_score) + " to unlock"
 
+func _on_mouse_entered():
+	# Button sound design
+	$AudioStreamPlayer.play()
