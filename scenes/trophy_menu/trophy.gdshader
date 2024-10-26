@@ -41,35 +41,40 @@ void fragment() {
 	
 	// Adjust the position of the pixel according to the scale effect
 	vec2 pos = vec2(UV.x, UV.y) * scale_effect + vec2((1.0 - scale_effect) * 0.5);
-	
 	// Sample the base texture color
 	COLOR = texture(TEXTURE, pos);
 	
-	// Adjust the alpha channel based on the transparency curve and the trophy's position
-	COLOR.a *= texture(
-		transparency_curve, 
-		vec2(smoothstep(
-			0.0, 
-			1.0, 
-			abs(x + pos.x * scale - center_x) / max_dist
-		))
-	).r;
-	
-	// Adjust the color for locked state
-	COLOR.rgb = mix(
-		COLOR.rgb, 
-		vec3(0.0), 
-		is_locked
-	);
-	// Adjust the color for hover state
-	vec3 dist = hover_color - COLOR.rgb;
-	COLOR.rgb += mix(
-		vec3(0.0),
-		vec3(
-			sign(dist.r) * texture(hover_distance_factor, vec2(abs(dist.r))).r,
-			sign(dist.g) * texture(hover_distance_factor, vec2(abs(dist.g))).r,
-			sign(dist.b) * texture(hover_distance_factor, vec2(abs(dist.b))).r
-		),
-		hover_intensity
-	);
+	// Check texture overflow
+	if (pos.y >= 0. && pos.y < 1.) {
+		// Adjust the alpha channel based on the transparency curve and the trophy's position
+		COLOR.a *= texture(
+			transparency_curve, 
+			vec2(smoothstep(
+				0.0, 
+				1.0, 
+				abs(x + pos.x * scale - center_x) / max_dist
+			))
+		).r;
+		
+		// Adjust the color for locked state
+		COLOR.rgb = mix(
+			COLOR.rgb, 
+			vec3(0.0), 
+			is_locked
+		);
+		// Adjust the color for hover state
+		vec3 dist = hover_color - COLOR.rgb;
+		COLOR.rgb += mix(
+			vec3(0.0),
+			vec3(
+				sign(dist.r) * texture(hover_distance_factor, vec2(abs(dist.r))).r,
+				sign(dist.g) * texture(hover_distance_factor, vec2(abs(dist.g))).r,
+				sign(dist.b) * texture(hover_distance_factor, vec2(abs(dist.b))).r
+			),
+			hover_intensity
+		);
+	} else {
+		// Set a transparent pixel if the texture overflows
+		COLOR.a = 0.;
+	}
 }
