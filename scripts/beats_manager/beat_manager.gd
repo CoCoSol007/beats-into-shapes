@@ -31,6 +31,17 @@ var pressed_nodes: Array[BeatEvent] = []
 var handled_nodes: Array[BeatEvent] = []
 var tutorial: bool = false
 
+var ts_right_just_pressed = false
+var ts_left_just_pressed = false
+var ts_right_just_released = false
+var ts_left_just_released = false
+
+var mp_right_just_pressed = false
+var mp_left_just_pressed = false
+var mp_right_just_released = false
+var mp_left_just_released = false
+var screen_middle = ProjectSettings.get("display/window/size/viewport_width")/2
+
 var is_speedup: bool = false
 var paused:
 	get: return $MusicPlayer.stream_paused
@@ -62,6 +73,20 @@ func _ready():
 		for text in get_tree().get_nodes_in_group("tutorial_text"):
 			text.queue_free()
 
+func _input(event):
+	if event is InputEventScreenTouch:
+		if event.position.x > screen_middle:
+			if event.is_pressed(): ts_right_just_pressed = true
+			elif event.is_released(): ts_right_just_released = true
+		else:
+			if event.is_pressed(): ts_left_just_pressed = true
+			elif event.is_released(): ts_left_just_released = true
+	elif not DisplayServer.is_touchscreen_available():
+		if event.is_action_pressed("action_left"): mp_left_just_pressed = true
+		elif event.is_action_pressed("action_right"): mp_right_just_pressed = true
+		elif event.is_action_released("action_left"): mp_left_just_released = true
+		elif event.is_action_released("action_right"): mp_right_just_released = true
+
 func _process(_delta):
 	if Engine.is_editor_hint():
 		var time_seconds_editor = position.x - AudioServer.get_output_latency()
@@ -80,9 +105,17 @@ func _process(_delta):
 			calculation_index -= 1
 	
 	var pressed_keys: Array[Constants.ActionKey] = []
-	if Constants.ActionKey.LEFT in used_keys and Input.is_action_just_pressed("action_left"): pressed_keys.append(Constants.ActionKey.LEFT)
-	if Constants.ActionKey.MAIN in used_keys and Input.is_action_just_pressed("action_main"): pressed_keys.append(Constants.ActionKey.MAIN)
-	if Constants.ActionKey.RIGHT in used_keys and Input.is_action_just_pressed("action_right"): pressed_keys.append(Constants.ActionKey.RIGHT)
+	if (Constants.ActionKey.LEFT in used_keys and mp_left_just_pressed) or ts_left_just_pressed: 
+		pressed_keys.append(Constants.ActionKey.LEFT)
+		print(mp_left_just_pressed)
+		ts_left_just_pressed = false
+		mp_left_just_pressed = false
+	if (Constants.ActionKey.MAIN in used_keys and Input.is_action_just_pressed("action_main")): pressed_keys.append(Constants.ActionKey.MAIN)
+	if (Constants.ActionKey.RIGHT in used_keys and mp_right_just_pressed) or ts_right_just_pressed: 
+		pressed_keys.append(Constants.ActionKey.RIGHT)
+		ts_right_just_pressed = false
+		mp_right_just_pressed = false
+		
 	var unhandled_keys = pressed_keys.duplicate()
 	for i in range(len(unhandled_nodes) - 1, calculation_index - 1, -1):
 		var node: BeatEvent = unhandled_nodes[i]
@@ -110,9 +143,15 @@ func _process(_delta):
 		missed_press.emit(time, unhandled_key)
 	
 	var released_keys: Array[Constants.ActionKey] = []
-	if Input.is_action_just_released("action_left"): released_keys.append(Constants.ActionKey.LEFT)
+	if mp_left_just_released or ts_left_just_released: 
+		released_keys.append(Constants.ActionKey.LEFT)
+		ts_left_just_released = false
+		mp_left_just_released = false
 	if Input.is_action_just_released("action_main"): released_keys.append(Constants.ActionKey.MAIN)
-	if Input.is_action_just_released("action_right"): released_keys.append(Constants.ActionKey.RIGHT)
+	if mp_right_just_released or ts_right_just_released: 
+		released_keys.append(Constants.ActionKey.RIGHT)
+		ts_right_just_released = false
+		mp_right_just_released = false
 	for i in range(len(pressed_nodes) - 1, -1, -1):
 		var node: BeatEvent = pressed_nodes[i]
 		var distance_to_release = (node.press_time + node.hold_length - time) / (stream.bpm / 60.0)
