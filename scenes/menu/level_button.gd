@@ -41,4 +41,5 @@ func _ready():
 
 func _on_mouse_entered():
 	# Button sound design
-	$AudioStreamPlayer.play()
+	if not disabled:
+		$AudioStreamPlayer.play()
