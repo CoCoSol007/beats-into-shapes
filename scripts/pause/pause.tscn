@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwul1oterdmc"]
+[gd_scene load_steps=16 format=3 uid="uid://dwul1oterdmc"]
 
 [ext_resource type="Script" path="res://scripts/pause/pause.gd" id="1_f4psy"]
 [ext_resource type="Shader" path="res://scripts/pause/background.gdshader" id="1_m64na"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/menu/sound_volume/volume_button.gd" id="6_4c855"]
 [ext_resource type="Texture2D" uid="uid://bmvi25hcei1tk" path="res://assets/menu/volume_off.svg" id="7_kp0nh"]
 [ext_resource type="Script" path="res://scenes/menu/sound_volume/volume_change.gd" id="8_n570j"]
+[ext_resource type="AudioStream" uid="uid://7uiotnsinf0b" path="res://musics/sounds/tick.mp3" id="9_ojv3l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pdchp"]
 shader = ExtResource("1_m64na")
@@ -108,6 +109,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Animation/AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.3, 0.99, 2.01),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_ixdxr"]
@@ -249,18 +262,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-152.003, 931.363), Vector2(-153, 44)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Animation/Timer:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hqxlq"]
 _data = {
@@ -396,6 +397,10 @@ size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("3_1rt4g")
 theme_override_font_sizes/font_size = 100
 text = "3"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Animation"]
+stream = ExtResource("9_ojv3l")
+volume_db = 10.0
 
 [connection signal="pressed" from="Pause/Resume" to="." method="pause"]
 [connection signal="pressed" from="Pause/Quit" to="." method="_on_quit_pressed"]
