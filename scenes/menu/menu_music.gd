@@ -18,5 +18,5 @@ func _process(_d):
 			break
 	var target = 1.0 if in_menu else 0.0
 	var volume = db_to_linear(volume_db)
-	volume = lerp(volume, target, 1 - pow(0.1, delta))
+	volume = lerp(volume, target, 0.1)
 	volume_db = linear_to_db(volume)
